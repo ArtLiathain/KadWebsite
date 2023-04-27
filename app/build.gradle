@@ -63,7 +63,7 @@ task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn:
             limit {
                 // minimum coverage that we would like to have
                 // ideally the value is 1 which is 100% coverage
-                minimum = 0.3
+                minimum = 1
             }
         }
 

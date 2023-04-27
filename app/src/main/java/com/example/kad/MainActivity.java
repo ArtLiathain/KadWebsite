@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,16 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         KadDbRef = FirebaseDatabase.getInstance().getReference().child("bookings");
 
-        send_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                insertBookingData();
-                logic1 new_log = new logic1();
-
-
-                number_vw.setText(Integer.toString(new_log.sum(2,3)));
-            }
-        });
+        send_btn.setOnClickListener(view -> insertBookingData());
 
         // Write a message to the database
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();

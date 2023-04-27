@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "690565907406",
+    "project_id": "kad-testing",
+    "storage_bucket": "kad-testing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690565907406:android:b286c0a204b5cf8469a19f",
+        "android_client_info": {
+          "package_name": "com.example.kad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690565907406-v535mdcsa2ts9f2oatrtecr2g7msoqf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqJWTMXGyhSzx6JR9ky7gEosYqCd5yDk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690565907406-v535mdcsa2ts9f2oatrtecr2g7msoqf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

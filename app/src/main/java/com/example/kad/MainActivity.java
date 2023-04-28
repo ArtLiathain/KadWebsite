@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 //import org.junit.runner.JUnitCore;
 //import org.junit.runner.Result;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     EditText email, student_num, name;
     Button submit_btn;
     TextView txt1;
+    CheckBox terms_box;
     DatabaseReference KadDbRef;
 
     @Override
@@ -36,9 +38,12 @@ public class MainActivity extends AppCompatActivity {
         student_num = findViewById(R.id.student_num);
         submit_btn = findViewById(R.id.send_btn);
         txt1 = findViewById(R.id.txt1);
+        terms_box = findViewById(R.id.term_box);
+
         name.setError( "Name is required!" );
         email.setError( "Email is required!" );
         student_num.setError( "Student Number is required!" );
+
         logic1 karl = new logic1();
 //        Result result = JUnitCore.runClasses(MainActivityTest.class);
 

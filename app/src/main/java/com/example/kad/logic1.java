@@ -85,7 +85,7 @@ public class logic1 {
     ///////////////////////////////////////////////////////////
 
 
-    public boolean check_box(){
-
-    }
+//    public boolean check_box(){
+//
+//    }
 }

@@ -85,10 +85,15 @@ android {
     }
     testOptions {
         unitTests {
-            includeAndroidResources = true
+            includeAndroidResources = false
             unitTests.returnDefaultValues = true
         }
+//        androidTests {
+//            enabled false
+//        }
     }
+
+
 }
 
 

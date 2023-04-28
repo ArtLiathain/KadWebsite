@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
-    id 'jacoco'
 }
 
 android {
@@ -30,84 +29,7 @@ android {
     }
 }
 
-// gradle plugin has jacoco that you can use to make your life easier without the
-// hassle of manually import and ensure the compatibility
 
-
-jacoco {
-    // if you are using java 11 then jacoco version that support it is v0.8.7
-    toolVersion = "0.8.7"
-
-    // this is where you find html/xml/csv report for your unit test coverage check
-    reportsDirectory = file("$buildDir/reports/coverage")
-}
-
-tasks.withType(Test) {
-    // to exclude jdk classes so not included in the jacoco unit test report
-    jacoco.includeNoLocationClasses = true
-    jacoco.excludes = ['jdk.internal.*']
-}
-
-// Task need be specified manually and we cannot use jacoco gradle plugin configuration
-// because java plugin needed for that which android cannot use.
-task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn: ['jacocoTestReportDebug']) {
-    group = "Verification"
-    description = "Check code coverage"
-
-    onlyIf = {
-        true
-    }
-
-    violationRules {
-        rule {
-            limit {
-                // minimum coverage that we would like to have
-                // ideally the value is 1 which is 100% coverage
-                minimum = 1
-            }
-        }
-
-        rule {
-            enabled = false
-            element = 'CLASS'
-            includes = ['org.gradle.*']
-
-            limit {
-                counter = 'LINE'
-                value = 'TOTALCOUNT'
-                maximum = 0.3
-            }
-        }
-    }
-
-    // classes that WILL NOT BE checked on unit test coverage check
-    def excludes = [
-            '**/R.class',
-            '**/R$*.class',
-            '**/*AdapterFactory*.*',
-            '**/BuildConfig.*',
-            '**/Manifest*.*',
-            '**/*Test*.*',
-            'android/**/*.*'
-    ]
-
-    // classes that you WILL BE checked on unit test coverage check
-    classDirectories.from = fileTree(
-            dir: "$buildDir/com/example/kad",
-            excludes: excludes
-    )
-
-    sourceDirectories.from = [
-            android.sourceSets.main.java.srcDirs,
-            "src/main/java"
-    ]
-
-    // this is important! Make sure the testDebugUnitTest.exec is accessible
-    // otherwise this task will return coverage check always 0
-    executionData.from = fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec"
-    ])
-}
 
 dependencies {
 

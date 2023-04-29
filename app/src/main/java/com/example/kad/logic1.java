@@ -62,14 +62,14 @@ public class logic1 {
 //                             Student Number
     ///////////////////////////////////////////////////////////
 
-    public static boolean student_num_len(int number){
+    public  boolean student_num_len(int number){
         int length = (int) (Math.log10(number) + 1);
         if (length !=8){
             return false;
         }
         return true;
     }
-    public static boolean student_num_year(int number){
+    public  boolean student_num_year(int number){
         if (number >= 22000000){
             return true;
         }

@@ -1,22 +1,21 @@
 package com.example.kad;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-//import org.junit.runner.JUnitCore;
-//import org.junit.runner.Result;
-//import org.junit.runner.notification.Failure;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,13 +24,12 @@ public class MainActivity extends AppCompatActivity {
     Button submit_btn;
     TextView txt1;
     CheckBox terms_box;
-    DatabaseReference KadDbRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         email = findViewById(R.id.email);
         name = findViewById(R.id.name);
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         email.setError( "Email is required!" );
         student_num.setError( "Student Number is required!" );
 
-        logic1 karl = new logic1();
+        logic1 logic1 = new logic1();
 //        Result result = JUnitCore.runClasses(MainActivityTest.class);
 
 
@@ -55,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Enter your fucking data", Toast.LENGTH_SHORT).show();
                     txt1.setText("You must fill in every field");
                 }
+                else{
+                    Toast.makeText(MainActivity.this,"every field has data", Toast.LENGTH_SHORT).show();
+                }
+                if (logic1.student_num_year(Integer.parseInt(student_num.getText().toString())) == false | logic1.student_num_len(Integer.parseInt(student_num.getText().toString())) == false | logic1.email_format(email.getText().toString()) == true | logic1.name_length(name.getText().toString()) == false | logic1.string_alphabet(name.getText().toString()) ==false | logic1.blacklist(name.getText().toString()) ==false )  {
+                    Toast.makeText(MainActivity.this, "Some of the data which you have entered is incorrect ", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"data is entered and is valid  ", Toast.LENGTH_SHORT).show();
+                }
+
 //                if (karl.student_num_len(Integer.parseInt(student_num.toString()))== true & karl.student_num_year(Integer.parseInt(student_num.toString())) == true){
 //                    System.out.println("very good");
 //                }
@@ -62,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
 //                    System.out.println("Error");
 //                }
 
-                Toast.makeText(MainActivity.this,"Data entered", Toast.LENGTH_SHORT).show();
+
+
+
+
             }
             });
 

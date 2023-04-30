@@ -21,19 +21,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="70dp"
-        android:text="@string/conference_room_formal_1_main_table_1_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="110dp"
-        android:text="Enter number of Attendees (1-10)"
-        android:textSize="16sp"
+        android:layout_marginTop="75dp"
+        android:text="Conference Room - (10 Occupants Max) Formal, 1 Main Table and TV"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +41,7 @@
         android:layout_width="327dp"
         android:layout_height="430dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,17 +53,6 @@
         android:layout_marginTop="600dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="56dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

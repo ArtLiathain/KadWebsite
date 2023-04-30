@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Room1 extends AppCompatActivity { //--------------------------------------------------
     Button RoomSelection;
-    Spinner attendeesNumber, hoursAvailable;
+    Spinner hoursAvailable;
 
     DatePicker datePicker;
 
@@ -28,7 +28,6 @@ public class Room1 extends AppCompatActivity { //-------------------------------
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_1);
-
 
 // ---------------------------------Back Button---------------------------------
 
@@ -43,13 +42,26 @@ public class Room1 extends AppCompatActivity { //-------------------------------
         });
 
 
+// ---------------------------------Date Picker---------------------------------
+
+        datePicker = findViewById(R.id.datePicker1);
+        datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Toast.makeText(Room1.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 // ---------------------------------Hours Available---------------------------------
 
         hoursAvailable = findViewById(R.id.hours_spinner);
         // Retrieve a list of available times from a data source
-        List<Integer> listHoursAvailable = functionListHoursAvailable();
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
+        List<Integer> listHoursAvailable = functionListHoursAvailable();;
+        //functionListHoursAvailable();
+        //roomSelectionLogic.functionListHoursAvailable();
 
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursAvailable.setAdapter(ad);
@@ -67,20 +79,9 @@ public class Room1 extends AppCompatActivity { //-------------------------------
         });
 
 
-// ---------------------------------Date Picker---------------------------------
-
-        datePicker = findViewById(R.id.datePicker1);
-        datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(Room1.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
     } //---------------------------------End of On Create---------------------------------
     private List<Integer> functionListHoursAvailable() {
-        return Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        return Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         // "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM"
     }
 

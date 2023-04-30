@@ -1,62 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
-    id 'jacoco'
+    id "com.hiya.jacoco-android"
 }
 
-jacoco {
-    toolVersion = "0.8.8"
-    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+jacocoAndroidUnitTestReport {
+    csv.enabled true
+    html.enabled true
+    xml.enabled false
 }
 
-task jacocoTestReport(type: JacocoReport,
-        dependsOn: ['testDebugUnitTest',
-                    'createDebugCoverageReport']) {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
 
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-
-    def fileFilter = ['androidx/**/*.*',
-                      '**/view/*.*',
-                      '**/data/*.*',
-                      '**/data/model/*.*',
-                      '**/generated/callback/*.*',
-                      '**/lambda$*.class',
-                      '**/lambda.class',
-                      '**/*lambda.class',
-                      '**/*lambda*.class']
-
-    def debugTree = fileTree(dir:
-            "${buildDir}/intermediates/javac/debug/classes",
-            excludes: fileFilter
-    )
-
-    def mainSrc = "/src/main/java"
-
-    sourceSets {
-        main {
-            java {
-                srcDirs = [mainSrc]
-            }
-        }
-    }
-
-    classDirectories.from = files([debugTree])
-    executionData.from = fileTree(dir: "${buildDir}/jacoco", includes:[
-            "testDebugUnitTest.exec"
-    ])
-
-    doLast{
-        println sourceDirectories.asPath;
-    }
-}
 
 android {
     namespace 'com.example.kad'
+    buildToolsVersion '33.0.1'
     compileSdk 33
 
     defaultConfig {
@@ -74,9 +32,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            testCoverageEnabled = true
-        }
 
     }
     compileOptions {
@@ -84,13 +39,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     testOptions {
-        unitTests {
-            includeAndroidResources = false
-            unitTests.returnDefaultValues = true
-        }
-//        androidTests {
-//            enabled false
-//        }
+        unitTests.returnDefaultValues = true
     }
 
 

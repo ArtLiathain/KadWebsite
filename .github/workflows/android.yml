@@ -26,9 +26,16 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
-        
-      - name : Run Tests
-        run : ./gradlew test
 
-      - name : Run Test Coverage
-        run : ./gradlew jacocoTestReport
+          # Execute unit tests
+      - name : Unit Test
+        run : ./gradlew testDebugUnitTest
+
+      - name : Coverage
+        run : ./gradlew jacocoTestDebugUnitTestReport
+
+      - name : Generate JaCoCo Badge
+        uses : cicirello/jacoco-badge-generator@v2
+        with :
+          generate-branches-badge : true
+          jacoco-csv-file : app/build/jacoco/jacoco.csv

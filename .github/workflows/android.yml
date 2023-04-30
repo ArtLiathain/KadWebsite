@@ -31,6 +31,11 @@ jobs:
       - name : Unit Test
         run : ./gradlew testDebugUnitTest
 
-      - name : Android Test Report
-        uses : asadmansr/android-test-report-action@v1.2.0
-        if : ${{ always() }}
+      - name : Coverage
+        run : ./gradlew jacocoTestDebugUnitTestReport
+
+      - name : Generate JaCoCo Badge
+        uses : cicirello/jacoco-badge-generator@v2
+        with :
+          generate-branches-badge : true
+          jacoco-csv-file : build/jacoco/jacoco.csv

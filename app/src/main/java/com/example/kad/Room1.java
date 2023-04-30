@@ -1,5 +1,6 @@
 package com.example.kad;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,22 +13,24 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Arrays;
 import java.util.List;
 
-public class Room1 extends AppCompatActivity {
+public class Room1 extends AppCompatActivity { //--------------------------------------------------
     Button RoomSelection;
-    Spinner attendeesNumber;
+    Spinner attendeesNumber, hoursAvailable;
 
     DatePicker datePicker;
 
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_1);
 
+
+// ---------------------------------Back Button---------------------------------
 
         RoomSelection = findViewById(R.id.backRoom1);
         RoomSelection.setOnClickListener(new View.OnClickListener() {
@@ -39,25 +42,23 @@ public class Room1 extends AppCompatActivity {
             }
         });
 
-// ---------------------------------Number of Attendees---------------------------------
 
-        attendeesNumber = findViewById(R.id.attendees_spinner);
+// ---------------------------------Hours Available---------------------------------
+
+        hoursAvailable = findViewById(R.id.hours_spinner);
         // Retrieve a list of available times from a data source
-        List<Integer> numberOfAttendees = numberOfAttendees();
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, numberOfAttendees);
+        List<Integer> listHoursAvailable = functionListHoursAvailable();
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
 
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Toast.makeText(Room1.this, "The Calendar Works", Toast.LENGTH_SHORT).show();
-        attendeesNumber.setAdapter(ad);
-
+        hoursAvailable.setAdapter(ad);
 // ------------------------------------------------------------------------
-
-        attendeesNumber.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), "The Selected number of Attendees -> " + selectedItem, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "The Selected Hours -> " + selectedItem, Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -77,10 +78,9 @@ public class Room1 extends AppCompatActivity {
         });
 
 
-    }
-
-    private List<Integer> numberOfAttendees() {
-        return Arrays.asList(1, 2, 3, 4, 5);
+    } //---------------------------------End of On Create---------------------------------
+    private List<Integer> functionListHoursAvailable() {
+        return Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         // "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM"
     }
 

@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
-//    id 'jacoco'
     id "com.hiya.jacoco-android"
 }
 
@@ -33,9 +32,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-//        debug {
-//            testCoverageEnabled = true
-//        }
 
     }
     compileOptions {
@@ -43,65 +39,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     testOptions {
-//        unitTests.all {
-//            jacoco {
-//                includeNoLocationClasses = true
-//            }
-//        }
         unitTests.returnDefaultValues = true
     }
 
 
 }
-
-
-//task jacocoTestReport(type: JacocoReport,
-//        dependsOn: ['testDebugUnitTest',
-//                    'createDebugCoverageReport']) {
-//    group = "Reporting"
-//    description = "Generate Jacoco coverage reports after running tests."
-//
-//    reports {
-//        xml.enabled = true
-//        html.enabled = true
-//    }
-//
-//    def fileFilter = ['androidx/**/*.*',
-//                      '**/view/*.*',
-//                      '**/data/*.*',
-//                      '**/data/model/*.*',
-//                      '**/generated/callback/*.*',
-//                      '**/lambda$*.class',
-//                      '**/lambda.class',
-//                      '**/*lambda.class',
-//                      '**/*lambda*.class']
-//
-//    def debugTree = fileTree(dir:
-//            "${buildDir}/intermediates/javac/debug/classes",
-//            excludes: fileFilter
-//    )
-//
-//    def mainSrc = "/src/main/java"
-//
-//    sourceDirectories.setFrom(files([mainSrc]))
-//    classDirectories.setFrom(files([debugTree]))
-//    executionData.setFrom(fileTree(dir: "${buildDir}/jacoco", includes:[
-//            "testDebugUnitTest.exec"
-//    ]))
-//}
-//
-//
-//tasks.withType(Test){
-//    jacoco {
-//        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
-//        includes= ["com.arc_e_tect.*"]
-//        classDumpDir = file("$buildDir/jacoco/classpathdumps")
-//    }
-//    jacoco.includeNoLocationClasses = true
-//    finalizedBy jacocoTestReport
-//    // create a report every time we test our application.
-//}
-
 
 
 

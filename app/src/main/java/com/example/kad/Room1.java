@@ -1,10 +1,12 @@
 package com.example.kad;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Room1 extends AppCompatActivity {
+    Button RoomSelection;
     Spinner attendeesNumber;
 
     DatePicker datePicker;
@@ -24,6 +27,17 @@ public class Room1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_1);
+
+
+        RoomSelection = findViewById(R.id.backRoom1);
+        RoomSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Room1.this, RoomSelection.class);
+                startActivity(intent);
+                Toast.makeText(Room1.this, "The Back R1 Button Works", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 // ---------------------------------Number of Attendees---------------------------------
 
@@ -50,7 +64,7 @@ public class Room1 extends AppCompatActivity {
                 // Do nothing
             }
         });
-        
+
 
 // ---------------------------------Date Picker---------------------------------
 

@@ -1,44 +1,72 @@
-name: Android CI
+name : Android CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on :
+  push :
+    branches : [ "main" ]
+  pull_request :
+    branches : [ "main" ]
 
-jobs:
-  build:
+jobs :
+  Build :
 
-    runs-on: ubuntu-latest
+    runs-on : ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-          cache: gradle
+    steps :
+      - uses : actions/checkout@v3
+      - name : set up JDK 11
+        uses : actions/setup-java@v3
+        with :
+          java-version : '11'
+          distribution : 'temurin'
+          cache : gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name : Grant execute permission for gradlew
+        run : chmod +x gradlew
+
+      - name : Build with Gradle
+        run : ./gradlew build
 
 
-      - name: Build with Gradle
-        run: ./gradlew build
+  Lint :
+    needs : [ Build ]
+    runs-on : ubuntu-latest
+    steps :
+      - name : Run Lint
+        uses : ./gradlew lintDebug
 
-          # Execute unit tests
+      - name : Upload HTML test report
+        uses : actions/upload-artifact@v2
+        with :
+          name : index.html
+          path : app/build/reports/lint-results-debug.html
+
+
+  Unit-Testing :
+    needs : [ Lint ]
+    runs-on : ubuntu-latest
+    steps :
+      # Execute unit tests
       - name : Unit Test
         run : ./gradlew testDebugUnitTest
 
+
+  Coverage-Testing :
+    needs : [ Unit-Testing ]
+    runs-on : ubuntu-latest
+    steps :
       - name : Coverage
         run : ./gradlew jacocoTestDebugUnitTestReport
 
+
+  Badge-Generation :
+    needs : [ Coverage-Testing ]
+    runs-on : ubuntu-latest
+    steps :
       - name : Generate JaCoCo Badge
         uses : cicirello/jacoco-badge-generator@v2
         with :
           generate-branches-badge : true
-          badges-directory: .github/badges
+          badges-directory : .github/badges
           jacoco-csv-file : app/build/jacoco/jacoco.csv
 
       - name : Log coverage percentage

@@ -19,7 +19,6 @@ import java.util.List;
 public class Room1 extends AppCompatActivity { //--------------------------------------------------
     Button RoomSelection;
     Spinner hoursAvailable;
-
     DatePicker datePicker;
 
     @SuppressLint("MissingInflatedId")
@@ -57,7 +56,7 @@ public class Room1 extends AppCompatActivity { //-------------------------------
 
         hoursAvailable = findViewById(R.id.hours_spinner);
         // Retrieve a list of available times from a data source
-        List<Integer> listHoursAvailable = functionListHoursAvailable();;
+        List<String> listHoursAvailable = functionListHoursAvailable();
         //functionListHoursAvailable();
         //roomSelectionLogic.functionListHoursAvailable();
 
@@ -80,9 +79,10 @@ public class Room1 extends AppCompatActivity { //-------------------------------
 
 
     } //---------------------------------End of On Create---------------------------------
-    private List<Integer> functionListHoursAvailable() {
-        return Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    private List<String> functionListHoursAvailable() {
+        return Arrays.asList("Not Selected", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM");
         // "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM"
+        // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     }
 
 }

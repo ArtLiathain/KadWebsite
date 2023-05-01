@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText email, student_num, name;
-    Button submit_btn;
+    Button submit_btn, skipToRoomSelectionBtn;
     TextView txt1;
     CheckBox terms_box;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         student_num = findViewById(R.id.student_num);
         submit_btn = findViewById(R.id.send_btn);
+        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
         txt1 = findViewById(R.id.txt1);
         terms_box = findViewById(R.id.term_box);
 
@@ -83,6 +85,17 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(i);
 
 
+        skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "The Skip to Selection Button Works", Toast.LENGTH_SHORT).show();
+                
+            }
+        });
+
+
 
     }
     private void insertBookingData(){
@@ -94,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 //        Toast.makeText(MainActivity.this,"Data entered", Toast.LENGTH_SHORT).show();
 
     }
-
 
 
 

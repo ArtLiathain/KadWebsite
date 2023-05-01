@@ -23,7 +23,7 @@ jobs :
           cache : gradle
         
       - name : Run Lint
-        uses : ./gradlew lintDebug
+        run : ./gradlew lintDebug
 
       - name : Upload HTML test report
         uses : actions/upload-artifact@v2

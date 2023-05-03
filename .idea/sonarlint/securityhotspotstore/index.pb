@@ -10,3 +10,9 @@
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 g
 7app/src/test/java/com/example/kad/MainActivityTest.java,1\1\1191834f80eb8f5f965d5c08436c81dd6ead9d39
+u
+Eapp/src/androidTest/java/com/example/kad/ExampleInstrumentedTest.java,8\6\86276739baf8aea234d6b2de4593ad52c252879c
+c
+3app/src/test/java/com/example/kad/DateTimeTest.java,d\7\d791d2dc2773b28b3dd9cb98b7ff20a652f638ee
+]
+-app/src/main/java/com/example/kad/logic1.java,f\e\fe5a3d936d8f2057608890ef6b56f62132c06ba3

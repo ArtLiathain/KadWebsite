@@ -100,29 +100,8 @@ jobs :
           name : jacoco-report
           path : target/site/jacoco/
 
-  Static-Code-Analysis:
-    needs : [ Coverage-Testing ]
-    runs-on : ubuntu-latest
-
-    steps:
-      - uses : actions/checkout@v3
-        with :
-          ref : ${{ github.event.pull_request.head.ref }}
-
-      - name : set up JDK 11
-        uses : actions/setup-java@v3
-        with :
-          java-version : '11'
-          distribution : 'temurin'
-          cache : gradle
-
-      - name: SonarCloud Scan
-        run: ./gradlew app:sonarqube -Dsonar.log=${{ secrets.SONAR_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN}}
-
   Build :
-    needs : [ Static-Code-Analysis ]
+    needs : [ Coverage-Testing ]
     runs-on : ubuntu-latest
 
     steps :

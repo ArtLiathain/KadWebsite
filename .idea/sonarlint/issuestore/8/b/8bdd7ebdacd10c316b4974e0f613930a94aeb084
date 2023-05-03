@@ -1,0 +1,42 @@
+
+E
+java:S16041"(Make this anonymous inner class a lambda(£¢ÑÁ8áŒ¤Ÿý0
+r	java:S116"VRename this field "student_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê›ì°8‘‘¤Ÿý0
+v	java:S116"URename this field "submit_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‘Ÿñøÿÿÿÿ8‘‘¤Ÿý0
+u	java:S116"TRename this field "terms_box" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êõæ¿ùÿÿÿÿ8’‘¤Ÿý0
+e
+java:S1659"HDeclare "student_num" and all following declarations on a separate line.(Ê›ì°8™‘¤Ÿý0
+]	java:S125."<This block of commented-out lines of code should be removed.(˜€±™üÿÿÿÿ8¥‘¤Ÿý0
+ƒ
+java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿý0
+ƒ
+java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿý0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ýÿÿÿÿ8«‘¤Ÿý0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ýÿÿÿÿ8«‘¤Ÿý0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ýÿÿÿÿ8«‘¤Ÿý0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ýÿÿÿÿ8¬‘¤Ÿý0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ýÿÿÿÿ8¬‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8­‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8®‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8¯‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8¯‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8°‘¤Ÿý0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ýÿÿÿÿ8°‘¤Ÿý0
+]	java:S125C"<This block of commented-out lines of code should be removed.(Øª—ýùÿÿÿÿ8²‘¤Ÿý0
+X	java:S125R"<This block of commented-out lines of code should be removed.(ëÈÄ¶8²‘¤Ÿý0
+U	java:S106]"9Replace this use of System.out or System.err by a logger.(ÊŸç8´‘¤Ÿý0
+]	java:S125Y"<This block of commented-out lines of code should be removed.(Õ†ž˜ÿÿÿÿÿ8´‘¤Ÿý0
+]	java:S125^"<This block of commented-out lines of code should be removed.(ì˜ žýÿÿÿÿ8´‘¤Ÿý0
+S
+java:S1144X"6Remove this unused private "insertBookingData" method.(Îö³©8¶‘¤Ÿý0

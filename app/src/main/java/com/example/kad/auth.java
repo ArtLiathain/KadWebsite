@@ -1,0 +1,4 @@
+package com.example.kad;
+
+public class auth {
+}

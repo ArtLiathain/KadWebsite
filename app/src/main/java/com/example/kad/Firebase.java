@@ -17,8 +17,10 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -90,22 +92,29 @@ public class Firebase {
     }
 
     public void get_dates(){
+        List<Date> dates = new ArrayList<Date>();
         Date searchDate = new Date(1220701200000L);
-        Query query = bookingsRef.whereGreaterThanOrEqualTo("start_time", searchDate);
+        Query query = bookingsRef.whereGreaterThanOrEqualTo("Start DateTime", searchDate).whereLessThan();
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
                 () {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
+                        dates.add(new Date(1220701200000L));
+//                        System.out.println(document.getDate("Start DateTime"));
+                        Log.d(TAG, document.getId() + " => " + document.getDate("Start DateTime"));
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ",
                             task.getException());
                 }
+                System.out.println(dates);
             }
+
         });
+
+        System.out.println("hello");
 
     }
 

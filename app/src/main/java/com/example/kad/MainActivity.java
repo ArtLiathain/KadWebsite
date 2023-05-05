@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         logic1 logic1 = new logic1();
         Firebase firebase = new Firebase();
-//        Result result = JUnitCore.runClasses(MainActivityTest.class);
+
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,14 +96,14 @@ public class MainActivity extends AppCompatActivity {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
                 Date dates_s = new Date(1220701200000L);
                 Date dates_e = new Date(1222701200000L);
+                Date date_s = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
+                Date date_e = new Date(122, 4, 2, 13, 00, 00);
 
-//                firebase.add_booking(1,true,22349111,(dates_s), (dates_e));
+                firebase.add_booking(1,true,22349111,(date_s), (date_e));
             }
         });
 
 
-//            Intent i = new Intent(getApplicationContext(), Login.class);
-//            startActivity(i);
 
 
 

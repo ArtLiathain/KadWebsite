@@ -93,15 +93,16 @@ public class Firebase {
 
     public void get_dates(){
         List<Date> dates = new ArrayList<Date>();
-        Date searchDate = new Date(1220701200000L);
-        Query query = bookingsRef.whereGreaterThanOrEqualTo("Start DateTime", searchDate).whereLessThan();
+        Date startDate = new Date(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
+        Date endDate = new Date(122, 4, 2, 23, 59, 59);
+        Query query = bookingsRef.whereGreaterThanOrEqualTo("Start DateTime", startDate).whereLessThan("Start DateTime", endDate);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
                 () {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        dates.add(new Date(1220701200000L));
+                        dates.add(document.getDate("Start DateTime"));
 //                        System.out.println(document.getDate("Start DateTime"));
                         Log.d(TAG, document.getId() + " => " + document.getDate("Start DateTime"));
                     }
@@ -109,6 +110,7 @@ public class Firebase {
                     Log.d(TAG, "Error getting documents: ",
                             task.getException());
                 }
+                System.out.println("These are all of the dates for the period date period range");
                 System.out.println(dates);
             }
 

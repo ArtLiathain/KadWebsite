@@ -1,5 +1,12 @@
 package com.example.kad;
 
+Authentication
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+main
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -19,7 +26,10 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     EditText email, student_num, name;
+Authentication
     Button submit_btn, check_data, dates;
+    Button submit_btn, skipToRoomSelectionBtn;
+main
     TextView txt1;
     CheckBox terms_box;
 
@@ -34,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
         student_num = findViewById(R.id.student_num);
         dates = findViewById(R.id.dates);
         submit_btn = findViewById(R.id.send_btn);
+Authentication
         check_data = findViewById(R.id.check_data);
+        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
+main
         txt1 = findViewById(R.id.txt1);
         terms_box = findViewById(R.id.term_box);
 
@@ -103,6 +116,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "The Skip to Selection Button Works", Toast.LENGTH_SHORT).show();
+                
+            }
+        });
 
 
 

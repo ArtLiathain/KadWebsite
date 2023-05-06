@@ -1,10 +1,42 @@
 
-k	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘úÎüÿÿÿÿ
-f	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛıáÍ
-p	java:S116"VRename this field "student_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯èÇçşÿÿÿÿ
-m	java:S116"SRename this field "send_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠĞğüşÿÿÿÿ
-h	java:S116"TRename this field "number_vw" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ÆæE
-h	java:S116"SRename this field "KadDbRef" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ§ã
-D
-java:S1659")Declare "student_num" on a separate line.(¯èÇçşÿÿÿÿ
-V	java:S125'"<This block of commented-out lines of code should be removed.(ÁÀÍÉûÿÿÿÿ
+E
+java:S16041"(Make this anonymous inner class a lambda(£¢ÑÁ8áŒ¤Ÿı0
+r	java:S116"VRename this field "student_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê›ì°8‘‘¤Ÿı0
+v	java:S116"URename this field "submit_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‘Ÿñøÿÿÿÿ8‘‘¤Ÿı0
+u	java:S116"TRename this field "terms_box" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êõæ¿ùÿÿÿÿ8’‘¤Ÿı0
+e
+java:S1659"HDeclare "student_num" and all following declarations on a separate line.(Ê›ì°8™‘¤Ÿı0
+]	java:S125."<This block of commented-out lines of code should be removed.(˜€±™üÿÿÿÿ8¥‘¤Ÿı0
+ƒ
+java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
+ƒ
+java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8¬‘¤Ÿı0
+ˆ
+java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8¬‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8­‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8®‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8¯‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8¯‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8°‘¤Ÿı0
+I
+java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8°‘¤Ÿı0
+]	java:S125C"<This block of commented-out lines of code should be removed.(Øª—ıùÿÿÿÿ8²‘¤Ÿı0
+X	java:S125R"<This block of commented-out lines of code should be removed.(ëÈÄ¶8²‘¤Ÿı0
+U	java:S106]"9Replace this use of System.out or System.err by a logger.(ÊŸç8´‘¤Ÿı0
+]	java:S125Y"<This block of commented-out lines of code should be removed.(Õ†˜ÿÿÿÿÿ8´‘¤Ÿı0
+]	java:S125^"<This block of commented-out lines of code should be removed.(ì˜ ıÿÿÿÿ8´‘¤Ÿı0
+S
+java:S1144X"6Remove this unused private "insertBookingData" method.(Îö³©8¶‘¤Ÿı0

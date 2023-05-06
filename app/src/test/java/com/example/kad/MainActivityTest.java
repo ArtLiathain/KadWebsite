@@ -1,4 +1,3 @@
-
 package com.example.kad;
 
 import static org.junit.Assert.assertEquals;
@@ -53,6 +52,7 @@ public class MainActivityTest  {
     public void student_num_year() {
         assertEquals(false, logic1.student_num_year(21349111));
     }
+Authentication
 
 //    @Test
 //    public void testFirebaseConnection() {
@@ -80,3 +80,6 @@ public class MainActivityTest  {
 //        // Add more tests if needed
 //    }
 }
+
+}
+main

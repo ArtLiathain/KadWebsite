@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-Authentication
+
         android:id="@+id/check_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@ Authentication
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/student_num" />
-
+    <Button
         android:id="@+id/skipRoomSelect_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,6 +121,5 @@ Authentication
         android:text="Skip To Room Selection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-main
 
 </androidx.constraintlayout.widget.ConstraintLayout>

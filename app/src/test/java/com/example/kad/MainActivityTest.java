@@ -52,7 +52,6 @@ public class MainActivityTest  {
     public void student_num_year() {
         assertEquals(false, logic1.student_num_year(21349111));
     }
-Authentication
 
 //    @Test
 //    public void testFirebaseConnection() {
@@ -81,5 +80,5 @@ Authentication
 //    }
 }
 
-}
-main
+
+

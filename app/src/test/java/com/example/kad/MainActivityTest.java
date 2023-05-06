@@ -53,31 +53,7 @@ public class MainActivityTest  {
         assertEquals(false, logic1.student_num_year(21349111));
     }
 
-//    @Test
-//    public void testFirebaseConnection() {
-//        FirebaseOptions options = new FirebaseOptions.Builder()
-//                .setApplicationId("1:690565907406:android:b286c0a204b5cf8469a19f")
-//                .setApiKey("AIzaSyDqJWTMXGyhSzx6JR9ky7gEosYqCd5yDk8")
-//                .setDatabaseUrl("https://kad-testing.firebaseio.com")
-//                .build();
-//        FirebaseOptions builder = new FirebaseOptions.Builder().setApplicationId("1:690565907406:android:b286c0a204b5cf8469a19f").setApiKey("AIzaSyDqJWTMXGyhSzx6JR9ky7gEosYqCd5yDk8").setDatabaseUrl("https://kad-testing.firebaseio.com").build();
-//
-//        FirebaseApp.initializeApp(this, options);
-//
-//        // Check if the default Firebase app has been initialized
-//        assertNotNull(FirebaseApp.getInstance());
-//
-////        // Check if the Firebase app has a valid name
-////        assertEquals(FirebaseApp.getInstance().getName(), "[DEFAULT]");
-////
-////        // Check if the Firebase app has a valid options object
-//        assertEquals(FirebaseApp.getInstance().getOptions(), options);
-////
-////        // Check if the Firebase app is connected to the database
-////        assertTrue(FirebaseApp.getInstance().isDefaultApp());
-//
-//        // Add more tests if needed
-//    }
+
 }
 
 

@@ -13,8 +13,8 @@ public class MainActivityTest  {
 //    @Before
 //    public void setUp() throws Exception {
 //        FirebaseOptions options = new FirebaseOptions.Builder()
-//                .setApplicationId("1:690565907406:android:b286c0a204b5cf8469a19f")
-//                .setApiKey("AIzaSyDqJWTMXGyhSzx6JR9ky7gEosYqCd5yDk8")
+//                .setApplicationId()
+//                .setApiKey()
 //                .setDatabaseUrl("https://kad-testing.firebaseio.com")
 //                .build();
 //        FirebaseApp.initializeApp(options);

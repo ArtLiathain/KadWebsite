@@ -4,8 +4,8 @@ import android.util.Log;
 import android.widget.CheckBox;
 
 public class AuthLogic {
-    public boolean nameLength(String email) {
-        if (email.length() <= 70 & email.length() > 0) {
+    public boolean validLength(String name) {
+        if (name.length() <= 70 & name.length() > 0) {
             return true;
         }
         return false;
@@ -13,6 +13,7 @@ public class AuthLogic {
     }
 
     public boolean stringAlphabet(String name) {
+        if (validLength(name) == false){return false;}
         return name.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
     }
 
@@ -33,6 +34,7 @@ public class AuthLogic {
     }
 
     public boolean emailFormat(String email) {
+        if(email.length() > 40){return false;}
         return email.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
     }
 

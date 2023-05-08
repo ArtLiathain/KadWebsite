@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // ensuring all fields are following the logic in logic1.java
-                if (AuthLogic.studentNumYear(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.studentNumLen(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.emailFormat(email.getText().toString()) == true | AuthLogic.nameLength(name.getText().toString()) == false | AuthLogic.stringAlphabet(name.getText().toString()) ==false | AuthLogic.blacklist(name.getText().toString()) ==false )  {
+                if (AuthLogic.studentNumYear(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.studentNumLen(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.emailFormat(email.getText().toString()) == true | AuthLogic.validLength(name.getText().toString()) == false | AuthLogic.stringAlphabet(name.getText().toString()) ==false | AuthLogic.blacklist(name.getText().toString()) ==false )  {
                     Toast.makeText(MainActivity.this, "Some of the data which you have entered is incorrect ", Toast.LENGTH_SHORT).show();
 
                 }

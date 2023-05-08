@@ -23,8 +23,8 @@ public class MainActivityTest  {
     public void test_nameLength() {
 
         // Test case 1: Single item
-        assertEquals(true, AuthLogic.nameLength("Karl Gilmartin"));
-        assertEquals(true, AuthLogic.nameLength("k"));
+        assertEquals(true, AuthLogic.validLength("Karl Gilmartin"));
+        assertEquals(true, AuthLogic.validLength("k"));
     }
 
     @Test

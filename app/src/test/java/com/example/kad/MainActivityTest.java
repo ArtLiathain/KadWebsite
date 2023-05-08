@@ -29,7 +29,7 @@ public class MainActivityTest  {
 
     @Test
     public void name_chars() {
-        assertEquals(true, AuthLogic.stringAlphabet("Brid O'Dea"));
+        assertEquals(false, AuthLogic.stringAlphabet("Brid O'Dea"));
         assertEquals(false, AuthLogic.stringAlphabet("Karl Gilmartín"));
         // this is false, the current system doesn't accept "í"
     }

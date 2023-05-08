@@ -51,7 +51,7 @@ public class Firebase {
                 });
     }
 
-    // check to see if there is a matching document in the firestore
+
     public void checkFirestore(String name, int student_num, String email){
         Query query = docRef.whereEqualTo("name", name).whereEqualTo("Email", email).whereEqualTo("Student Number", student_num);
 
@@ -82,7 +82,7 @@ public class Firebase {
 
     }
 
-    public void get_dates(){
+    public void getDates(){
         List<Date> dates = new ArrayList<Date>();
         Date startDate = new Date(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
         Date endDate = new Date(122, 4, 2, 23, 59, 59);
@@ -94,7 +94,6 @@ public class Firebase {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         dates.add(document.getDate("Start DateTime"));
-//                        System.out.println(document.getDate("Start DateTime"));
                         Log.d(TAG, document.getId() + " => " + document.getDate("Start DateTime"));
                     }
                 } else {

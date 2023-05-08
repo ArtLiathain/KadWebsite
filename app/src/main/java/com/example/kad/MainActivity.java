@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
-                firebase.get_dates();
+                firebase.getDates();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
                 Date dates_s = new Date(1220701200000L);
                 Date dates_e = new Date(1222701200000L);

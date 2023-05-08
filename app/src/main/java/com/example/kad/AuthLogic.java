@@ -22,7 +22,7 @@ public class AuthLogic {
         int count = 0;
         String[] blackList = {"John Smith", "Jane Doe", "Michael Johnson", "Emily Brown", "William Davis", "Olivia Taylor", "James Wilson", "Sophia Lee", "Benjamin Garcia", "Isabella Martinez", "Daniel Anderson", "Mia Thomas", "David Hernandez", "Ella Perez", "Joseph Green", "Ava Collins", "Matthew Baker", "Chloe Hall", "Andrew Rivera", "Natalie Ramirez"};
         for (int i = 0; i <= blackList.length - 1; i++) {
-            if (blackList[i] == name) {
+            if (blackList[i].equals(name)) {
                 count += 1;
             }
         }

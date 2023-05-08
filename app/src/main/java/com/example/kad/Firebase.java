@@ -28,6 +28,10 @@ public class Firebase {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference docRef = db.collection("Logins");
     CollectionReference bookingsRef = db.collection("Bookings");
+
+    String studentNumber = "Student Number";
+    String studentName = "Student Name";
+    String studentEmail = "Student Email";
     public void addFirestore(String email, String name, int student_number){
         Map<String, Object> data1 = new HashMap<>();
         data1.put("Email", email);
@@ -40,7 +44,7 @@ public class Firebase {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-                        System.out.println("Happy, data has been added");
+                        Log.d(TAG,"Happy, data has been added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -61,18 +65,18 @@ public class Firebase {
                 if (task.isSuccessful()) {
                     if (task.getResult().isEmpty()) {
                         // No documents match the query
-                        System.out.println("There is no dcuments matching the inputed name");
+                        Log.d(TAG,"There is no dcuments matching the inputed name");
                     } else {
-                        System.out.println("There has been documents found matching the name");
+                        Log.d(TAG,"There has been documents found matching the name");
                         // At least one document matches the query
                         for (DocumentSnapshot document : task.getResult()) {
                             String name = document.getString("name");
-                            System.out.println("The name that has been discovereed in the firestore is:"+ name);
+                            Log.d(TAG,"The name that has been discovereed in the firestore is:"+ name);
                             // Access the document data here
                         }
                     }
                 } else {
-                    System.out.println("Was unable to connect to the firebase");
+                    Log.d(TAG,"Was unable to connect to the firebase");
                     // Failed to retrieve documents from the collection
                 }
                 }
@@ -100,13 +104,11 @@ public class Firebase {
                     Log.d(TAG, "Error getting documents: ",
                             task.getException());
                 }
-                System.out.println("These are all of the dates for the period date period range");
+                Log.d(TAG,"These are all of the dates for the period date period range");
                 System.out.println(dates);
             }
 
         });
-
-        System.out.println("hello");
 
     }
 
@@ -125,7 +127,7 @@ public class Firebase {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-                        System.out.println("Happy, data has been added");
+                        Log.d(TAG,"Happy, data has been added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

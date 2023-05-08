@@ -14,7 +14,9 @@ public class AuthLogic {
 
     public boolean stringAlphabet(String name) {
         if (validLength(name) == false){return false;}
-        return name.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+        String tmp1 = "^[a-zA-Z]+(([',. -][a-zA-Z ])?";
+        String tmp2 = "[a-zA-Z]*)*$";
+        return name.matches(tmp1+tmp2);
     }
 
 
@@ -35,7 +37,9 @@ public class AuthLogic {
 
     public boolean emailFormat(String email) {
         if(email.length() > 40){return false;}
-        return email.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+        String tmp1 = "^[a-zA-Z]+(([',. -][a-zA-Z ])?";
+        String tmp2 = "[a-zA-Z]*)*$";
+        return email.matches(tmp1 + tmp2);
     }
 
     public boolean studentNumLen(int number) {

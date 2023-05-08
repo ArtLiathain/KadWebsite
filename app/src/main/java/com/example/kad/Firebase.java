@@ -32,11 +32,13 @@ public class Firebase {
     String studentNumber = "Student Number";
     String studentName = "Student Name";
     String studentEmail = "Student Email";
+
+    String STARTDATE = "Start DateTime";
     public void addFirestore(String email, String name, int student_number){
         Map<String, Object> data1 = new HashMap<>();
-        data1.put("Email", email);
-        data1.put("Student Number", student_number);
-        data1.put("name", name);
+        data1.put(studentEmail, email);
+        data1.put(studentNumber, student_number);
+        data1.put(studentName, name);
 
         db.collection("Logins").document()
                 .set(data1)
@@ -57,7 +59,7 @@ public class Firebase {
 
 
     public void checkFirestore(String name, int student_num, String email){
-        Query query = docRef.whereEqualTo("name", name).whereEqualTo("Email", email).whereEqualTo("Student Number", student_num);
+        Query query = docRef.whereEqualTo(studentName, name).whereEqualTo(studentEmail, email).whereEqualTo(studentNumber, student_num);
 
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -90,15 +92,15 @@ public class Firebase {
         List<Date> dates = new ArrayList<Date>();
         Date startDate = new Date(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
         Date endDate = new Date(122, 4, 2, 23, 59, 59);
-        Query query = bookingsRef.whereGreaterThanOrEqualTo("Start DateTime", startDate).whereLessThan("Start DateTime", endDate);
+        Query query = bookingsRef.whereGreaterThanOrEqualTo(STARTDATE, startDate).whereLessThan(STARTDATE, endDate);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
                 () {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        dates.add(document.getDate("Start DateTime"));
-                        Log.d(TAG, document.getId() + " => " + document.getDate("Start DateTime"));
+                        dates.add(document.getDate(STARTDATE));
+                        Log.d(TAG, document.getId() + " => " + document.getDate(STARTDATE));
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ",
@@ -117,7 +119,7 @@ public class Firebase {
         data1.put("Room Number", room_number);
         data1.put("Snacks", snacks);
         data1.put("Student Number", student_number);
-        data1.put("Start DateTime", start);
+        data1.put(STARTDATE, start);
         data1.put("End DateTime", end);
 
 

@@ -3,6 +3,7 @@ package com.example.kad;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         email.setError( "Email is required!" );
         student_num.setError( "Student Number is required!" );
 
-        logic1 logic1 = new logic1();
+        AuthLogic AuthLogic = new AuthLogic();
         Firebase firebase = new Firebase();
 
 
@@ -73,18 +74,23 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // ensuring all fields are following the logic in logic1.java
-                if (logic1.student_num_year(Integer.parseInt(student_num.getText().toString())) == false | logic1.student_num_len(Integer.parseInt(student_num.getText().toString())) == false | logic1.email_format(email.getText().toString()) == true | logic1.name_length(name.getText().toString()) == false | logic1.string_alphabet(name.getText().toString()) ==false | logic1.blacklist(name.getText().toString()) ==false )  {
+                if (AuthLogic.studentNumYear(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.studentNumLen(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.emailFormat(email.getText().toString()) == true | AuthLogic.nameLength(name.getText().toString()) == false | AuthLogic.stringAlphabet(name.getText().toString()) ==false | AuthLogic.blacklist(name.getText().toString()) ==false )  {
                     Toast.makeText(MainActivity.this, "Some of the data which you have entered is incorrect ", Toast.LENGTH_SHORT).show();
 
                 }
-                else if(logic1.check_box(terms_box) == false){
+                else if(AuthLogic.checkBox(terms_box) == false){
                     Toast.makeText(MainActivity.this,"You must agree to our Terms", Toast.LENGTH_SHORT).show();
 
                 }
                 else{
                     Toast.makeText(MainActivity.this,"data is entered and is valid  ", Toast.LENGTH_SHORT).show();
-                    firebase.add_firestore(email.getText().toString(), name.getText().toString(),Integer.parseInt(student_num.getText().toString()));
+                    firebase.addFirestore(email.getText().toString(), name.getText().toString(),Integer.parseInt(student_num.getText().toString()));
                 }
+                txt1.setText("Valid data entered");
+                SystemClock.sleep(70000);
+                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                startActivity(intent);
+
 
 
 
@@ -94,12 +100,13 @@ public class MainActivity extends AppCompatActivity {
         check_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firebase.check_firestore(name.getText().toString(),Integer.parseInt(student_num.getText().toString()), email.getText().toString() );
+                firebase.checkFirestore(name.getText().toString(),Integer.parseInt(student_num.getText().toString()), email.getText().toString() );
             }
         });
         dates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
                 firebase.get_dates();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
                 Date dates_s = new Date(1220701200000L);
@@ -107,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 Date date_s = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
                 Date date_e = new Date(122, 4, 2, 13, 00, 00);
 
-                firebase.add_booking(1,true,22349111,(date_s), (date_e));
+                firebase.addBooking(1,true,22349111,(date_s), (date_e));
             }
         });
 

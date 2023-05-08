@@ -3,13 +3,8 @@ package com.example.kad;
 import android.util.Log;
 import android.widget.CheckBox;
 
-public class logic1 {
-
-    public int sum(int num1, int num2) {
-        return (num1 + num2);
-    }
-
-    public boolean name_length(String email) {
+public class AuthLogic {
+    public boolean nameLength(String email) {
         if (email.length() <= 70 & email.length() > 0) {
             return true;
         }
@@ -17,14 +12,10 @@ public class logic1 {
 
     }
 
-    public boolean string_alphabet(String name) {
+    public boolean stringAlphabet(String name) {
         return name.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-//        it was [a-zA-Z]+
     }
 
-//    public first_last(String){
-//        // ensures that there is two words, first and last name
-//    }
 
     public boolean blacklist(String name) {
         int count = 0;
@@ -41,20 +32,11 @@ public class logic1 {
         }
     }
 
-
-    ///////////////////////////////////////////////////////////
-//                             Email
-    ///////////////////////////////////////////////////////////
-    public boolean email_format(String email) {
+    public boolean emailFormat(String email) {
         return email.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
     }
 
-
-    ///////////////////////////////////////////////////////////
-//                             Student Number
-    ///////////////////////////////////////////////////////////
-
-    public boolean student_num_len(int number) {
+    public boolean studentNumLen(int number) {
         int length = (int) (Math.log10(number) + 1);
         if (length != 8) {
             return false;
@@ -62,7 +44,7 @@ public class logic1 {
         return true;
     }
 
-    public boolean student_num_year(int number) {
+    public boolean studentNumYear(int number) {
         if (number >= 22000000) {
             return true;
         } else {
@@ -71,13 +53,7 @@ public class logic1 {
 
     }
 
-
-    ///////////////////////////////////////////////////////////
-//                             Check Box
-    ///////////////////////////////////////////////////////////
-
-
-    public boolean check_box(CheckBox checkBox) {
+    public boolean checkBox(CheckBox checkBox) {
         if (checkBox.isChecked()) {
             // Do something if the CheckBox is checked
             Log.d("MyApp", "The CheckBox is checked");

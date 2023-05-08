@@ -7,7 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.junit.Test;
 
 public class MainActivityTest  {
-    logic1 logic1 = new logic1();
+    AuthLogic AuthLogic = new AuthLogic();
     FirebaseFirestore db;
 //    @Before
 //    public void setUp() throws Exception {
@@ -20,37 +20,37 @@ public class MainActivityTest  {
 //        db = FirebaseFirestore.getInstance();
 //    }
     @Test
-    public void name_length() {
+    public void test_nameLength() {
 
         // Test case 1: Single item
-        assertEquals(true, logic1.name_length("Karl Gilmartin"));
-        assertEquals(true, logic1.name_length("k"));
+        assertEquals(true, AuthLogic.nameLength("Karl Gilmartin"));
+        assertEquals(true, AuthLogic.nameLength("k"));
     }
 
     @Test
     public void name_chars() {
-        assertEquals(true, logic1.string_alphabet("Brid O'Dea"));
-        assertEquals(false, logic1.string_alphabet("Karl Gilmartín"));
+        assertEquals(true, AuthLogic.stringAlphabet("Brid O'Dea"));
+        assertEquals(false, AuthLogic.stringAlphabet("Karl Gilmartín"));
         // this is false, the current system doesn't accept "í"
     }
 
     @Test
     public void name_blacklist() {
-        assertEquals(false, logic1.blacklist("Andrew Rivera"));
-        assertEquals(true, logic1.blacklist("Karl Gilmartín"));
+        assertEquals(false, AuthLogic.blacklist("Andrew Rivera"));
+        assertEquals(true, AuthLogic.blacklist("Karl Gilmartín"));
 
 
     }
 
     @Test
     public void student_num_len() {
-        assertEquals(true, logic1.student_num_len(22349111));
+        assertEquals(true, AuthLogic.studentNumLen(22349111));
 
     }
 
     @Test
     public void student_num_year() {
-        assertEquals(false, logic1.student_num_year(21349111));
+        assertEquals(false, AuthLogic.studentNumYear(21349111));
     }
 
 

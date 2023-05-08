@@ -28,14 +28,11 @@ public class Firebase {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference docRef = db.collection("Logins");
     CollectionReference bookingsRef = db.collection("Bookings");
-    public void add_firestore(String email, String name, int student_number){
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    public void addFirestore(String email, String name, int student_number){
         Map<String, Object> data1 = new HashMap<>();
         data1.put("Email", email);
         data1.put("Student Number", student_number);
         data1.put("name", name);
-
 
         db.collection("Logins").document()
                 .set(data1)
@@ -54,12 +51,8 @@ public class Firebase {
                 });
     }
 
-
-    ////////////////////////////////////////
-
-
     // check to see if there is a matching document in the firestore
-    public void check_firestore(String name, int student_num, String email){
+    public void checkFirestore(String name, int student_num, String email){
         Query query = docRef.whereEqualTo("name", name).whereEqualTo("Email", email).whereEqualTo("Student Number", student_num);
 
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -86,8 +79,6 @@ public class Firebase {
 
 
         });
-
-
 
     }
 
@@ -120,7 +111,7 @@ public class Firebase {
 
     }
 
-    public void add_booking(int room_number, boolean snacks, int student_number, Date start, Date end){
+    public void addBooking(int room_number, boolean snacks, int student_number, Date start, Date end){
         Map<String, Object> data1 = new HashMap<>();
         data1.put("Room Number", room_number);
         data1.put("Snacks", snacks);

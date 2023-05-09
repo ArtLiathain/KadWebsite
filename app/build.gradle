@@ -13,9 +13,8 @@ jacocoAndroidUnitTestReport {
 }
 
 pitest {
-    targetClasses = ['app.src.main.java.com.example.kad.*']
+    targetClasses = ['com.example.kad.*']
     excludeMockableAndroidJar = true
-    failWhenNoMutations = false
 }
 
 

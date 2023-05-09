@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.junit.Test;
 
 public class MainActivityTest  {
+    AuthLogic authlogic = new AuthLogic();
     AuthLogic AuthLogic = new AuthLogic();
     FirebaseFirestore db;
 //    @Before
@@ -52,6 +53,21 @@ public class MainActivityTest  {
     public void student_num_year() {
         assertEquals(false, AuthLogic.studentNumYear(21349111));
     }
+//    @Test
+//    public void testAudio() {
+//        int audioResourceId = R.raw.entry;
+//        Context context = mock(Context.class);
+//        authlogic.playAudio(context, audioResourceId);
+//
+//        // Wait for the audio to start playing
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        assertNotNull(mediaPlayer.isPlaying());
+//    }
 
 
 }

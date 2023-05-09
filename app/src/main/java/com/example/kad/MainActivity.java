@@ -2,8 +2,8 @@ package com.example.kad;
 
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button skipToRoomSelectionBtn;
 
     TextView txt1;
+    MediaPlayer player;
     CheckBox terms_box;
 
 
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         student_num = findViewById(R.id.student_num);
         dates = findViewById(R.id.dates);
         submit_btn = findViewById(R.id.send_btn);
-
+        AuthLogic authLogic = new AuthLogic();
+        authLogic.playAudio(this, R.raw.entry);
         check_data = findViewById(R.id.check_data);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
@@ -85,9 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(MainActivity.this,"data is entered and is valid  ", Toast.LENGTH_SHORT).show();
                     firebase.addFirestore(email.getText().toString(), name.getText().toString(),Integer.parseInt(student_num.getText().toString()));
+                    txt1.setText("Valid data entered");
                 }
-                txt1.setText("Valid data entered");
-                SystemClock.sleep(70000);
+
+
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);
 
@@ -134,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 
 }

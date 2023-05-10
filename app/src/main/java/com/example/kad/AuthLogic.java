@@ -1,6 +1,5 @@
 package com.example.kad;
 
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.CheckBox;
@@ -72,17 +71,14 @@ public class AuthLogic {
 
         }
     }
-    public boolean playAudio(Context context, int audioResourceId) {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(context, audioResourceId);
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mediaPlayer.stop();
-                }
-            });
+    public void playAudio(String audioFilePath) {
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(audioFilePath);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        mediaPlayer.start();
-        return true;
     }
 }

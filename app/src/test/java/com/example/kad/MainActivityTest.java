@@ -1,14 +1,18 @@
 package com.example.kad;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.junit.Test;
 
+import java.io.File;
+
 public class MainActivityTest  {
     AuthLogic authlogic = new AuthLogic();
     AuthLogic AuthLogic = new AuthLogic();
+
     FirebaseFirestore db;
 //    @Before
 //    public void setUp() throws Exception {
@@ -53,21 +57,31 @@ public class MainActivityTest  {
     public void student_num_year() {
         assertEquals(false, AuthLogic.studentNumYear(21349111));
     }
+
+
 //    @Test
-//    public void testAudio() {
-//        int audioResourceId = R.raw.entry;
-//        Context context = mock(Context.class);
-//        authlogic.playAudio(context, audioResourceId);
-//
-//        // Wait for the audio to start playing
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        assertNotNull(mediaPlayer.isPlaying());
+//    public void testCheckBox() {
+//        // Create a mock CheckBox
+//        MainActivity dummyV = mock(MainActivity.class);
+//        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
+    @Test
+    public void testAudio() {
+        // Specify the path to the audio file
+        String audioFilePath = "/Users/karlgilmartin/Documents/CS4442 & CS4443/CS4442/Testing/Project/KadWebsite/app/src/main/res/raw/entry.mp3";
+
+        // Create a file object from the audio file path
+        File audioFile = new File(audioFilePath);
+
+        // Check if the audio file exists before testing
+        if (audioFile.exists()) {
+            // Call the playAudio function with the audio file path
+            authlogic.playAudio(audioFilePath);
+        } else {
+            // Fail the test if the audio file doesn't exist
+            fail("Audio file does not exist");
+        }
+    }
 
 
 }

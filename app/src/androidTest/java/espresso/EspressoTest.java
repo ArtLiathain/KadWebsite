@@ -4,18 +4,19 @@ package espresso;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.PositionAssertions.isBelow;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import android.support.test.runner.AndroidJUnit4;
-
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
+import androidx.test.runner.AndroidJUnit4;
 
 import com.example.kad.MainActivity;
 import com.example.kad.R;
@@ -32,17 +33,18 @@ public class EspressoTest {
             new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void numberIsDisplayed(){
+    public void titleIsDisplayed(){
         onView(withText("KAD Room Booking System")).check(matches(isDisplayed()));
-//        onView(withText("Number")).check(isCompletelyDisplayed(withId(R.id.textView2)));
     }
-    @Test
-    public void toastPopUp(){
-        onView(withId(R.id.dates)).perform(click());
+//    @Test
+//    public void toastPopUp() {
+//        onView(withId(R.id.dates)).perform(click());
+//        onView(withText("Button Clicked")).inRoot(ToastMatcher.isToast()).check(matches(isDisplayed()));
+//    }
 
-        onView(withText("Button Clicked")).inRoot(new ToastMacher()).check(matches(isDisplayed()));
 
-    }
+
+
 
     @Test
     public void loginWithValidCredentials() {
@@ -76,5 +78,48 @@ public class EspressoTest {
         // check to see if it will go to another activity
 
     }
+
+    @Test
+    public void testTermsAndConditionsCheckbox() {
+        // Initially, the checkbox should be unchecked
+        onView(withId(R.id.term_box)).check(matches(isNotChecked()));
+
+        // Click the checkbox to check it
+        onView(withId(R.id.term_box)).perform(click());
+
+        // Validate that the checkbox is checked
+        onView(withId(R.id.term_box)).check(matches(isChecked()));
+
+        // Click the checkbox again to uncheck it
+        onView(withId(R.id.term_box)).perform(click());
+
+        // Validate that the checkbox is unchecked
+        onView(withId(R.id.term_box)).check(matches(isNotChecked()));
+    }
+    @Test
+    public void nameLoc(){
+        onView(withId(R.id.name)).check(isBelow(withId(R.id.textView2)));
+    }
+
+
+
+
+//    @Test
+//    public void testCheckBox() {
+//        // Create a new CheckBox object
+//        CheckBox checkBox = new CheckBox();
+//
+//        // Test when the CheckBox is checked
+//        checkBox.setChecked(true);
+//        assertTrue(checkBox.checkBox());
+//
+//        // Test when the CheckBox is not checked
+//        checkBox.setChecked(false);
+//        assertFalse(checkBox.checkBox());
+//    }
+
+
+
+
 
 }

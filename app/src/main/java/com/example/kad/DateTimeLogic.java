@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 public class DateTimeLogic {
 	Firebase firebase = new Firebase();
 	public String[] ReturnStartDates(){
-		String[] temp;
-		temp = new String[]{"1", "2"};
+		String[] StartDates;
+		StartDates = firebase.getDates();
 		return temp;
 	}
 }

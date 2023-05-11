@@ -11,7 +11,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -73,11 +72,11 @@ public class Firebase {
                     } else {
                         Log.d(TAG,"There has been documents found matching the name");
                         // At least one document matches the query
-                        for (DocumentSnapshot document : task.getResult()) {
-                            String name = document.getString("name");
-                            Log.d(TAG,"The name that has been discovereed in the firestore is:"+ name);
-                            // Access the document data here
-                        }
+//                        for (DocumentSnapshot document : task.getResult()) {
+//                            String name = document.getString("name");
+//                            Log.d(TAG,"The name that has been discovereed in the firestore is:"+ name);
+//                            // Access the document data here
+//                        }
                     }
                 } else {
                     Log.d(TAG,"Was unable to connect to the firebase");
@@ -133,7 +132,6 @@ public class Firebase {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-                        Log.d(TAG,"Happy, data has been added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

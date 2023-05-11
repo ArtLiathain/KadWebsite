@@ -22,11 +22,7 @@ public class AuthLogic {
                 count += 1;
             }
         }
-        if (count == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return count == 0;
     }
 
     public boolean emailFormat(String email) {
@@ -36,10 +32,7 @@ public class AuthLogic {
 
     public boolean studentNumLen(int number) {
         int length = (int) (Math.log10(number) + 1);
-        if (length != 8) {
-            return false;
-        }
-        return true;
+        return length == 8;
     }
 
     public boolean studentNumYear(int number) {

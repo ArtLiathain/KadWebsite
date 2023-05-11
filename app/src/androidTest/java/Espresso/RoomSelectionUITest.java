@@ -6,6 +6,7 @@ import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyAb
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyLeftOf;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -30,6 +31,13 @@ public class RoomSelectionUITest {
     public ActivityScenarioRule<RoomSelection> activityRule =
             new ActivityScenarioRule<>(RoomSelection.class);
 
+
+
+    @Test
+    public void ButtonClickable() {
+        onView(withId(R.id.room1)).perform(click());//.check(matches(withText("KAD Room Selection"))); // (withId(R.id.backRoom1)
+
+    }
 
     @Test
     public void KADTitleIsDisplayed() {

@@ -32,6 +32,8 @@ public class Firebase {
     String studentName = "Student Name";
     String studentEmail = "Student Email";
 
+    List<Date> Startdates;
+
     String STARTDATE = "Start DateTime";
     public void addFirestore(String email, String name, int student_number){
         Map<String, Object> data1 = new HashMap<>();
@@ -107,6 +109,8 @@ public class Firebase {
                 }
                 Log.d(TAG,"These are all of the dates for the period date period range");
                 System.out.println(dates);
+                Startdates = dates;
+
             }
 
         });
@@ -137,5 +141,9 @@ public class Firebase {
                     }
                 });
 
+    }
+
+    public List<Date> getStartdates(){
+        return Startdates;
     }
 }

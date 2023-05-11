@@ -27,7 +27,7 @@ public class RoomSelection extends AppCompatActivity {
         Room1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, Room1.class);
+                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room1 Button Works", Toast.LENGTH_SHORT).show();
             }
@@ -36,7 +36,7 @@ public class RoomSelection extends AppCompatActivity {
         Room2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, Room2.class);
+                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room2 Button Works", Toast.LENGTH_SHORT).show();
             }
@@ -45,7 +45,7 @@ public class RoomSelection extends AppCompatActivity {
         Room3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, Room3.class);
+                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
             }

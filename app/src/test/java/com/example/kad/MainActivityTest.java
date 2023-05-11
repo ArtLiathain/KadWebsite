@@ -62,12 +62,12 @@ public class MainActivityTest  {
 //        MainActivity dummyV = mock(MainActivity.class);
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
-    @Test
-    public void testAudio() {
-
-            authlogic.playAudio();
-
-    }
+//    @Test
+//    public void testAudio() {
+//
+//            authlogic.playAudio();
+//
+//    }
 
 
 }

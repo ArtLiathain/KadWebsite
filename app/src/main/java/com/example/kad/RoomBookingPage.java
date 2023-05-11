@@ -15,10 +15,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 import java.util.List;
+import com.example.kad.roomBookingPageLogic;
 
 
 public class RoomBookingPage extends AppCompatActivity {
-
 
 
     Spinner hoursAvailable;
@@ -56,12 +56,10 @@ public class RoomBookingPage extends AppCompatActivity {
         });
 
 // ---------------------------------Hours Available---------------------------------
-
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
-        List<String> listHoursAvailable = functionListHoursAvailable();
-        //functionListHoursAvailable();
-        //roomSelectionLogic.functionListHoursAvailable();
+        roomBookingPageLogic RoomBookingPageLogicLogic = new roomBookingPageLogic();
+        List<String> listHoursAvailable = RoomBookingPageLogicLogic.functionListHoursAvailable();
 
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
         // Styles dropdown of numbers nicely
@@ -81,10 +79,5 @@ public class RoomBookingPage extends AppCompatActivity {
         });
 
 
-    } //---------------------------------End of On Create---------------------------------
-    private List<String> functionListHoursAvailable() {
-        return Arrays.asList("Not Selected", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM");
-        // "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM"
-        // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     }
 }

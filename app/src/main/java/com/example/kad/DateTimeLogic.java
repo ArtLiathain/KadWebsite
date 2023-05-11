@@ -8,9 +8,12 @@ import com.github.agogs.holidayapi.model.QueryParams;
 
 import java.io.IOException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,7 +33,7 @@ public class DateTimeLogic {
               "03:00 PM",
               "04:00 PM"));
 //  Firebase firebase = new Firebase();
-//
+////
 //  public String[] returnStartTimes() {
 //    List<Date> StartDates;
 //    firebase.getDates();

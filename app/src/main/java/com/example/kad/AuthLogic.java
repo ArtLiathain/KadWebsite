@@ -5,15 +5,11 @@ import android.widget.CheckBox;
 
 public class AuthLogic {
     public boolean validLength(String name) {
-        if (name.length() <= 70 & name.length() > 0) {
-            return true;
-        }
-        return false;
-
+        return (name.length() <= 70 && name.length() > 0) ? true : false;
     }
 
     public boolean stringAlphabet(String name) {
-        if (validLength(name) == false){return false;}
+        if (!validLength(name)){return false;}
         return name.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]+)*$");
     }
 

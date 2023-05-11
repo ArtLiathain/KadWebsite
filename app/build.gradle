@@ -3,12 +3,18 @@ plugins {
     id 'com.google.gms.google-services'
     id "com.hiya.jacoco-android"
     id "org.sonarqube"
+    id "pl.droidsonroids.pitest"
 }
 
 jacocoAndroidUnitTestReport {
     csv.enabled true
     html.enabled true
     xml.enabled false
+}
+
+pitest {
+    targetClasses = ['com.example.kad.*']
+    excludeMockableAndroidJar = true
 }
 
 

@@ -1,10 +1,14 @@
 package com.example.kad;
 
+import android.util.Log;
+
 import com.github.agogs.holidayapi.api.APIConsumer;
 import com.github.agogs.holidayapi.api.impl.HolidayAPIConsumer;
 import com.github.agogs.holidayapi.model.Holiday;
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
+
+import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 
@@ -35,10 +39,12 @@ public class DateTimeLogic {
 //  Firebase firebase = new Firebase();
 ////
 //  public String[] returnStartTimes() {
+//    Log.d("TEST", "got here");
 //    List<Date> StartDates;
 //    firebase.getDates();
+//    Log.d("NOPE", "got here");
 //    StartDates = firebase.getStartdates();
-//    if (StartDates.size() == 0) {
+//    if (StartDates == null) {
 //      return availableTimes.toArray(String[]::new);
 //    }
 //    int year = StartDates.get(0).getYear();

@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -59,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
         AuthLogic AuthLogic = new AuthLogic();
         Firebase firebase = new Firebase();
-
+        DateTimeLogic dateTimeLogic = new DateTimeLogic();
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 // ensuring that all fields are filled
@@ -93,13 +95,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        check_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firebase.checkFirestore(name.getText().toString(), Integer.parseInt(student_num.getText().toString()), email.getText().toString());
-            }
+    check_data.setOnClickListener(
+        new View.OnClickListener() {
+          @Generated
+          @Override
+          public void onClick(View view) {
+            Log.d("temp ", "hello");
+            //                firebase.checkFirestore(name.getText().toString(),
+            // Integer.parseInt(student_num.getText().toString()), email.getText().toString());
+          }
         });
         dates.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
@@ -116,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);

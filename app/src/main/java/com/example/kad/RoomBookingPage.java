@@ -35,6 +35,7 @@ public class RoomBookingPage extends AppCompatActivity {
 
         RoomSelection = findViewById(R.id.backButtonRoomSelection);
         RoomSelection.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);

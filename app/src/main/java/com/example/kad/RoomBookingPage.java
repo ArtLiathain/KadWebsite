@@ -16,7 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 import java.util.List;
 
-public class Room1 extends AppCompatActivity { //--------------------------------------------------
+
+public class RoomBookingPage extends AppCompatActivity {
+
+
     Button RoomSelection;
     Spinner hoursAvailable;
     DatePicker datePicker;
@@ -26,35 +29,34 @@ public class Room1 extends AppCompatActivity { //-------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.room_1);
+        setContentView(R.layout.room_booking_page);
 
 // ---------------------------------Back Button---------------------------------
 
-        RoomSelection = findViewById(R.id.backRoom1);
+        RoomSelection = findViewById(R.id.backButtonRoomSelection);
         RoomSelection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Room1.this, RoomSelection.class);
+                Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
                 startActivity(intent);
-                Toast.makeText(Room1.this, "The Back R1 Button Works", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomBookingPage.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
 
 // ---------------------------------Date Picker---------------------------------
 
-        datePicker = findViewById(R.id.datePicker1);
+        datePicker = findViewById(R.id.datePicker);
         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(Room1.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomBookingPage.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
             }
         });
 
-
 // ---------------------------------Hours Available---------------------------------
 
-        hoursAvailable = findViewById(R.id.hours_spinner);
+        hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
         List<String> listHoursAvailable = functionListHoursAvailable();
         //functionListHoursAvailable();
@@ -84,5 +86,4 @@ public class Room1 extends AppCompatActivity { //-------------------------------
         // "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM"
         // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
     }
-
 }

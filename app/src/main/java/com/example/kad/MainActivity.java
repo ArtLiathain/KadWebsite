@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         dates = findViewById(R.id.dates);
         submit_btn = findViewById(R.id.send_btn);
         AuthLogic authLogic = new AuthLogic();
-        authLogic.playAudio("res/raw/entry.mp3");
+        authLogic.playAudio();
         check_data = findViewById(R.id.check_data);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 

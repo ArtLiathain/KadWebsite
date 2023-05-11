@@ -13,7 +13,12 @@ import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import android.support.test.espresso.intent.Intents;
+
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.assertion.ViewAssertions;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 import androidx.test.runner.AndroidJUnit4;
@@ -28,9 +33,22 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class EspressoTest {
+
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule =
             new ActivityScenarioRule<MainActivity>(MainActivity.class);
+    @Test
+    public void everythingDisplayed(){
+        Espresso.onView(ViewMatchers.withId(R.id.student_num)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.name)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.email)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.send_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.check_data)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.dates)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        Espresso.onView(ViewMatchers.withId(R.id.skipRoomSelect_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+    }
+
 
     @Test
     public void titleIsDisplayed(){
@@ -67,7 +85,7 @@ public class EspressoTest {
         onView(withId(R.id.send_btn)).perform(click());
 
         // Validate welcome string contains user name entered.
-//        Intents.init();
+        Intents.init();
 //        intended(hasComponent(RoomSelection.class.getName()));
 //        Intents.release();
 
@@ -104,19 +122,17 @@ public class EspressoTest {
 
 
 
-//    @Test
-//    public void testCheckBox() {
-//        // Create a new CheckBox object
-//        CheckBox checkBox = new CheckBox();
-//
-//        // Test when the CheckBox is checked
-//        checkBox.setChecked(true);
-//        assertTrue(checkBox.checkBox());
-//
-//        // Test when the CheckBox is not checked
-//        checkBox.setChecked(false);
-//        assertFalse(checkBox.checkBox());
-//    }
+    @Test
+    public void testCheckBox() {
+        // Check if the checkbox is initially unchecked
+        Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isNotChecked()));
+
+        // Perform click action to check the checkbox
+        Espresso.onView(ViewMatchers.withId(R.id.term_box)).perform(ViewActions.click());
+
+        // Check if the checkbox is now checked
+        Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isChecked()));
+    }
 
 
 

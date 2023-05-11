@@ -71,10 +71,10 @@ public class AuthLogic {
 
         }
     }
-    public void playAudio(String audioFilePath) {
+    public void playAudio() {
         MediaPlayer mediaPlayer = new MediaPlayer();
         try {
-            mediaPlayer.setDataSource(audioFilePath);
+            mediaPlayer.setDataSource("res/raw/entry.mp3");
             mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (Exception e) {

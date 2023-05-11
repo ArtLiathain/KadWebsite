@@ -5,7 +5,7 @@ import android.widget.CheckBox;
 
 public class AuthLogic {
     public boolean validLength(String name) {
-        return (name.length() <= 70 && name.length() > 0) ? true : false;
+        return (name.length() <= 70 && name.length() > 0);
     }
 
     public boolean stringAlphabet(String name) {
@@ -36,12 +36,7 @@ public class AuthLogic {
     }
 
     public boolean studentNumYear(int number) {
-        if (number >= 22000000) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return number >= 22000000;
     }
 
     public boolean checkBox(CheckBox checkBox) {

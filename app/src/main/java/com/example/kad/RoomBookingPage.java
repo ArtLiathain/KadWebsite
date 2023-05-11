@@ -20,7 +20,7 @@ import java.util.List;
 public class RoomBookingPage extends AppCompatActivity {
 
 
-    Button RoomSelection;
+
     Spinner hoursAvailable;
     DatePicker datePicker;
 
@@ -32,7 +32,7 @@ public class RoomBookingPage extends AppCompatActivity {
         setContentView(R.layout.room_booking_page);
 
 // ---------------------------------Back Button---------------------------------
-
+        Button RoomSelection;
         RoomSelection = findViewById(R.id.backButtonRoomSelection);
         RoomSelection.setOnClickListener(new View.OnClickListener() {
             @Generated

@@ -1,9 +1,11 @@
 package com.example.kad;
 
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.CheckBox;
 
 public class AuthLogic {
+    static MediaPlayer mediaPlayer;
     public boolean validLength(String name) {
         if (name.length() <= 70 & name.length() > 0) {
             return true;
@@ -67,6 +69,16 @@ public class AuthLogic {
             return false;
 
 
+        }
+    }
+    public void playAudio() {
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource("res/raw/entry.mp3");
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (Exception e) {
+//            e.printStackTrace();
         }
     }
 }

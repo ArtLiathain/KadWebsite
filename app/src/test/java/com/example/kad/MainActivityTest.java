@@ -7,7 +7,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.junit.Test;
 
 public class MainActivityTest  {
+    AuthLogic authlogic = new AuthLogic();
     AuthLogic AuthLogic = new AuthLogic();
+
     FirebaseFirestore db;
 //    @Before
 //    public void setUp() throws Exception {
@@ -51,6 +53,20 @@ public class MainActivityTest  {
     @Test
     public void student_num_year() {
         assertEquals(false, AuthLogic.studentNumYear(21349111));
+    }
+
+
+//    @Test
+//    public void testCheckBox() {
+//        // Create a mock CheckBox
+//        MainActivity dummyV = mock(MainActivity.class);
+//        assertEquals(true,dummyV.checkBox(checkBox));
+//    }
+    @Test
+    public void testAudio() {
+
+            authlogic.playAudio();
+
     }
 
 

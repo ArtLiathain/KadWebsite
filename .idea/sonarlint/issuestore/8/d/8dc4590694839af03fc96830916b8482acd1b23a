@@ -1,0 +1,26 @@
+
+{
+java:S2293^"YReplace the type specification in this constructor call with the diamond operator ("<>").(©º ƒùÿÿÿÿ8úÓüÎ€1
+r	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—îÊÂşÿÿÿÿ8ûÓüÎ€1
+m	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÁ•É8ûÓüÎ€1
+r	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÛ©øÿÿÿÿ8ûÓüÎ€1
+r	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğÛ©øÿÿÿÿ8ûÓüÎ€1
+J
+java:S1604/"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8ûÓüÎ€1
+J
+java:S16046"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8ûÓüÎ€1
+E
+java:S1604B"(Make this anonymous inner class a lambda(Ë½˜Ÿ8üÓüÎ€1
+J
+java:S1604b"(Make this anonymous inner class a lambda(˜ú©ûÿÿÿÿ8üÓüÎ€1
+K
+java:S1604„"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8ıÓüÎ€1
+K
+java:S1604‹"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8ıÓüÎ€1
+v	java:S116$"URename this field "Startdates" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªî ıÿÿÿÿ8£ÔüÎ€1
+u	java:S116&"TRename this field "STARTDATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·‘şÿüÿÿÿÿ8£ÔüÎ€1
+N
+java:S1874_",Remove this use of "Date"; it is deprecated.(ûáõ›ûÿÿÿÿ8ÒÔüÎ€1
+I
+java:S1874`",Remove this use of "Date"; it is deprecated.(ø¶×Ğ8ÓÔüÎ€1
+U	java:S106p"9Replace this use of System.out or System.err by a logger.(œ÷â8ÚÔüÎ€1

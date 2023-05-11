@@ -3,12 +3,19 @@ plugins {
     id 'com.google.gms.google-services'
     id "com.hiya.jacoco-android"
     id "org.sonarqube"
+    id "pl.droidsonroids.pitest"
 }
 
 jacocoAndroidUnitTestReport {
     csv.enabled true
     html.enabled true
     xml.enabled false
+}
+
+pitest {
+    targetClasses = ['com.example.kad.*']
+    outputFormats = ['XML', 'HTML']
+    excludeMockableAndroidJar = true
 }
 
 
@@ -20,7 +27,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.kad"
-        minSdk 26
+        minSdk 33
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -35,9 +42,13 @@ android {
         }
 
     }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     testOptions {
         unitTests.returnDefaultValues = true
@@ -48,7 +59,7 @@ android {
 
 
 
-    dependencies {
+dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -56,17 +67,25 @@ android {
     implementation 'com.google.firebase:firebase-database:20.0.4'
     implementation 'com.google.firebase:firebase-firestore:24.5.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.5.0'
-        implementation 'junit:junit:4.12'
-        //implementation 'junit:junit:4.12'
+        implementation "com.github.agogs:java-holiday-api:1.1"
+        implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+        implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    androidTestImplementation'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation'androidx.test:runner:1.4.0'
+    androidTestImplementation'androidx.test:rules:1.4.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.0.2"
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
 
 
-    }
+}
 
 
 

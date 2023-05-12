@@ -5,27 +5,43 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+@RunWith(Parameterized.class)
 public class DateTimeTest {
+  private String day;
+  private boolean expectedValue;
+  DateTimeLogic dateTimeLogic;
 
+  public DateTimeTest(String day, boolean expectedValue) {
+    this.day = day;
+    this.expectedValue = expectedValue;
+  }
 
-  //Should return all the valid times for the day
-  //unsure of what input is currently
-//  @Test
-//  public void test_returnStartTimes() {
-//    DateTimeLogic dateTimeLogic = new DateTimeLogic();
-//    String[] times = new String[]{"Not Selected", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"};
-//    assertArrayEquals(
-//        dateTimeLogic.returnStartTimes(), times);
-//  }
+  @Before
+  public void setUp() throws Exception {
+    dateTimeLogic = new DateTimeLogic();
+    }
 
+  @Parameterized.Parameters
+  public static Collection dates() {
+    return Arrays.asList(new Object[][] {
+            {"2022-08-20 10:00", false},
+            {"2022-12-26 10:00", true},
+            {"2022-12-31 09:00", true}
+    });
+  }
   @Test
-  public void test_isHolidayApiWorking() throws IOException {
-    DateTimeLogic dateTimeLogic = new DateTimeLogic();
+  public void test_isHolidayApiWorking(){
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    LocalDateTime StevensDay = LocalDateTime.parse("2003-12-26 00:00", formatter);
-    assertTrue(dateTimeLogic.isHoliday(StevensDay));
+    LocalDateTime formattedDay = LocalDateTime.parse(day, formatter);
+    assertEquals(dateTimeLogic.isHoliday(formattedDay), expectedValue);
   }
 
 

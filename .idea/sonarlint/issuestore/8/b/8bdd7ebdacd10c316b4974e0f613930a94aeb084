@@ -1,42 +1,66 @@
 
+m	java:S117;"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´´÷ä8¼ùèÖ€1
+r	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±õû¨ùÿÿÿÿ8½ùèÖ€1
+r	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â­Í¡üÿÿÿÿ8¾ùèÖ€1
+r	java:S117r"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çğ—îøÿÿÿÿ8¿ùèÖ€1
+m	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã›ò‡8ÀùèÖ€1
 E
-java:S16041"(Make this anonymous inner class a lambda(£¢ÑÁ8áŒ¤Ÿı0
-r	java:S116"VRename this field "student_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê›ì°8‘‘¤Ÿı0
-v	java:S116"URename this field "submit_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‘Ÿñøÿÿÿÿ8‘‘¤Ÿı0
-u	java:S116"TRename this field "terms_box" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êõæ¿ùÿÿÿÿ8’‘¤Ÿı0
+java:S1604@"(Make this anonymous inner class a lambda(£¢ÑÁ8áŒ¤Ÿı0
+J
+java:S1604d"(Make this anonymous inner class a lambda(æÖ¨¿ÿÿÿÿÿ8ÆùèÖ€1
+E
+java:S1604j"(Make this anonymous inner class a lambda(ñ¾á8ÇùèÖ€1
+E
+java:S1604{"(Make this anonymous inner class a lambda(Çš8ÈùèÖ€1
+r	java:S116"VRename this field "student_num" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê›ì°8‘‘¤Ÿı0
+v	java:S116"URename this field "submit_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äˆØúÿÿÿÿÿ8ÀşèÖ€1
+v	java:S116"URename this field "check_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äˆØúÿÿÿÿÿ8ÁşèÖ€1
+u	java:S116"TRename this field "terms_box" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êõæ¿ùÿÿÿÿ8’‘¤Ÿı0
 e
-java:S1659"HDeclare "student_num" and all following declarations on a separate line.(Ê›ì°8™‘¤Ÿı0
-]	java:S125."<This block of commented-out lines of code should be removed.(˜€±™üÿÿÿÿ8¥‘¤Ÿı0
+java:S1659"HDeclare "student_num" and all following declarations on a separate line.(Ê›ì°8™‘¤Ÿı0
+i
+java:S1659"GDeclare "check_data" and all following declarations on a separate line.(äˆØúÿÿÿÿÿ8ßşèÖ€1
 ƒ
-java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
+java:S2178D"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
 ƒ
-java:S21784"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
-ˆ
-java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
-ˆ
-java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
-ˆ
-java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8«‘¤Ÿı0
-ˆ
-java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8¬‘¤Ÿı0
-ˆ
-java:S2178;"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ÌÄ×³ıÿÿÿÿ8¬‘¤Ÿı0
+java:S2178D"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(Å«¢î8©‘¤Ÿı0
+ƒ
+java:S2178M"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(•°Ë½8¬ÿèÖ€1
+ƒ
+java:S2178M"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(•°Ë½8­ÿèÖ€1
+ƒ
+java:S2178M"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(•°Ë½8®ÿèÖ€1
+ƒ
+java:S2178M"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(•°Ë½8¯ÿèÖ€1
+ƒ
+java:S2178M"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(•°Ë½8°ÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8³ÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8¹ÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8½ÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8ÂÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8ÆÿèÖ€1
+D
+java:S1125M"'Remove the unnecessary boolean literal.(•°Ë½8ÊÿèÖ€1
+D
+java:S1125Q"'Remove the unnecessary boolean literal.(Á·¸·8ÏÿèÖ€1
+]
+java:S1854q";Remove this useless assignment to local variable "dates_e".(Â­Í¡üÿÿÿÿ8õÿèÖ€1
+]
+java:S1854p";Remove this useless assignment to local variable "dates_s".(±õû¨ùÿÿÿÿ8öÿèÖ€1
+[
+java:S1854o">Remove this useless assignment to local variable "dateFormat".(Üë¶µ8öÿèÖ€1
+L
+java:S1481o"/Remove this unused "dateFormat" local variable.(Üë¶µ8€éÖ€1
+N
+java:S1481p",Remove this unused "dates_s" local variable.(±õû¨ùÿÿÿÿ8…€éÖ€1
+N
+java:S1481q",Remove this unused "dates_e" local variable.(Â­Í¡üÿÿÿÿ8‡€éÖ€1
+N
+java:S1874r",Remove this use of "Date"; it is deprecated.(Çğ—îøÿÿÿÿ8Œ€éÖ€1
 I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8­‘¤Ÿı0
-I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8®‘¤Ÿı0
-I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8¯‘¤Ÿı0
-I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8¯‘¤Ÿı0
-I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8°‘¤Ÿı0
-I
-java:S1125;"'Remove the unnecessary boolean literal.(ÌÄ×³ıÿÿÿÿ8°‘¤Ÿı0
-]	java:S125C"<This block of commented-out lines of code should be removed.(Øª—ıùÿÿÿÿ8²‘¤Ÿı0
-X	java:S125R"<This block of commented-out lines of code should be removed.(ëÈÄ¶8²‘¤Ÿı0
-U	java:S106]"9Replace this use of System.out or System.err by a logger.(ÊŸç8´‘¤Ÿı0
-]	java:S125Y"<This block of commented-out lines of code should be removed.(Õ†˜ÿÿÿÿÿ8´‘¤Ÿı0
-]	java:S125^"<This block of commented-out lines of code should be removed.(ì˜ ıÿÿÿÿ8´‘¤Ÿı0
-S
-java:S1144X"6Remove this unused private "insertBookingData" method.(Îö³©8¶‘¤Ÿı0
+java:S1874s",Remove this use of "Date"; it is deprecated.(ã›ò‡8€éÖ€1

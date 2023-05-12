@@ -81,4 +81,17 @@ public class AuthLogic {
 //            e.printStackTrace();
         }
     }
+    public boolean colorAccessibility(int color1[], int color2[]){
+
+        int L1 = (int) (0.2126 * color1[0] + 0.7152 * color1[1] + 0.0722 * color1[2]);
+        int L2 = (int) (0.2126 * color2[0] + 0.7152 * color2[1] + 0.0722 * color2[2]);
+        int ratio = (int) ((L1 + 0.05) / (L2 + 0.05));
+        if (ratio > 4.5){
+            return true;
+
+        }
+        else
+        { return false;}
+
+    }
 }

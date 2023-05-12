@@ -62,6 +62,7 @@ public class MainActivityTest  {
 //        MainActivity dummyV = mock(MainActivity.class);
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
+
     @Test
     public void testAudio() {
 
@@ -77,6 +78,14 @@ public class MainActivityTest  {
         // Assert that the result should be true since the contrast ratio is greater than 4.5
         Assert.assertFalse(result);
     }
+
+//    @Test
+//    public void testAudio() {
+//
+//            authlogic.playAudio();
+//
+//    }
+
 
 
 }

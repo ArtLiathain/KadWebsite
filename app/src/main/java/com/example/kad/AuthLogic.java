@@ -5,7 +5,6 @@ import android.util.Log;
 import android.widget.CheckBox;
 
 public class AuthLogic {
-    static MediaPlayer mediaPlayer;
     public boolean validLength(String name) {
         return (name.length() <= 70 && name.length() > 0);
     }
@@ -62,20 +61,14 @@ public class AuthLogic {
             mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (Exception e) {
-//            e.printStackTrace();
+
         }
     }
-    public boolean colorAccessibility(int color1[], int color2[]){
+    public boolean colorAccessibility(int[] color1, int[] color2){
 
-        int L1 = (int) (0.2126 * color1[0] + 0.7152 * color1[1] + 0.0722 * color1[2]);
-        int L2 = (int) (0.2126 * color2[0] + 0.7152 * color2[1] + 0.0722 * color2[2]);
-        int ratio = (int) ((L1 + 0.05) / (L2 + 0.05));
-        if (ratio > 4.5){
-            return true;
-
-        }
-        else
-        { return false;}
-
+        int theL1 = (int) (0.2126 * color1[0] + 0.7152 * color1[1] + 0.0722 * color1[2]);
+        int theL2 = (int) (0.2126 * color2[0] + 0.7152 * color2[1] + 0.0722 * color2[2]);
+        int ratio = (int) ((theL1 + 0.05) / (theL2 + 0.05));
+        return ratio > 4.5;
     }
 }

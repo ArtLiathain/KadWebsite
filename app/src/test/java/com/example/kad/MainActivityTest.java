@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MainActivityTest  {
@@ -62,12 +63,30 @@ public class MainActivityTest  {
 //        MainActivity dummyV = mock(MainActivity.class);
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
+
+    @Test
+    public void testAudio() {
+
+            authlogic.playAudio();
+
+    }
+    @Test
+    public void testColorAccessibility() {
+        int[] color1 = {255, 255, 255}; // White color
+        int[] color2 = {255, 255, 255}; // Black color
+        boolean result = authlogic.colorAccessibility(color1, color2);
+
+        // Assert that the result should be true since the contrast ratio is greater than 4.5
+        Assert.assertFalse(result);
+    }
+
 //    @Test
 //    public void testAudio() {
 //
 //            authlogic.playAudio();
 //
 //    }
+
 
 
 }

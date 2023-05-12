@@ -1,4 +1,4 @@
-package Espresso;
+package espresso;
 
 
 import static androidx.test.espresso.Espresso.onView;

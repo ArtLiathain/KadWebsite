@@ -18,16 +18,19 @@ public class MutationScript {
       List<mutation> list = mut.getMutationList();
       int amount = list.size();
       int sum = 0;
+      int noCoverage = 0;
       for (mutation mutant : list) {
         if (mutant.getDetected().equals("true")) {
           sum++;
         }
-        System.out.println(mutant.getDetected());
+        if(mutant.getStatus().equals("NO_COVERAGE")){
+          noCoverage++;
+        }
       }
       double coverage =  (sum / (double)amount) * 100;
-      System.out.println(sum);
-      System.out.println(amount);
-      System.out.println(Math.round(coverage) + "%");
+      double strength = (sum/((double)amount-noCoverage))*100;
+      System.out.println("Coverage:"+Math.round(coverage) + "%");
+      System.out.println("Strength: " + Math.round(strength) + "%");
     } catch (JAXBException e) {
       e.printStackTrace();
     }

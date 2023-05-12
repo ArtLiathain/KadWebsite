@@ -8,8 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MainActivityTest  {
-    AuthLogic authlogic = new AuthLogic();
-    AuthLogic AuthLogic = new AuthLogic();
+    AuthLogic authLogic = new AuthLogic();
 
     FirebaseFirestore db;
 //    @Before
@@ -26,34 +25,34 @@ public class MainActivityTest  {
     public void test_nameLength() {
 
         // Test case 1: Single item
-        assertEquals(true, AuthLogic.validLength("Karl Gilmartin"));
-        assertEquals(true, AuthLogic.validLength("k"));
+        assertEquals(true, authLogic.validLength("Karl Gilmartin"));
+        assertEquals(true, authLogic.validLength("k"));
     }
 
     @Test
     public void name_chars() {
-        assertEquals(false, AuthLogic.stringAlphabet("Brid O'Dea"));
-        assertEquals(false, AuthLogic.stringAlphabet("Karl Gilmartín"));
+        assertEquals(false, authLogic.stringAlphabet("Brid O'Dea"));
+        assertEquals(false, authLogic.stringAlphabet("Karl Gilmartín"));
         // this is false, the current system doesn't accept "í"
     }
 
     @Test
     public void name_blacklist() {
-        assertEquals(false, AuthLogic.blacklist("Andrew Rivera"));
-        assertEquals(true, AuthLogic.blacklist("Karl Gilmartín"));
+        assertEquals(false, authLogic.blacklist("Andrew Rivera"));
+        assertEquals(true, authLogic.blacklist("Karl Gilmartín"));
 
 
     }
 
     @Test
     public void student_num_len() {
-        assertEquals(true, AuthLogic.studentNumLen(22349111));
+        assertEquals(true, authLogic.studentNumLen(22349111));
 
     }
 
     @Test
     public void student_num_year() {
-        assertEquals(false, AuthLogic.studentNumYear(21349111));
+        assertEquals(false, authLogic.studentNumYear(21349111));
     }
 
 
@@ -67,14 +66,14 @@ public class MainActivityTest  {
     @Test
     public void testAudio() {
 
-            authlogic.playAudio();
+            authLogic.playAudio();
 
     }
     @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White color
         int[] color2 = {255, 255, 255}; // Black color
-        boolean result = authlogic.colorAccessibility(color1, color2);
+        boolean result = authLogic.colorAccessibility(color1, color2);
 
         // Assert that the result should be true since the contrast ratio is greater than 4.5
         Assert.assertFalse(result);

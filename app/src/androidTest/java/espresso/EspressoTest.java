@@ -13,8 +13,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import android.support.test.espresso.intent.Intents;
-
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.assertion.ViewAssertions;
@@ -85,7 +83,7 @@ public class EspressoTest {
         onView(withId(R.id.send_btn)).perform(click());
 
         // Validate welcome string contains user name entered.
-        Intents.init();
+//        Intents.init();
 //        intended(hasComponent(RoomSelection.class.getName()));
 //        Intents.release();
 

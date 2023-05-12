@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         txt1 = findViewById(R.id.txt1);
         terms_box = findViewById(R.id.term_box);
 
+
+
         terms_box.setText("By checking this box, you agree to our terms of service and privacy policy at https://google.ie");
         terms_box.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         AuthLogic AuthLogic = new AuthLogic();
         Firebase firebase = new Firebase();
+//        getColor();
+
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 
 
 

@@ -27,3 +27,9 @@ May 11, 2023 2:58:45 P.M. com.google.cloud.datastore.emulator.firestore.websocke
 INFO: Websocket client disconnected
 May 11, 2023 3:05:49 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
 INFO: Connected to new websocket client
+
+May 10, 2023 10:25:54 P.M. com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
+INFO: Websocket client disconnected
+*** shutting down gRPC server since JVM is shutting down
+*** server shut down
+

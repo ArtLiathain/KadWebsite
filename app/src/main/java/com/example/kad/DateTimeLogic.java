@@ -57,7 +57,7 @@ public class DateTimeLogic {
         //handle success scenario
 
         List<Holiday> holidays = response.getHolidays();
-          return (holidays.isEmpty());
+          return (!holidays.isEmpty());
       }
     } catch (IOException e) {
       //handle exception

@@ -137,6 +137,7 @@ jobs :
             
         - name: Echo current directory
           run: |
+            cd ..
             ls
             
         - name : Get to the right folder

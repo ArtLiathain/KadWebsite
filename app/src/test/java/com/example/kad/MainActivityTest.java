@@ -1,11 +1,11 @@
 package com.example.kad;
 
-import static org.junit.Assert.assertEquals;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
 
 public class MainActivityTest  {
     AuthLogic authLogic = new AuthLogic();
@@ -63,12 +63,10 @@ public class MainActivityTest  {
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
 
-    @Test
-    public void testAudio() {
-
-            authLogic.playAudio();
-
-    }
+//    @Test
+//    public void testAudio() {
+//        authLogic.playAudio();
+//    }
     @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White color

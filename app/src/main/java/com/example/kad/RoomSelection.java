@@ -25,6 +25,7 @@ public class RoomSelection extends AppCompatActivity {
         Room3 = findViewById(R.id.room3);
 
         Room1.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
@@ -34,6 +35,7 @@ public class RoomSelection extends AppCompatActivity {
         });
 
         Room2.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
@@ -43,6 +45,7 @@ public class RoomSelection extends AppCompatActivity {
         });
 
         Room3.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);

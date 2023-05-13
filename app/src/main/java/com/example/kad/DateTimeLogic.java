@@ -1,10 +1,14 @@
 package com.example.kad;
 
+import android.util.Log;
+
 import com.github.agogs.holidayapi.api.APIConsumer;
 import com.github.agogs.holidayapi.api.impl.HolidayAPIConsumer;
 import com.github.agogs.holidayapi.model.Holiday;
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
+
+import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 
@@ -29,7 +33,6 @@ public class DateTimeLogic {
               "02:00 PM",
               "03:00 PM",
               "04:00 PM"));
-
 
   public boolean isHoliday(LocalDateTime stevensDay) {
     APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");

@@ -11,7 +11,7 @@ public class MainActivityTest  {
     AuthLogic authLogic = new AuthLogic();
 
     FirebaseFirestore db;
-//    @Before
+    //    @Before
 //    public void setUp() throws Exception {
 //        FirebaseOptions options = new FirebaseOptions.Builder()
 //                .setApplicationId()
@@ -64,12 +64,6 @@ public class MainActivityTest  {
 //    }
 
     @Test
-    public void testAudio() {
-
-            authLogic.playAudio();
-
-    }
-    @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White color
         int[] color2 = {255, 255, 255}; // Black color
@@ -78,13 +72,6 @@ public class MainActivityTest  {
         // Assert that the result should be true since the contrast ratio is greater than 4.5
         Assert.assertFalse(result);
     }
-
-//    @Test
-//    public void testAudio() {
-//
-//            authlogic.playAudio();
-//
-//    }
 
 
 

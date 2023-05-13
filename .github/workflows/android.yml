@@ -135,6 +135,10 @@ jobs :
           with :
             ref : ${{ github.event.pull_request.head.ref }}
             
+        - name: Echo current directory
+          run: |
+            echo "Current directory: $(pwd)"
+            
         - name : Get to the right folder
           run: cd ./.github/CICDScripts
           working-directory: ./.github/CICDScripts

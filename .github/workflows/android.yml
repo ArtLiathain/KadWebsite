@@ -100,7 +100,7 @@ jobs :
           path : build/jacoco/jacocoHtml/index.html
 
   Instrumentation-Tests:
-    needs : [ unit-test ]
+    needs : [ Unit-Testing ]
     runs-on : macos-latest
     steps :
       - name : Checkout the code

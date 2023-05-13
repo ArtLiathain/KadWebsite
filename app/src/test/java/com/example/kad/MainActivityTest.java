@@ -26,14 +26,14 @@ public class MainActivityTest  {
 
         // Test case 1: Single item
         assertEquals(true, authLogic.validLength("Karl Gilmartin"));
-        assertEquals(true, authLogic.validLength("k"));
+        assertEquals(true, authLogic.validLength("K"));
     }
 
     @Test
     public void name_chars() {
         assertEquals(false, authLogic.stringAlphabet("Brid O'Dea"));
         assertEquals(false, authLogic.stringAlphabet("Karl Gilmartín"));
-        // this is false, the current system doesn't accept "í"
+//         this is false, the current system doesn't accept "í"
     }
 
     @Test
@@ -63,10 +63,7 @@ public class MainActivityTest  {
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
 
-//    @Test
-//    public void testAudio() {
-//        authLogic.playAudio();
-//    }
+
     @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White color

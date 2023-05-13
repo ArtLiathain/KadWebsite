@@ -137,8 +137,8 @@ jobs :
             
         - name : Get to right directory
           run: | 
-            cd ./.github/CICDScripts
-          working-directory: pwd
+             working-directory: ./github/CICDScripts
+         
       
         - name : set up JDK 11
           uses : actions/setup-java@v3

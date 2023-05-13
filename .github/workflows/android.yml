@@ -148,7 +148,7 @@ jobs :
 
         - name: Generate Badge
           run: | 
-            ./.github/CICDScripts
+            cd ./.github/CICDScripts
             ./gradlew run
 
         - name : Commit and push the badge (if it changed)

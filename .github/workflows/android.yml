@@ -135,14 +135,14 @@ jobs :
           with :
             ref : ${{ github.event.pull_request.head.ref }}
             
-        - name: Echo current directory
-          run: |
-            ls -a
-            
-        - name : Get to the right folder
-          run: cd ./.github/CICDScripts
-          working-directory: ./.github/CICDScripts
-
+        - name : Get to .github
+          run: | 
+            cd ./.github/CICDScripts
+        
+        - name : Get to CICDScripts
+          run : |
+            cd CICDScripts
+          
         - name : set up JDK 11
           uses : actions/setup-java@v3
           with :

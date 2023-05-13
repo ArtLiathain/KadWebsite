@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 public class MutationScript {
   private int getMutationCoverage(){
     try {
-      String filePath = "../../app/build/reports/pitest/debug/mutations.xml";
+      String filePath = "build/reports/pitest/debug/mutations.xml";
       File file = new File(filePath);
       JAXBContext jaxbContext = JAXBContext.newInstance(Mutations.class);
 

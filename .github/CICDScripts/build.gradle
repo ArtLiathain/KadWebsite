@@ -3,7 +3,7 @@ plugins {
     id "application"
 }
 
-apply plugin : "java"
+apply plugin : 'java'
 sourceSets.main.java.srcDirs = ['src/main/java/org.example']
 ext {
     javaMainClass = "MutationScript"

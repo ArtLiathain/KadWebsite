@@ -30,3 +30,5 @@ This project was completed with the intention of having a full working applicati
 ![Coverage](.github/badges/jacoco.svg)  
 
 ![Branches](.github/badges/branches.svg)
+
+![Strength](.github/CICDScripts/Images/Current_Image.svg)

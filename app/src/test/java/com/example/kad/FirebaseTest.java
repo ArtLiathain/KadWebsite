@@ -1,20 +1,22 @@
-package com.example.kad;
-
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.junit.Before;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-public class FirebaseTest {
-
-    @Mock
-    private FirebaseFirestore db;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
+//package com.example.kad;
+//
+//import com.google.firebase.firestore.FirebaseFirestore;
+//
+//import org.junit.Before;
+//
+//import org.mockito.Mock;
+//import org.mockito.MockitoAnnotations;
+//
+//
+//public class FirebaseTest {
+//
+//    @Mock
+//    private FirebaseFirestore db;
+//
+//    @Before
+//    public void setUp() {
+//        MockitoAnnotations.initMocks(this);
+//    }
 
 //    @Test
 //    public void testAddBooking_Logs() {
@@ -60,4 +62,4 @@ public class FirebaseTest {
 //        // No assertion is needed for void methods like checkFirestore
 //        // The test will pass if no exceptions are thrown and the code executes without errors.
 //    }
-}
+// }

@@ -27,7 +27,7 @@ public class RoomSelection extends AppCompatActivity {
         buttonRoom3 = findViewById(R.id.room3);
 
 
-        Room1.setOnClickListener(new View.OnClickListener() {
+        buttonRoom1.setOnClickListener(new View.OnClickListener() {
             @Generated
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class RoomSelection extends AppCompatActivity {
             }
         });
 
-        Room2.setOnClickListener(new View.OnClickListener() {
+        buttonRoom2.setOnClickListener(new View.OnClickListener() {
             @Generated
             @Override
             public void onClick(View view) {
@@ -47,7 +47,7 @@ public class RoomSelection extends AppCompatActivity {
             }
         });
 
-        Room3.setOnClickListener(new View.OnClickListener() {
+        buttonRoom3.setOnClickListener(new View.OnClickListener() {
             @Generated
             @Override
             public void onClick(View view) {

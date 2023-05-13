@@ -58,8 +58,8 @@ public class RoomBookingPage extends AppCompatActivity {
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
-        roomBookingPageLogic RoomBookingPageLogicLogic = new roomBookingPageLogic();
-        List<String> listHoursAvailable = RoomBookingPageLogicLogic.functionListHoursAvailable();
+        roomBookingPageLogic roomBookingPageLogicLogic = new roomBookingPageLogic();
+        List<String> listHoursAvailable = roomBookingPageLogicLogic.functionListHoursAvailable();
 
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
         // Styles dropdown of numbers nicely

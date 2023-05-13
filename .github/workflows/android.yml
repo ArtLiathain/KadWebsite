@@ -167,6 +167,7 @@ jobs :
       - uses : actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
+          path: ./.github/CICDScripts
 
       - name : set up JDK 11
         uses : actions/setup-java@v3

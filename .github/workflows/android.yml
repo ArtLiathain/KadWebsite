@@ -97,7 +97,7 @@ jobs :
         uses : actions/upload-artifact@v2
         with :
           name : jacoco-report
-          path : target/site/jacoco/
+          path : build/jacoco/jacocoHtml/index.html
 
   Mutation-Testing :
     runs-on : ubuntu-latest
@@ -120,11 +120,12 @@ jobs :
       - name : Run Mutation Tests
         run : ./gradlew pitest
 
-      - name : Upload Mutation coverage report
+      - name : Upload HTML Mutation report
         uses : actions/upload-artifact@v2
         with :
-          name : mutation-report
-          path : target/site/reports/pitest/debug/
+          name : index.html
+          path : app/build/reports/pitest/debug/index.html
+
 
   Mutation-Report:
       runs-on : ubuntu-latest

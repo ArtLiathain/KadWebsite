@@ -107,10 +107,15 @@ jobs :
         uses : actions/checkout@v2
 
       - name : Run espresso tests
-        uses : reactivecircus/android-emulator-runner@v3
+        uses : android-actions/setup-android@v2
         with :
-          api-level : 33
-          script : ./gradlew connectedCheck
+          sdk-platform: 'android-31'
+          build-tools: '31.0.0'
+
+      - name: Build and test
+        run: |
+          ./gradlew clean assembleDebug
+          ./gradlew connectedAndroidTest
 
       - name : Upload test report
         uses : actions/upload-artifact@v2

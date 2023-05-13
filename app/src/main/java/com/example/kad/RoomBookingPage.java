@@ -15,7 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 import java.util.List;
-import com.example.kad.roomBookingPageLogic;
+import com.example.kad.RoomBookingPageLogic;
 
 
 public class RoomBookingPage extends AppCompatActivity {
@@ -58,7 +58,7 @@ public class RoomBookingPage extends AppCompatActivity {
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
-        roomBookingPageLogic roomBookingPageLogicLogic = new roomBookingPageLogic();
+        RoomBookingPageLogic roomBookingPageLogicLogic = new RoomBookingPageLogic();
         List<String> listHoursAvailable = roomBookingPageLogicLogic.functionListHoursAvailable();
 
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);

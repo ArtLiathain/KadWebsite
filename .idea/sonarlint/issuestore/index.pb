@@ -7,10 +7,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-d
-4app/src/main/java/com/example/kad/RoomSelection.java,5\b\5b3785bda02874eef23b1650771d311449b1ca8e
 `
 0app/src/main/java/com/example/kad/Generated.java,8\0\802a57ac4ac7b63b353872e761a1334f96cdc6fc
 l

@@ -26,6 +26,7 @@ public class RoomBookingPage extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
+    @Generated
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_booking_page);
@@ -49,6 +50,7 @@ public class RoomBookingPage extends AppCompatActivity {
         datePicker = findViewById(R.id.datePicker);
         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
+            @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Toast.makeText(RoomBookingPage.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
             }
@@ -67,11 +69,13 @@ public class RoomBookingPage extends AppCompatActivity {
 // ------------------------------------------------------------------------
         hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
+            @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), "The Selected Hours -> " + selectedItem, Toast.LENGTH_SHORT).show();
             }
             @Override
+            @Generated
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
             }

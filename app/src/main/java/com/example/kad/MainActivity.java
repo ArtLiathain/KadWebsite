@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    @Generated
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            @Generated
             public void onClick(View view) {
                 // ensuring that all fields are filled
                 if (TextUtils.isEmpty(name.getText()) | TextUtils.isEmpty(email.getText()) | TextUtils.isEmpty(studentNumberEditText.getText())) {
@@ -91,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
         checkDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            @Generated
             public void onClick(View view) {
                 firebase.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
             }
         });
         dates.setOnClickListener(new View.OnClickListener() {
             @Override
+            @Generated
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
                 firebase.getDates();
@@ -109,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
+            @Generated
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);

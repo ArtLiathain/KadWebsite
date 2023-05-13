@@ -18,6 +18,7 @@ public class RoomSelection extends AppCompatActivity {
 
 
     @Override
+    @Generated
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_selection);

@@ -120,6 +120,12 @@ jobs :
       - name : Run Mutation Tests
         run : ./gradlew pitest
 
+      - name : Upload Mutation coverage report
+        uses : actions/upload-artifact@v2
+        with :
+          name : mutation-report
+          path : target/site/reports/pitest/debug/
+
   Mutation-Report:
       runs-on : ubuntu-latest
       needs : [ Mutation-Testing ]

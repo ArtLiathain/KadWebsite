@@ -137,7 +137,7 @@ jobs :
             path: ./.github/CICDScripts/.
          
         - name : echo folder
-          run : ls
+          run : ls -la
         
         - name : set up JDK 11
           uses : actions/setup-java@v3

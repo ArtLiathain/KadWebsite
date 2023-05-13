@@ -134,11 +134,6 @@ jobs :
         - uses : actions/checkout@v3
           with :
             ref : ${{ github.event.pull_request.head.ref }}
-            path: ./.github/CICDScripts/.
-         
-        - name : echo folder
-          run : |
-            ls
         
         - name : set up JDK 11
           uses : actions/setup-java@v3
@@ -147,10 +142,14 @@ jobs :
             distribution : 'temurin'
 
         - name : Grant execute permission for gradlew
-          run : chmod +x gradlew
+          run : |
+            cd ./.github/CICDScripts
+            chmod +x gradlew
 
         - name: Generate Badge
-          run: ./gradlew run
+          run: | 
+            ./.github/CICDScripts
+            ./gradlew run
 
         - name : Commit and push the badge (if it changed)
           uses : EndBug/add-and-commit@v9

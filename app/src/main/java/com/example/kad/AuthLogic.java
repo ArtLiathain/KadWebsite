@@ -54,16 +54,6 @@ public class AuthLogic {
 
         }
     }
-    public void playAudio() {
-        MediaPlayer mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("res/raw/entry.mp3");
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        } catch (Exception e) {
-
-        }
-    }
     public boolean colorAccessibility(int[] color1, int[] color2){
 
         int theL1 = (int) (0.2126 * color1[0] + 0.7152 * color1[1] + 0.0722 * color1[2]);

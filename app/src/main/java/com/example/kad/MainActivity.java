@@ -28,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button checkDataButton;
     Button dates;
     Button skipToRoomSelectionBtn;
-
     TextView txt1;
-    MediaPlayer player;
     CheckBox termsCheckBox;
 
 
@@ -45,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         dates = findViewById(R.id.dates);
         submitButton = findViewById(R.id.send_btn);
         AuthLogic authLogic = new AuthLogic();
-        authLogic.playAudio();
         checkDataButton = findViewById(R.id.check_data);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 

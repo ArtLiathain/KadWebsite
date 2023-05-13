@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RoomSelection extends AppCompatActivity {
 
-    Button Room1, Room2, Room3;
+    Button buttonRoom1;
+    Button buttonRoom2;
+    Button buttonRoom3;
 
 
     @Override
@@ -20,11 +22,11 @@ public class RoomSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_selection);
 
-        Room1 = findViewById(R.id.room1);
-        Room2 = findViewById(R.id.room2);
-        Room3 = findViewById(R.id.room3);
+        buttonRoom1 = findViewById(R.id.room1);
+        buttonRoom2 = findViewById(R.id.room2);
+        buttonRoom3 = findViewById(R.id.room3);
 
-        Room1.setOnClickListener(new View.OnClickListener() {
+        buttonRoom1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
@@ -33,7 +35,7 @@ public class RoomSelection extends AppCompatActivity {
             }
         });
 
-        Room2.setOnClickListener(new View.OnClickListener() {
+        buttonRoom2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
@@ -42,7 +44,7 @@ public class RoomSelection extends AppCompatActivity {
             }
         });
 
-        Room3.setOnClickListener(new View.OnClickListener() {
+        buttonRoom3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);

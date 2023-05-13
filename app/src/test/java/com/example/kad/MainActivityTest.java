@@ -31,7 +31,7 @@ public class MainActivityTest  {
     @Test
     public void student_num_len() {
         assertEquals(true, authLogic.studentNumLen(22349111)); // 8 numbers- pass
-        assertEquals(true, authLogic.studentNumLen(1));// 1 number-fail
+        assertEquals(false, authLogic.studentNumLen(1));// 1 number-fail
 
     }
 

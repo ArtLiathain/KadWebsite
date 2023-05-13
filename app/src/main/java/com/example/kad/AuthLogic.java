@@ -4,6 +4,8 @@ import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.CheckBox;
 
+import java.io.IOException;
+
 public class AuthLogic {
     public boolean validLength(String name) {
         return (name.length() <= 70 && name.length() > 0);
@@ -11,7 +13,7 @@ public class AuthLogic {
 
     public boolean stringAlphabet(String name) {
         if (!validLength(name)){return false;}
-        return name.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]+)*$");
+        return name.matches("^(?>[A-Za-z]+)(?>[',. -][a-zA-Z ]+)(?>[a-zA-Z])$");
     }
 
 
@@ -28,7 +30,7 @@ public class AuthLogic {
 
     public boolean emailFormat(String email) {
         if(email.length() > 40){return false;}
-        return email.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]+)*$");
+        return email.matches("^(?>[A-Za-z]+)@(?>[',. -][a-zA-Z ]+)\\.(?>[a-zA-Z])$");
     }
 
     public boolean studentNumLen(int number) {
@@ -50,6 +52,8 @@ public class AuthLogic {
             // Do something if the CheckBox is not checked
             Log.d("MyApp", "The CheckBox is not checked");
             return false;
+
+
 
 
         }

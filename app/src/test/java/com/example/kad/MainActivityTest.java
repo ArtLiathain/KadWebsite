@@ -1,11 +1,11 @@
 package com.example.kad;
 
-import static org.junit.Assert.assertEquals;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
 
 public class MainActivityTest  {
     AuthLogic authLogic = new AuthLogic();
@@ -26,14 +26,14 @@ public class MainActivityTest  {
 
         // Test case 1: Single item
         assertEquals(true, authLogic.validLength("Karl Gilmartin"));
-        assertEquals(true, authLogic.validLength("k"));
+        assertEquals(true, authLogic.validLength("K"));
     }
 
     @Test
     public void name_chars() {
         assertEquals(false, authLogic.stringAlphabet("Brid O'Dea"));
         assertEquals(false, authLogic.stringAlphabet("Karl Gilmartín"));
-        // this is false, the current system doesn't accept "í"
+//         this is false, the current system doesn't accept "í"
     }
 
     @Test
@@ -62,6 +62,8 @@ public class MainActivityTest  {
 //        MainActivity dummyV = mock(MainActivity.class);
 //        assertEquals(true,dummyV.checkBox(checkBox));
 //    }
+
+
 
     @Test
     public void testColorAccessibility() {

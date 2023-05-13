@@ -136,9 +136,6 @@ jobs :
             ref : ${{ github.event.pull_request.head.ref }}
             
         - name : Get to the right folder
-          run : |
-            cd .github
-            cd CICDScripts
           working-directory: ./.github/CICDScripts
 
         - name : set up JDK 11

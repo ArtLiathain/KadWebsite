@@ -12,6 +12,10 @@ jacocoAndroidUnitTestReport {
     xml.enabled false
 }
 
+
+
+
+
 pitest {
     targetClasses = ['com.example.kad.*']
     outputFormats = ['XML', 'HTML']
@@ -52,6 +56,7 @@ android {
     }
     testOptions {
         unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
     }
 
 

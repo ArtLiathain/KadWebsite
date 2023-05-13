@@ -53,6 +53,9 @@ public class AuthLogic {
             Log.d("MyApp", "The CheckBox is not checked");
             return false;
 
+
+
+
         }
     }
     public boolean colorAccessibility(int[] color1, int[] color2){

@@ -1,17 +1,0 @@
-
-W
-java:S1126"AReplace this if-then-else statement by a single return statement.(íá
-|
-java:S2178"fCorrect this "&" to "&&" and extract the right operand to a variable if it should always be evaluated.(íá
-B
-java:S1125"'Remove the unnecessary boolean literal.(·‰âõÿÿÿÿÿ
-g
-java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(ë‚Œúÿÿÿÿ
-V
-java:S1126"AReplace this if-then-else statement by a single return statement.(—êŸ
-g
-java:S5998&"LRefactor this repetition that can lead to a stack overflow for large inputs.(ÚÉ’ãÿÿÿÿÿ
-\
-java:S1126+"AReplace this if-then-else statement by a single return statement.(î’­Éşÿÿÿÿ
-W
-java:S11262"AReplace this if-then-else statement by a single return statement.(Ú¶‰¼

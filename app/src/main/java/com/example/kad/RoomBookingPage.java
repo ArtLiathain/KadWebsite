@@ -21,7 +21,6 @@ import com.example.kad.RoomBookingPageLogic;
 public class RoomBookingPage extends AppCompatActivity {
 
 
-    Button roomSelectionButton;
     Spinner hoursAvailable;
     DatePicker datePicker;
 
@@ -33,9 +32,10 @@ public class RoomBookingPage extends AppCompatActivity {
         setContentView(R.layout.room_booking_page);
 
 // ---------------------------------Back Button---------------------------------
-
-        roomSelectionButton = findViewById(R.id.backButtonRoomSelection);
-        roomSelectionButton.setOnClickListener(new View.OnClickListener() {
+        Button RoomSelection;
+        RoomSelection = findViewById(R.id.backButtonRoomSelection);
+        RoomSelection.setOnClickListener(new View.OnClickListener() {
+            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);

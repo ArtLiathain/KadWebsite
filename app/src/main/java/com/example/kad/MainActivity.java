@@ -28,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button checkDataButton;
     Button dates;
     Button skipToRoomSelectionBtn;
-
     TextView txt1;
-    MediaPlayer player;
     CheckBox termsCheckBox;
 
 

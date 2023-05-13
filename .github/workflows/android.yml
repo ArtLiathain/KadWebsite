@@ -137,8 +137,7 @@ jobs :
             
         - name: Echo current directory
           run: |
-            cd ..
-            ls
+            ls -a
             
         - name : Get to the right folder
           run: cd ./.github/CICDScripts

@@ -134,8 +134,21 @@ jobs :
             java-version : '11'
             distribution : 'temurin'
 
+        - name : Grant execute permission for gradlew
+          run : chmod +x gradlew
 
+        - name : Generate Badge
+          run : |
+            cd .github
+            cd CICDScripts
+            ./gradlew run
 
+        - name : Commit and push the badge (if it changed)
+          uses : EndBug/add-and-commit@v9
+          with :
+            default_author : github_actions
+            message : 'commit badge'
+            add : '*.svg'
 
 
   Build :

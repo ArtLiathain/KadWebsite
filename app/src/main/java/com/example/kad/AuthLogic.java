@@ -4,6 +4,8 @@ import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.CheckBox;
 
+import java.io.IOException;
+
 public class AuthLogic {
     public boolean validLength(String name) {
         return (name.length() <= 70 && name.length() > 0);
@@ -60,8 +62,8 @@ public class AuthLogic {
             mediaPlayer.setDataSource("res/raw/entry.mp3");
             mediaPlayer.prepare();
             mediaPlayer.start();
-        } catch (Exception e) {
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public boolean colorAccessibility(int[] color1, int[] color2){

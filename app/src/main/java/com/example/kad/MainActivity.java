@@ -6,7 +6,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,15 +20,18 @@ import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
+    EditText email;
+    EditText studentNumberEditText;
+    EditText name;
 
-    EditText email, student_num, name;
-
-    Button submit_btn, check_data, dates;
+    Button submitButton;
+    Button checkDataButton;
+    Button dates;
     Button skipToRoomSelectionBtn;
 
     TextView txt1;
     MediaPlayer player;
-    CheckBox terms_box;
+    CheckBox termsCheckBox;
 
 
     @Override
@@ -39,35 +41,32 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         name = findViewById(R.id.name);
-        student_num = findViewById(R.id.student_num);
+        studentNumberEditText = findViewById(R.id.student_num);
         dates = findViewById(R.id.dates);
-        submit_btn = findViewById(R.id.send_btn);
+        submitButton = findViewById(R.id.send_btn);
         AuthLogic authLogic = new AuthLogic();
         authLogic.playAudio();
-        check_data = findViewById(R.id.check_data);
+        checkDataButton = findViewById(R.id.check_data);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
         txt1 = findViewById(R.id.txt1);
-        terms_box = findViewById(R.id.term_box);
+        termsCheckBox = findViewById(R.id.term_box);
 
-        terms_box.setText("By checking this box, you agree to our terms of service and privacy policy at https://google.ie");
-        terms_box.setMovementMethod(LinkMovementMethod.getInstance());
-
+        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy at https://google.ie");
+        termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
 
         name.setError("Name is required!");
         email.setError("Email is required!");
-        student_num.setError("Student Number is required!");
+        studentNumberEditText.setError("Student Number is required!");
 
-        AuthLogic AuthLogic = new AuthLogic();
         Firebase firebase = new Firebase();
-        DateTimeLogic dateTimeLogic = new DateTimeLogic();
 
-        submit_btn.setOnClickListener(new View.OnClickListener() {
-            @Generated
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // ensuring that all fields are filled
-                if (TextUtils.isEmpty(name.getText()) | TextUtils.isEmpty(email.getText()) | TextUtils.isEmpty(student_num.getText())) {
+                if (TextUtils.isEmpty(name.getText()) | TextUtils.isEmpty(email.getText()) | TextUtils.isEmpty(studentNumberEditText.getText())) {
                     Toast.makeText(MainActivity.this, "Enter your fucking data", Toast.LENGTH_SHORT).show();
                     txt1.setText("You must fill in every field");
                 } else {
@@ -75,66 +74,49 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // ensuring all fields are following the logic in logic1.java
-                if (AuthLogic.studentNumYear(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.studentNumLen(Integer.parseInt(student_num.getText().toString())) == false | AuthLogic.emailFormat(email.getText().toString()) == true | AuthLogic.validLength(name.getText().toString()) == false | AuthLogic.stringAlphabet(name.getText().toString()) == false | AuthLogic.blacklist(name.getText().toString()) == false) {
+                if (!authLogic.studentNumYear(Integer.parseInt(studentNumberEditText.getText().toString())) || !authLogic.studentNumLen(Integer.parseInt(studentNumberEditText.getText().toString())) || authLogic.emailFormat(email.getText().toString()) || !authLogic.validLength(name.getText().toString()) || !authLogic.stringAlphabet(name.getText().toString()) || !authLogic.blacklist(name.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Some of the data which you have entered is incorrect ", Toast.LENGTH_SHORT).show();
 
-                } else if (AuthLogic.checkBox(terms_box) == false) {
+                } else if (!authLogic.checkBox(termsCheckBox)) {
                     Toast.makeText(MainActivity.this, "You must agree to our Terms", Toast.LENGTH_SHORT).show();
 
                 } else {
                     Toast.makeText(MainActivity.this, "data is entered and is valid  ", Toast.LENGTH_SHORT).show();
-                    firebase.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(student_num.getText().toString()));
+                    firebase.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()));
                     txt1.setText("Valid data entered");
                 }
-
 
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);
 
-
             }
         });
 
-    check_data.setOnClickListener(
-        new View.OnClickListener() {
-          @Generated
-          @Override
-          public void onClick(View view) {
-            Log.d("temp ", "hello");
-            //                firebase.checkFirestore(name.getText().toString(),
-            // Integer.parseInt(student_num.getText().toString()), email.getText().toString());
-          }
+        checkDataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebase.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
+            }
         });
         dates.setOnClickListener(new View.OnClickListener() {
-            @Generated
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
                 firebase.getDates();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-                Date dates_s = new Date(1220701200000L);
-                Date dates_e = new Date(1222701200000L);
-                Date date_s = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
-                Date date_e = new Date(122, 4, 2, 13, 00, 00);
+                Date dateS = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
+                Date dateE = new Date(122, 4, 2, 13, 00, 00);
 
-                firebase.addBooking(1, true, 22349111, (date_s), (date_e));
+                firebase.addBooking(1, true, 22349111, (dateS), (dateE));
             }
         });
 
-
         skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
-            @Generated
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "The Skip to Selection Button Works", Toast.LENGTH_SHORT).show();
-
             }
         });
-
     }
-
-
-
 }

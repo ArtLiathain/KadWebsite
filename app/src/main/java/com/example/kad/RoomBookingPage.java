@@ -21,6 +21,7 @@ public class RoomBookingPage extends AppCompatActivity {
     Spinner hoursAvailable;
     DatePicker datePicker;
     Button buttonToRoomSelection;
+    Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
 
     @SuppressLint("MissingInflatedId")
@@ -50,6 +51,19 @@ public class RoomBookingPage extends AppCompatActivity {
                 Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
                 startActivity(intent);
                 Toast.makeText(RoomBookingPage.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+// -----------------------------Place Booking Button---------------------------------
+        buttonToPlaceBooking = findViewById(R.id.placeBookingButton);
+        buttonToPlaceBooking.setOnClickListener(new View.OnClickListener() {
+            @Generated
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
+//                startActivity(intent);
+                Toast.makeText(RoomBookingPage.this, "The Place Booking Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,5 +104,7 @@ public class RoomBookingPage extends AppCompatActivity {
                 // Do nothing
             }
         });
+
+
     }
 }

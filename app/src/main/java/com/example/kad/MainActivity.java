@@ -2,7 +2,6 @@ package com.example.kad;
 
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -15,19 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 public class MainActivity extends AppCompatActivity {
-    EditText email;
-    EditText studentNumberEditText;
-    EditText name;
-
-    Button submitButton;
-    Button checkDataButton;
-    Button dates;
-    Button skipToRoomSelectionBtn;
+    EditText email,name, studentNumberEditText;
+    Button submitButton, skipToRoomSelectionBtn;
     TextView txt1;
     CheckBox termsCheckBox;
 
@@ -41,16 +31,14 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         name = findViewById(R.id.name);
         studentNumberEditText = findViewById(R.id.student_num);
-        dates = findViewById(R.id.dates);
         submitButton = findViewById(R.id.send_btn);
         AuthLogic authLogic = new AuthLogic();
-        checkDataButton = findViewById(R.id.check_data);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
         txt1 = findViewById(R.id.txt1);
         termsCheckBox = findViewById(R.id.term_box);
 
-        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy at https://google.ie");
+        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy ");
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
 
         name.setError("Name is required!");
@@ -88,26 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);
 
-            }
-        });
-
-        checkDataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @Generated
-            public void onClick(View view) {
-                firebase.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
-            }
-        });
-        dates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @Generated
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
-                firebase.getDates();
-                Date dateS = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
-                Date dateE = new Date(122, 4, 2, 13, 00, 00);
-
-                firebase.addBooking(1, true, 22349111, (dateS), (dateE));
             }
         });
 

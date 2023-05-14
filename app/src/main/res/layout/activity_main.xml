@@ -77,10 +77,10 @@
         android:text="smaple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/student_num"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <CheckBox
         android:id="@+id/term_box"
@@ -92,32 +92,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-
-        android:id="@+id/check_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#03A9F4"
-        android:backgroundTintMode="add"
-        android:hapticFeedbackEnabled="false"
-        android:text="Check data "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/send_btn"
-        app:layout_constraintVertical_bias="0.543" />
-
-    <Button
-        android:id="@+id/dates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Test Dates"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/student_num" />
     <Button
         android:id="@+id/skipRoomSelect_btn"
         android:layout_width="wrap_content"

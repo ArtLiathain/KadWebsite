@@ -38,7 +38,7 @@ public class DateTimeLogic {
     APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");
 
     QueryParams params = new QueryParams();
-    params.key("")
+    params.key(BuildConfig.HOLIDAY_API_KEY)
             .day(stevensDay.getDayOfMonth())
             .month(stevensDay.getMonthValue())
             .country(QueryParams.Country.IRELAND)

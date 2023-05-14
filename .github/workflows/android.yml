@@ -48,6 +48,11 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
 
+      - name : Access HOLIDAY_API_KEY
+        env :
+          HOLIDAY_API_KEY : $
+        run : echo HOLIDAY_API_KEY=\"$HOLIDAY_API_KEY\" > ./local.properties
+
       # Execute unit tests
       - name : Unit Test
         run : ./gradlew testDebugUnitTest
@@ -117,6 +122,11 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
 
+      - name : Access HOLIDAY_API_KEY
+        env :
+          HOLIDAY_API_KEY : $
+        run : echo HOLIDAY_API_KEY=\"$HOLIDAY_API_KEY\" > ./local.properties
+
       - name : Run Mutation Tests
         run : ./gradlew pitest
 
@@ -161,6 +171,11 @@ jobs :
 
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
+
+      - name : Access HOLIDAY_API_KEY
+        env :
+          HOLIDAY_API_KEY : $
+        run : echo HOLIDAY_API_KEY=\"$HOLIDAY_API_KEY\" > ./local.properties
 
       - name : Build with Gradle
         run : ./gradlew build

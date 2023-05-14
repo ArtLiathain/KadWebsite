@@ -19,8 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class BookingConfirmation extends AppCompatActivity {
-    Button k;
-    TextView j;
+    Button buttonToRoomSelection;
+    TextView textViewMessage;
 
     @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -30,8 +30,19 @@ public class BookingConfirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_confirmation_page);
 
+        buttonToRoomSelection = findViewById(R.id.returnToRoomSelectionButton);
 
 
+//----------------------------Return to Room Selection Page----------------------------------------
+        buttonToRoomSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            @Generated
+            public void onClick(View view) {
+                Intent intent = new Intent(BookingConfirmation.this, RoomSelection.class);
+                startActivity(intent);
+                Toast.makeText(BookingConfirmation.this, "The Return to Room Selection Button Works", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

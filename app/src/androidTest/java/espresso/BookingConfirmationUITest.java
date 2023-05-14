@@ -2,6 +2,7 @@ package espresso;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyAbove;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyLeftOf;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyRightOf;
@@ -23,10 +24,15 @@ public class BookingConfirmationUITest {
     @Rule
     public ActivityScenarioRule<BookingConfirmation> activityRule =
             new ActivityScenarioRule<BookingConfirmation>(BookingConfirmation.class);
+
     @Test
     public void ConfirmationMessageDisplayed() {
        onView(withId(R.id.textViewMessage)).check(matches(isDisplayed()));
-
+       onView(withId(R.id.textViewMessage)).check(isCompletelyAbove(withId(R.id.returnToRoomSelectionButton)));
     }
-
+    @Test
+    public void ReturnButtonDisplayedAndClickable() {
+        onView(withId(R.id.returnToRoomSelectionButton)).check((matches(isDisplayed())));
+        onView(withId(R.id.returnToRoomSelectionButton)).check(isCompletelyBelow(withId(R.id.textViewMessage)));
+    }
 }

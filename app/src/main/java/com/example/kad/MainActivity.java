@@ -32,21 +32,18 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         studentNumberEditText = findViewById(R.id.student_num);
         submitButton = findViewById(R.id.send_btn);
-        AuthLogic authLogic = new AuthLogic();
-        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
-
         txt1 = findViewById(R.id.txt1);
         termsCheckBox = findViewById(R.id.term_box);
+        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
         termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy ");
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
-
         name.setError("Name is required!");
         email.setError("Email is required!");
         studentNumberEditText.setError("Student Number is required!");
 
         Firebase firebase = new Firebase();
-
+        AuthLogic authLogic = new AuthLogic();
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

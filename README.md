@@ -13,14 +13,25 @@ This project was completed with the intention of having a full working applicati
 
 ## Testing and Contribution
 # Unit Testing
+**Main Activity/ Authentication Logic** - Karl
+
+
 
 # UI Testing
+**Main Activity** - Karl
+**Toast Matcher** - Karl
 
 # Mutation Testing
 
 # Coveage Testing
 
 # App Devlopment and Integration
+**Main Activity** - Karl
+
+
+
+# Extras
+**Firebase Logic and Implementation** - Karl 
 
 ....
 

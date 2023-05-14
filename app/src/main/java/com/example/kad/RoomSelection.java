@@ -32,7 +32,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
+                String room1Argument = "Room 1 - Conference Room";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                intent.putExtra("roomArgumentKey", room1Argument);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room1 Button Works", Toast.LENGTH_SHORT).show();
             }
@@ -42,7 +44,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
+                String room2Argument = "Room 2 - Some Room";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                intent.putExtra("roomArgumentKey", room2Argument);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room2 Button Works", Toast.LENGTH_SHORT).show();
             }
@@ -52,7 +56,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
+                String room3Argument = "Room 3 - Another Room";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                intent.putExtra("roomArgumentKey", room3Argument);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
             }

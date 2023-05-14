@@ -24,6 +24,7 @@ public class RoomBookingPage extends AppCompatActivity {
     Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
 
+
     @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -40,7 +41,6 @@ public class RoomBookingPage extends AppCompatActivity {
             textOfRoomInfo.setText(passedArgument);
             Toast.makeText(RoomBookingPage.this, passedArgument, Toast.LENGTH_SHORT).show();
         }
-
 
 // ---------------------------------Back Button---------------------------------
         buttonToRoomSelection = findViewById(R.id.backButtonRoomSelection);
@@ -104,7 +104,6 @@ public class RoomBookingPage extends AppCompatActivity {
                 // Do nothing
             }
         });
-
 
     }
 }

@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
 
 public class BookingConfirmation extends AppCompatActivity {
     Button buttonToRoomSelection;
@@ -30,10 +25,9 @@ public class BookingConfirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_confirmation_page);
 
-        buttonToRoomSelection = findViewById(R.id.returnToRoomSelectionButton);
-
 
 //----------------------------Return to Room Selection Page----------------------------------------
+        buttonToRoomSelection = findViewById(R.id.returnToRoomSelectionButton);
         buttonToRoomSelection.setOnClickListener(new View.OnClickListener() {
             @Override
             @Generated

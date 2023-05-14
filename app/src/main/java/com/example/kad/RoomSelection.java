@@ -11,11 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class RoomSelection extends AppCompatActivity {
-
     Button buttonRoom1;
     Button buttonRoom2;
     Button buttonRoom3;
-
 
     @Override
     @Generated
@@ -26,7 +24,6 @@ public class RoomSelection extends AppCompatActivity {
         buttonRoom1 = findViewById(R.id.room1);
         buttonRoom2 = findViewById(R.id.room2);
         buttonRoom3 = findViewById(R.id.room3);
-
 
         buttonRoom1.setOnClickListener(new View.OnClickListener() {
             @Generated
@@ -44,7 +41,7 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                String room2Argument = "Room 2 - Some Room";
+                String room2Argument = "Room 2 - Forest";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
                 intent.putExtra("roomArgumentKey", room2Argument);
                 startActivity(intent);
@@ -56,17 +53,12 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                String room3Argument = "Room 3 - Another Room";
+                String room3Argument = "Room 3 - Office Space";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
                 intent.putExtra("roomArgumentKey", room3Argument);
                 startActivity(intent);
                 Toast.makeText(RoomSelection.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
     }
-
-
 }

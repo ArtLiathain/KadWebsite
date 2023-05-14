@@ -10,18 +10,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.Arrays;
 import java.util.List;
-import com.example.kad.RoomBookingPageLogic;
 
 
 public class RoomBookingPage extends AppCompatActivity {
-
     Spinner hoursAvailable;
     DatePicker datePicker;
+    Button buttonToRoomSelection;
+    Button buttonToPlaceBooking;
+    TextView textOfRoomInfo;
+
 
     @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -31,8 +33,16 @@ public class RoomBookingPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_booking_page);
 
+//-------------------------Argument Passed Into TextView---------------------------
+        textOfRoomInfo = findViewById(R.id.textViewRoomInfo);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String passedArgument = extras.getString("roomArgumentKey");
+            textOfRoomInfo.setText(passedArgument);
+            Toast.makeText(RoomBookingPage.this, passedArgument, Toast.LENGTH_SHORT).show();
+        }
+
 // ---------------------------------Back Button---------------------------------
-        Button buttonToRoomSelection;
         buttonToRoomSelection = findViewById(R.id.backButtonRoomSelection);
         buttonToRoomSelection.setOnClickListener(new View.OnClickListener() {
             @Generated
@@ -41,6 +51,19 @@ public class RoomBookingPage extends AppCompatActivity {
                 Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
                 startActivity(intent);
                 Toast.makeText(RoomBookingPage.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+// -----------------------------Place Booking Button---------------------------------
+        buttonToPlaceBooking = findViewById(R.id.placeBookingButton);
+        buttonToPlaceBooking.setOnClickListener(new View.OnClickListener() {
+            @Generated
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RoomBookingPage.this, BookingConfirmation.class);
+                startActivity(intent);
+                Toast.makeText(RoomBookingPage.this, "The Place Booking Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -55,6 +78,7 @@ public class RoomBookingPage extends AppCompatActivity {
                 Toast.makeText(RoomBookingPage.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
             }
         });
+
 
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
@@ -80,5 +104,6 @@ public class RoomBookingPage extends AppCompatActivity {
                 // Do nothing
             }
         });
+
     }
 }

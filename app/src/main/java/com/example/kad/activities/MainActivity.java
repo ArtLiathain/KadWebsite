@@ -14,23 +14,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.example.kad.AuthLogic;
 import com.example.kad.FirebaseLogic;
 import com.example.kad.Generated;
 import com.example.kad.R;
 
-import java.util.Date;
 
 @Generated
 public class MainActivity extends AppCompatActivity {
-    EditText email;
-    EditText studentNumberEditText;
-    EditText name;
-
-    Button submitButton;
-    Button checkDataButton;
-    Button dates;
-    Button skipToRoomSelectionBtn;
+    EditText email,name, studentNumberEditText;
+    Button submitButton, skipToRoomSelectionBtn;
     TextView txt1;
     CheckBox termsCheckBox;
 
@@ -44,23 +38,20 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         name = findViewById(R.id.name);
         studentNumberEditText = findViewById(R.id.student_num);
-        dates = findViewById(R.id.dates);
         submitButton = findViewById(R.id.send_btn);
-        AuthLogic authLogic = new AuthLogic();
-        checkDataButton = findViewById(R.id.check_data);
-        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
-
         txt1 = findViewById(R.id.txt1);
         termsCheckBox = findViewById(R.id.term_box);
+        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
-        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy at https://google.ie");
+        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy ");
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
-
         name.setError("Name is required!");
         email.setError("Email is required!");
         studentNumberEditText.setError("Student Number is required!");
 
         FirebaseLogic firebaseLogic = new FirebaseLogic();
+
+        AuthLogic authLogic = new AuthLogic();
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -94,25 +85,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        checkDataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @Generated
-            public void onClick(View view) {
-                firebaseLogic.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
-            }
-        });
-        dates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @Generated
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
-                firebaseLogic.getDates();
-                Date dateS = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
-                Date dateE = new Date(122, 4, 2, 13, 00, 00);
-
-                firebaseLogic.addBooking(1, true, 22349111, (dateS), (dateE));
-            }
-        });
         skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             @Generated

@@ -1,19 +1,16 @@
 package com.example.kad;
 
-import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.CheckBox;
 
-import java.io.IOException;
-
 public class AuthLogic {
     public boolean validLength(String name) {
-        return (name.length() <= 70 && name.length() > 0);
+        return (name.length() <= 70 && name.length() > 5);
     }
 
     public boolean stringAlphabet(String name) {
         if (!validLength(name)){return false;}
-        return name.matches("^(?>[A-Za-z]+)(?>[',. -][a-zA-Z ]+)(?>[a-zA-Z])$");
+        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
     }
 
 
@@ -52,14 +49,10 @@ public class AuthLogic {
             // Do something if the CheckBox is not checked
             Log.d("MyApp", "The CheckBox is not checked");
             return false;
-
-
-
-
         }
     }
     public boolean colorAccessibility(int[] color1, int[] color2){
-
+        // Checking that the colors used in the application are suitble to those who may have a visual impariment
         int theL1 = (int) (0.2126 * color1[0] + 0.7152 * color1[1] + 0.0722 * color1[2]);
         int theL2 = (int) (0.2126 * color2[0] + 0.7152 * color2[1] + 0.0722 * color2[2]);
         int ratio = (int) ((theL1 + 0.05) / (theL2 + 0.05));

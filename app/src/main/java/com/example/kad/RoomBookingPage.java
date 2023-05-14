@@ -61,8 +61,8 @@ public class RoomBookingPage extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
-//                startActivity(intent);
+                Intent intent = new Intent(RoomBookingPage.this, BookingConfirmation.class);
+                startActivity(intent);
                 Toast.makeText(RoomBookingPage.this, "The Place Booking Button Works", Toast.LENGTH_SHORT).show();
             }
         });

@@ -24,12 +24,12 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Firebase {
+public class FirebaseLogic {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference docRef = db.collection("Logins");
     CollectionReference bookingsRef = db.collection("Bookings");
 
-    private static final Logger LOGGER = Logger.getLogger(Firebase.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(FirebaseLogic.class.getName());
 
 
     String studentNumber = "Student Number";

@@ -1,8 +1,7 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -15,10 +14,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.SimpleDateFormat;
+import com.example.kad.AuthLogic;
+import com.example.kad.FirebaseLogic;
+import com.example.kad.Generated;
+import com.example.kad.R;
+
 import java.util.Date;
 
-
+@Generated
 public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText studentNumberEditText;
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         email.setError("Email is required!");
         studentNumberEditText.setError("Student Number is required!");
 
-        Firebase firebase = new Firebase();
+        FirebaseLogic firebaseLogic = new FirebaseLogic();
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -81,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(MainActivity.this, "data is entered and is valid  ", Toast.LENGTH_SHORT).show();
-                    firebase.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()));
+                    firebaseLogic.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()));
                     txt1.setText("Valid data entered");
                 }
 
-                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                Intent intent = new Intent(MainActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
 
             }
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onClick(View view) {
-                firebase.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
+                firebaseLogic.checkFirestore(name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()), email.getText().toString());
             }
         });
         dates.setOnClickListener(new View.OnClickListener() {
@@ -103,19 +106,18 @@ public class MainActivity extends AppCompatActivity {
             @Generated
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
-                firebase.getDates();
+                firebaseLogic.getDates();
                 Date dateS = new Date(122, 4, 2, 12, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
                 Date dateE = new Date(122, 4, 2, 13, 00, 00);
 
-                firebase.addBooking(1, true, 22349111, (dateS), (dateE));
+                firebaseLogic.addBooking(1, true, 22349111, (dateS), (dateE));
             }
         });
-
         skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             @Generated
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                Intent intent = new Intent(MainActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "The Skip to Selection Button Works", Toast.LENGTH_SHORT).show();
             }

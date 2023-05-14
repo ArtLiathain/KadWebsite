@@ -1,4 +1,4 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 
 import android.content.Intent;
@@ -9,8 +9,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kad.Generated;
+import com.example.kad.R;
 
-public class RoomSelection extends AppCompatActivity {
+
+public class RoomSelectionActivity extends AppCompatActivity {
 
     Button buttonRoom1;
     Button buttonRoom2;
@@ -32,9 +35,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room1 Button Works", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomSelectionActivity.this, "The Room1 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -42,9 +45,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room2 Button Works", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomSelectionActivity.this, "The Room2 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -52,9 +55,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomSelectionActivity.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 

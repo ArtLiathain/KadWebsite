@@ -1,4 +1,4 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,12 +13,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.Arrays;
-import java.util.List;
+
+import com.example.kad.Generated;
+import com.example.kad.R;
 import com.example.kad.RoomBookingPageLogic;
 
+import java.util.List;
 
-public class RoomBookingPage extends AppCompatActivity {
+
+public class RoomBookingPageActivity extends AppCompatActivity {
 
     Spinner hoursAvailable;
     DatePicker datePicker;
@@ -38,9 +41,9 @@ public class RoomBookingPage extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
+                Intent intent = new Intent(RoomBookingPageActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomBookingPage.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomBookingPageActivity.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -52,7 +55,7 @@ public class RoomBookingPage extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(RoomBookingPage.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomBookingPageActivity.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
             }
         });
 

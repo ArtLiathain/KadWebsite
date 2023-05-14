@@ -13,7 +13,7 @@
         android:theme="@style/Theme.KAD"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,10 @@
         </activity>
 
         <activity
-            android:name=".RoomSelection">
+            android:name=".activities.RoomSelectionActivity">
         </activity>
         <activity
-            android:name=".RoomBookingPage">
+            android:name=".activities.RoomBookingPageActivity">
         </activity>
     </application>
 

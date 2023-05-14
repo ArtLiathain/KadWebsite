@@ -21,7 +21,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 import androidx.test.runner.AndroidJUnit4;
 
-import com.example.kad.MainActivity;
+import com.example.kad.activities.MainActivity;
 import com.example.kad.R;
 
 import org.junit.Rule;

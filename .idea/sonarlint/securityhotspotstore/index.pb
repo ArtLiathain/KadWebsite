@@ -5,11 +5,29 @@ u
 Eapp/src/androidTest/java/com/example/kad/ExampleInstrumentedTest.java,8\6\86276739baf8aea234d6b2de4593ad52c252879c
 F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
-H
-app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
-`
-0app/src/main/java/com/example/kad/Generated.java,8\0\802a57ac4ac7b63b353872e761a1334f96cdc6fc
 l
 <.github/CICDScripts/src/main/java/org.example/Mutations.java,f\6\f6728ea194a6a130cb9b5276af431e389d041d58
 k
 ;.github/CICDScripts/src/main/java/org.example/mutation.java,b\f\bf8b4e9f6f78a9ace424652fe7a46015aa751928
+c
+3app/src/androidTest/java/espresso/EspressoTest.java,1\e\1e545b70594c32eef808fe0501f62b9a897f66e7
+g
+7app/src/test/java/com/example/kad/MainActivityTest.java,1\1\1191834f80eb8f5f965d5c08436c81dd6ead9d39
+P
+ .github/CICDScripts/build.gradle,e\f\ef162cca274bcdfcd6ac7a3c8918ae28b01a07a3
+[
++.github/CICDScripts/Images/Green_Circle.svg,c\f\cf1f2c0934170411904e39ad660f09c91f60146c
+Y
+).github/CICDScripts/Images/Red_Circle.svg,a\8\a825f723c4dabec3e2a903513128c086622e6b7b
+q
+A.github/CICDScripts/src/main/java/org.example/MutationScript.java,a\f\afb5281b819b52647ee8e2b3957af8fe1459e1e5
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+\
+,.github/CICDScripts/Images/Current_Image.svg,4\e\4efeb18203693b2546cc6f2c057d038e2d088b24
+M
+.github/workflows/android.yml,3\f\3f3614b660c98ad2ec2ec3066dba56ad2e3556ca
+>
+app/.gitignore,5\1\51e1c5d383dfaa35e0e7e5873a0a99355a86880f
+H
+app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9

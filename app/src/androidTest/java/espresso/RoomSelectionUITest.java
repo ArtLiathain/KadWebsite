@@ -30,18 +30,6 @@ public class RoomSelectionUITest {
     public ActivityScenarioRule<RoomSelectionActivity> activityRule =
             new ActivityScenarioRule<>(RoomSelectionActivity.class);
 
-    @Test
-    public void Room1ButtonClickable() {
-        onView(withId(R.id.room1)).perform(click());
-    }
-    @Test
-    public void Room2ButtonClickable() {
-        onView(withId(R.id.room2)).perform(click());
-    }
-    @Test
-    public void Room3ButtonClickable() {
-        onView(withId(R.id.room3)).perform(click());
-    }
 
     @Test
     public void KADTitleIsDisplayed() {

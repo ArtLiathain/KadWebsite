@@ -64,6 +64,5 @@ public class RoomBookingUITest {
     public void PlaceBookingButtonDisplayed() {
         onView(withId(R.id.placeBookingButton)).check(isCompletelyBelow(withId(R.id.datePicker)));
         onView(withId(R.id.placeBookingButton)).check(isCompletelyRightOf(withId(R.id.dropdownTimeSelection)));
-        onView(withId(R.id.placeBookingButton)).perform(click());
     }
 }

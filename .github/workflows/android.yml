@@ -22,10 +22,10 @@ jobs :
           distribution : 'temurin'
           cache : gradle
 
-      - name : Access HOLIDAY_API_KEY
-        env :
-          HOLIDAY_API_KEY : $
-        run : echo "HOLIDAY_API_KEY=$HOLIDAY_API_KEY" >> ./local.properties
+      - name: Set up environment variables
+        env:
+          HOLIDAY_API_KEY: ${{ secrets.HOLIDAY_API_KEY }}
+        run: echo "HOLIDAY_API_KEY=${HOLIDAY_API_KEY}" >> ./local.properties
         
       - name : Run Lint
         run : ./gradlew lintDebug
@@ -53,10 +53,10 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
 
-      - name : Access HOLIDAY_API_KEY
-        env :
-          HOLIDAY_API_KEY : $
-        run : echo "HOLIDAY_API_KEY=$HOLIDAY_API_KEY" >> ./local.properties
+      - name: Set up environment variables
+        env:
+          HOLIDAY_API_KEY: ${{ secrets.HOLIDAY_API_KEY }}
+        run: echo "HOLIDAY_API_KEY=${HOLIDAY_API_KEY}" >> ./local.properties
 
       # Execute unit tests
       - name : Unit Test
@@ -81,10 +81,10 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
         
-      - name : Access HOLIDAY_API_KEY
-        env :
-          HOLIDAY_API_KEY : $
-        run : echo "HOLIDAY_API_KEY=$HOLIDAY_API_KEY" >> ./local.properties
+      - name: Set up environment variables
+        env:
+          HOLIDAY_API_KEY: ${{ secrets.HOLIDAY_API_KEY }}
+        run: echo "HOLIDAY_API_KEY=${HOLIDAY_API_KEY}" >> ./local.properties
 
       - name : Coverage
         run : ./gradlew jacocoTestDebugUnitTestReport
@@ -132,10 +132,10 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
 
-      - name : Access HOLIDAY_API_KEY
-        env :
-          HOLIDAY_API_KEY : $
-        run : echo "HOLIDAY_API_KEY=$HOLIDAY_API_KEY" >> ./local.properties
+      - name: Set up environment variables
+        env:
+          HOLIDAY_API_KEY: ${{ secrets.HOLIDAY_API_KEY }}
+        run: echo "HOLIDAY_API_KEY=${HOLIDAY_API_KEY}" >> ./local.properties
 
       - name : Run Mutation Tests
         run : ./gradlew pitest
@@ -182,10 +182,10 @@ jobs :
       - name : Grant execute permission for gradlew
         run : chmod +x gradlew
 
-      - name : Access HOLIDAY_API_KEY
-        env :
-          HOLIDAY_API_KEY : $
-        run : echo "HOLIDAY_API_KEY=$HOLIDAY_API_KEY" >> ./local.properties
+      - name: Set up environment variables
+        env:
+          HOLIDAY_API_KEY: ${{ secrets.HOLIDAY_API_KEY }}
+        run: echo "HOLIDAY_API_KEY=${HOLIDAY_API_KEY}" >> ./local.properties
 
       - name : Build with Gradle
         run : ./gradlew build

@@ -16,8 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText email,name, studentNumberEditText;
-    Button submitButton, skipToRoomSelectionBtn;
+    EditText email;
+    EditText name;
+    EditText studentNumberEditText;
+    Button submitButton;
     TextView txt1;
     CheckBox termsCheckBox;
 
@@ -34,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.send_btn);
         txt1 = findViewById(R.id.txt1);
         termsCheckBox = findViewById(R.id.term_box);
-        skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
         termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy ");
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
@@ -73,16 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RoomSelection.class);
                 startActivity(intent);
 
-            }
-        });
-
-        skipToRoomSelectionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @Generated
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
-                startActivity(intent);
-                Toast.makeText(MainActivity.this, "The Skip to Selection Button Works", Toast.LENGTH_SHORT).show();
             }
         });
     }

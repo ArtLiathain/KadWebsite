@@ -1,5 +1,5 @@
 ### Software Testing Project
-## Art Ó Liatháin, Darragh Grealish and Karl Gilmartin
+## Karl Gilmartin, Art Ó Liatháin and Darragh Grealish
 
 
 ## Metrics
@@ -37,14 +37,17 @@ MainActivity  - Karl <br />
 RoomBookingPageActivity - Darragh <br />
 RoomSelectionActivity - Darragh <br />
 FirebaseLogic - Karl <br />
+Total - 40% Karl, 60% Darragh
 
 **Logic** <br />
 AuthLogic - Karl <br />
 DateTimeLogic - Art <br />
+Total - 50% Art, 50% Karl
 
 **Unit Tests** <br />
 DateTimeTest - Art <br />
 MainActivityTest - Karl <br /> 
+Total - 50% Art, 50% Karl
 
 **UI Testing** <br />
 BookingConfirmationUITest - Darragh<br /> 
@@ -52,10 +55,13 @@ EspressoTest - Karl <br />
 AccesibilityTest - Karl <br />
 RoomBookingUITest - Darragh <br />
 RoomSelectionUITest - Darragh <br />
+Total - 40% Karl, 60% Darragh </br>
 
 **QA Things**
 Fixing code smells - Darragh </br>
-
+Fixing security hotspots - Darragh </br>
+Fixing bugs - Darragh </br>
+Total - 100% Darragh
 
 **CICD** <br />
 Mutation Testing - Art <br />

@@ -54,7 +54,7 @@ RoomBookingUITest - Darragh <br />
 RoomSelectionUITest - Darragh <br />
 
 **QA Things**
-Fixing code smells - Darragh </br>
+Fixing code smells - Darragh </br></br>
 
 
 **CICD** <br />

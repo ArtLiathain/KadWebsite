@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 if (!authLogic.studentNumYear(Integer.parseInt(studentNumberEditText.getText().toString())) || !authLogic.studentNumLen(Integer.parseInt(studentNumberEditText.getText().toString()))|| !authLogic.emailFormat(email.getText().toString()) || !authLogic.validLength(name.getText().toString()) || !authLogic.stringAlphabet(name.getText().toString()) || authLogic.blacklist(name.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Some of the data which you have entered is incorrect ", Toast.LENGTH_SHORT).show();
 
-                } if (!authLogic.checkBox(termsCheckBox)) {
+                }
+                if (!authLogic.checkBox(termsCheckBox)) {
                     Toast.makeText(MainActivity.this, "You must agree to our Terms", Toast.LENGTH_SHORT).show();
 
                 } else {

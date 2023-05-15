@@ -74,7 +74,28 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        DateTimeLogic dateTimeLogic = new DateTimeLogic();
+                        FirebaseLogic firebaseLogic = new FirebaseLogic();
 
+                        firebaseLogic.getDates(LocalDateTime.now(), 1);
+
+                        final ArrayAdapter<String> adapter = new ArrayAdapter<>(RoomBookingPageActivity.this, android.R.layout.simple_spinner_item,
+                                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.of(122, 12,
+                                        26, 0, 00, 01)));
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        // Update the UI on the main thread using a Handler
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                hoursAvailable.setAdapter(adapter);
+                            }
+                        });
+                    }
+                }).start();
             }
         });
         // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
@@ -82,27 +103,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                DateTimeLogic dateTimeLogic = new DateTimeLogic();
-                FirebaseLogic firebaseLogic = new FirebaseLogic();
 
-                firebaseLogic.getDates(LocalDateTime.now(), 1);
-
-                final ArrayAdapter<String> adapter = new ArrayAdapter<>(RoomBookingPageActivity.this, android.R.layout.simple_spinner_item,
-                        dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.now()));
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                // Update the UI on the main thread using a Handler
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        hoursAvailable.setAdapter(adapter);
-                    }
-                });
-            }
-        }).start();
 
         hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

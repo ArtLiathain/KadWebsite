@@ -53,6 +53,8 @@ AccesibilityTest - Karl <br />
 RoomBookingUITest - Darragh <br />
 RoomSelectionUITest - Darragh <br />
 
+**QA Things**
+Fixing code smells - Darragh </br>
 
 
 **CICD** <br />

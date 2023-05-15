@@ -86,7 +86,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         // Retrieve a list of available times from a data sourc
         DateTimeLogic dateTimeLogic = new DateTimeLogic();
         FirebaseLogic firebaseLogic = new FirebaseLogic();
-        firebaseLogic.getDates(LocalDateTime.now());
+        firebaseLogic.getDates(LocalDateTime.now(), 1);
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
                 dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.now()));
         // Styles dropdown of numbers nicely

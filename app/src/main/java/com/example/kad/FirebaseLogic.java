@@ -92,14 +92,14 @@ public class FirebaseLogic {
 
     }
 
-    public void getDates(LocalDateTime time){
+    public void getDates(LocalDateTime time, int room){
         ArrayList<LocalDateTime> dates = new ArrayList<LocalDateTime>();
         LocalDateTime startDate = LocalDateTime.of(time.getYear()-1900, time.getMonthValue(),
                 time.getDayOfMonth(), 0, 00, 00);
         LocalDateTime endDate = LocalDateTime.of(time.getYear()-1900, time.getMonthValue(),
                 time.getDayOfMonth(), 23, 59, 59);
         int chosenRoom = 2; //Needs to be changed to ge the room number form RoomSelection.java
-        Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(roomNumberString, chosenRoom);
+        Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(roomNumberString, room);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
                 () {
             @Override
@@ -125,13 +125,12 @@ public class FirebaseLogic {
 
     }
 
-    public void addBooking(int roomNumberAddBooking, boolean snacks, int studentNumberAddBooking, Date start, Date end){
+    public void addBooking(int roomNumberAddBooking, int studentNumberAddBooking, Date start){
         Map<String, Object> data1 = new HashMap<>();
         data1.put("Room Number", roomNumberAddBooking);
-        data1.put("Snacks", snacks);
         data1.put("Student Number", studentNumberAddBooking);
         data1.put(startDATE, start);
-        data1.put("End DateTime", end);
+
 
 
         db.collection("Bookings").document()

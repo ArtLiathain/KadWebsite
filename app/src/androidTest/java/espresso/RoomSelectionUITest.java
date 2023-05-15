@@ -1,10 +1,10 @@
 package espresso;
 
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyAbove;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyBelow;
 import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyLeftOf;
+import static androidx.test.espresso.assertion.PositionAssertions.isCompletelyRightOf;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -23,7 +23,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
-
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class RoomSelectionUITest {
@@ -31,12 +30,17 @@ public class RoomSelectionUITest {
     public ActivityScenarioRule<RoomSelectionActivity> activityRule =
             new ActivityScenarioRule<>(RoomSelectionActivity.class);
 
-
-
     @Test
-    public void ButtonClickable() {
-        onView(withId(R.id.room1)).perform(click());//.check(matches(withText("KAD Room Selection"))); // (withId(R.id.backRoom1)
-
+    public void Room1ButtonClickable() {
+        onView(withId(R.id.room1)).perform(click());
+    }
+    @Test
+    public void Room2ButtonClickable() {
+        onView(withId(R.id.room2)).perform(click());
+    }
+    @Test
+    public void Room3ButtonClickable() {
+        onView(withId(R.id.room3)).perform(click());
     }
 
     @Test
@@ -44,13 +48,16 @@ public class RoomSelectionUITest {
         onView(withText("KAD Room Selection")).check(matches(isDisplayed()));
         onView(withText("KAD Room Selection")).check(isCompletelyAbove(withId(R.id.room1)));
     }
+
     @Test
     public void Room1ButtonDisplayed() {
+        onView(withId(R.id.room1)).check(isCompletelyBelow(withText("KAD Room Selection")));
         onView(withId(R.id.room1)).check(isCompletelyAbove(withId(R.id.room2)));
         onView(withId(R.id.room1)).check(isCompletelyLeftOf(withId(R.id.textView)));
     }
     @Test
     public void Room2ButtonDisplayed() {
+        onView(withId(R.id.room2)).check(isCompletelyBelow(withId(R.id.room1)));
         onView(withId(R.id.room2)).check(isCompletelyAbove(withId(R.id.room3)));
         onView(withId(R.id.room2)).check(isCompletelyLeftOf(withId(R.id.textView3)));
     }
@@ -60,4 +67,21 @@ public class RoomSelectionUITest {
         onView(withId(R.id.room3)).check(isCompletelyLeftOf(withId(R.id.textView4)));
     }
 
+    @Test
+    public void ConferenceRoomTextDisplayed() {
+        onView(withId(R.id.textView)).check(isCompletelyBelow(withText("KAD Room Selection")));
+        onView(withId(R.id.textView)).check(isCompletelyAbove(withId(R.id.textView3)));
+        onView(withId(R.id.textView)).check(isCompletelyRightOf(withId(R.id.room1)));
+    }
+    @Test
+    public void ForestTextDisplayed() {
+        onView(withId(R.id.textView3)).check(isCompletelyBelow(withId(R.id.textView)));
+        onView(withId(R.id.textView3)).check(isCompletelyAbove(withId(R.id.textView4)));
+        onView(withId(R.id.textView3)).check(isCompletelyRightOf(withId(R.id.room2)));
+    }
+    @Test
+    public void OfficeTextDisplayed() {
+        onView(withId(R.id.textView4)).check(isCompletelyBelow(withId(R.id.textView3)));
+        onView(withId(R.id.textView4)).check(isCompletelyRightOf(withId(R.id.room3)));
+    }
 }

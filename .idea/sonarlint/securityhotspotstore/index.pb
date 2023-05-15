@@ -35,5 +35,3 @@ H
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 M
 .github/workflows/android.yml,3\f\3f3614b660c98ad2ec2ec3066dba56ad2e3556ca
-w
-Gapp/src/main/java/com/example/kad/activities/RoomSelectionActivity.java,c\c\cc59bc44202f39a770eb43dff348a57fe4360fcd

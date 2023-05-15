@@ -97,6 +97,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Method is not implemented yet
             }
             @Override
             @Generated

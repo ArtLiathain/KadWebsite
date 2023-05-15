@@ -11,21 +11,39 @@ public class MainActivityTest  {
     @Test
     public void test_nameLength() {
         assertEquals(true, authLogic.validLength("Karl Gilmartin"));
-        assertEquals(false, authLogic.validLength("K")); // Name !> 5
+        assertEquals(false, authLogic.validLength("K")); // Name !>= 6
+        // Lower Bound
+        assertEquals(false, authLogic.validLength("DJ JJ"));
+        assertEquals(true, authLogic.validLength("JJ Mac"));
+        // Upper Bound
+        assertEquals(false, authLogic.validLength("Tony Montana Prez Rodriguez DeJesus del Rosario Mercedes Pilar Martínez Molina Baeza"));
+        assertEquals(true, authLogic.validLength("Tony Montana Prez Rodriguez DeJesus del Rosario Mercedes Pilar Molina"));
     }
 
     @Test
     public void name_chars() {
         assertEquals(true, authLogic.stringAlphabet("Eoin O'Brien")); // Regex allows " ' "
         assertEquals(true, authLogic.stringAlphabet("Karl Gilmartín")); // Regex allows names with faddas
+        assertEquals(false, authLogic.stringAlphabet("93h"));
+        assertEquals(false, authLogic.stringAlphabet("Martin Luther King, Jr.")); // doesn't accept a ,
+        assertEquals(false, authLogic.stringAlphabet("John/James/Joseph"));
     }
 
     @Test
     public void name_blacklist() {
-        assertEquals(false, authLogic.blacklist("Andrew Rivera"));
-        assertEquals(true, authLogic.blacklist("Karl Gilmartín"));
+        assertEquals(true, authLogic.blacklist("Andrew Rivera")); // Name in Blacklist
+        assertEquals(false, authLogic.blacklist("Karl Gilmartín")); // Name not in Blacklist
+        assertEquals(true, authLogic.blacklist("John Smith")); // Lower bound
+        assertEquals(true, authLogic.blacklist("Natalie Ramirez")); // Upper bound
+    }
 
-
+    @Test
+    public void email_format() {
+        assertEquals(true, authLogic.emailFormat("22347666@studentmail.ul.ie"));
+        assertEquals(false, authLogic.emailFormat("2234657224823295647666@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("223465224823295647666@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("sdhjvbbhjdsabhjkads@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("GHJVGAJVGSH@studentmail.ul.ie"));
     }
 
     @Test

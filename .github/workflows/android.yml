@@ -21,6 +21,11 @@ jobs :
           java-version : '11'
           distribution : 'temurin'
           cache : gradle
+
+      - name : Access HOLIDAY_API_KEY
+        env :
+          HOLIDAY_API_KEY : $
+        run : echo HOLIDAY_API_KEY=\"$HOLIDAY_API_KEY\" > ./local.properties
         
       - name : Run Lint
         run : ./gradlew lintDebug

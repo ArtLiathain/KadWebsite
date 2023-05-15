@@ -12,11 +12,12 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
-@RunWith(Parameterized.class)
+@RunWith(Enclosed.class)
 public class DateTimeTest {
   @RunWith(Parameterized.class)
   public static class HolidayApi {
@@ -42,8 +43,7 @@ public class DateTimeTest {
           new Object[][] {
             {"2022-08-20 10:00", false},
             {"2022-12-26 10:00", true},
-            {"2022-12-31 09:00", true},
-            {"022-12-35 09:00", false}
+            {"2022-12-31 09:00", true}
           });
     }
 

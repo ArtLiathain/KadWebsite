@@ -72,7 +72,7 @@ public class RoomBookingPage extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
+                // Method is not implemented yet
             }
         });
 

@@ -9,10 +9,6 @@ l
 <.github/CICDScripts/src/main/java/org.example/Mutations.java,f\6\f6728ea194a6a130cb9b5276af431e389d041d58
 k
 ;.github/CICDScripts/src/main/java/org.example/mutation.java,b\f\bf8b4e9f6f78a9ace424652fe7a46015aa751928
-c
-3app/src/androidTest/java/espresso/EspressoTest.java,1\e\1e545b70594c32eef808fe0501f62b9a897f66e7
-g
-7app/src/test/java/com/example/kad/MainActivityTest.java,1\1\1191834f80eb8f5f965d5c08436c81dd6ead9d39
 P
  .github/CICDScripts/build.gradle,e\f\ef162cca274bcdfcd6ac7a3c8918ae28b01a07a3
 [

@@ -1,4 +1,4 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 
 import android.content.Intent;
@@ -9,8 +9,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kad.Generated;
+import com.example.kad.R;
 
-public class RoomSelection extends AppCompatActivity {
+
+public class RoomSelectionActivity extends AppCompatActivity {
+
     Button buttonRoom1;
     Button buttonRoom2;
     Button buttonRoom3;
@@ -31,8 +35,9 @@ public class RoomSelection extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
+
                 String room1Argument = "Room 1 - Conference Room";
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room1Argument);
                 startActivity(intent);
             }
@@ -43,7 +48,7 @@ public class RoomSelection extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String room2Argument = "Room 2 - Forest";
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room2Argument);
                 startActivity(intent);
             }
@@ -54,7 +59,7 @@ public class RoomSelection extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String room3Argument = "Room 3 - Office Space";
-                Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
+                Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room3Argument);
                 startActivity(intent);
             }

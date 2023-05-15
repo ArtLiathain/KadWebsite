@@ -59,12 +59,10 @@ public class MainActivityTest  {
         assertEquals(true, authLogic.studentNumYear(22349111)); // Stars with 22
     }
 
-
-
     @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White
-        int[] color2 = {98, 0, 237}; // Purpule used in app
+        int[] color2 = {98, 0, 237}; // Purple used in app
         int[] color3 = {0, 0, 0}; // Black
         boolean result1 = authLogic.colorAccessibility(color1, color1); // White and White
         boolean result2 = authLogic.colorAccessibility(color1, color2); // White and Purple (Colors used in app)

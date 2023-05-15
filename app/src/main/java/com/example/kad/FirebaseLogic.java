@@ -16,6 +16,8 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,19 +26,19 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Firebase {
+public class FirebaseLogic {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference docRef = db.collection("Logins");
     CollectionReference bookingsRef = db.collection("Bookings");
 
-    private static final Logger LOGGER = Logger.getLogger(Firebase.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(FirebaseLogic.class.getName());
 
 
     String studentNumber = "Student Number";
     String studentName = "Student Name";
     String studentEmail = "Student Email";
 
-    List<Date> startdatesList;
+    ArrayList<LocalDateTime> startDatesList;
 
     String startDATE = "Start DateTime";
     String roomNumberString = "Room Number";
@@ -91,9 +93,9 @@ public class Firebase {
     }
 
     public void getDates(){
-        List<Date> dates = new ArrayList<Date>();
-        Date startDate = new Date(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
-        Date endDate = new Date(122, 4, 2, 23, 59, 59);
+        ArrayList<LocalDateTime> dates = new ArrayList<LocalDateTime>();
+        LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
+        LocalDateTime endDate = LocalDateTime.of(122, 4, 2, 23, 59, 59);
         int chosenRoom = 2; //Needs to be changed to ge the room number form RoomSelection.java
         Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(roomNumberString, chosenRoom);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
@@ -102,7 +104,9 @@ public class Firebase {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        dates.add(document.getDate(startDATE));
+                        dates.add(document.getDate(startDATE).toInstant()
+                                .atZone(ZoneId.systemDefault())
+                                .toLocalDateTime());
                         Log.d(TAG, document.getId() + " => " + document.getDate(startDATE));
                     }
                 } else {
@@ -111,7 +115,7 @@ public class Firebase {
                 }
                 Log.d(TAG,"These are all of the dates for the period date period range");
                 LOGGER.info(dates.toString());
-                startdatesList = dates;
+                startDatesList = dates;
 
             }
 
@@ -144,8 +148,8 @@ public class Firebase {
                 });
 
     }
+    public ArrayList<LocalDateTime> getStartDates(){
+        return startDatesList;
 
-    public List<Date> getStartdates(){
-        return startdatesList;
     }
 }

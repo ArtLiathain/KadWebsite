@@ -25,7 +25,6 @@ import java.util.List;
 
 
 public class DateTimeLogic {
-  private static final Logger LOGGER = Logger.getLogger(DateTimeLogic.class.getName());
   ArrayList<String> availableTimes =
       new ArrayList<>(
           List.of(
@@ -43,7 +42,7 @@ public class DateTimeLogic {
     if(isHoliday(dayOfBooking)){
       return new String[]{"No Times Available"};
     }
-    if (StartTimes.size() == 0) {
+    if (StartTimes == null || StartTimes.size() == 0) {
 
       return availableTimes.toArray(String[]::new);
     }
@@ -54,7 +53,7 @@ public class DateTimeLogic {
     ArrayList<String> availableTimesCopy = new ArrayList<>(availableTimes);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd HH:mm");
     for (int i = 1; i < availableTimesCopy.size(); i++) {
-      try {
+
       LocalDateTime time = LocalDateTime.parse(dayOfBooking.getYear() + "-" +
               dayOfBooking.getMonthValue()+ "-" + dayOfBooking.getDayOfMonth()+ " " +
               availableTimesCopy.get(i).substring(0,5), formatter);
@@ -66,16 +65,16 @@ public class DateTimeLogic {
               count++;
               break;
               }
-          }
-        } catch (Exception e) {
-        return new String[]{"Error"};
+
+        }
       }
+    return availableTimes.toArray(String[]::new);
     }
 
 
 
-    return availableTimes.toArray(String[]::new);
-  }
+
+
   public boolean isHoliday(LocalDateTime stevensDay) {
     APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");
 
@@ -94,7 +93,6 @@ public class DateTimeLogic {
       int status = response.getStatus();
 
       if (status != 200) {
-        LOGGER.log(Level.SEVERE, "Status was: ", status);
         return false;
         //handle error scenario
 
@@ -107,7 +105,7 @@ public class DateTimeLogic {
       }
     } catch (IOException e) {
       //handle exception
-      LOGGER.log(Level.SEVERE, "An error occurred while making the API request.", e.toString());
+
       return false;
     }
   }

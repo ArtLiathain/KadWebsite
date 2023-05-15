@@ -3,29 +3,45 @@ package com.example.kad;
 import android.util.Log;
 import android.widget.CheckBox;
 
+
+
 public class AuthLogic {
+    private static final int MIN_LENGTH = 5;
+    private static final boolean no = false;
+    private  static final boolean yes = true;
+    private static final int MAX_LENGTH = 70;
     public boolean validLength(String name) {
-        return (name.length() <= 70 && name.length() >= 6);
+
+        return name.length() > MIN_LENGTH && name.length() < MAX_LENGTH;
     }
 
     public boolean stringAlphabet(String name) {
-        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
+        if (!validLength(name)) {
+            return no;
+        }
+        else if (name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$") == true){
+            return true;
+        };
+
+        return false;
+
     }
 
 
     public boolean blacklist(String name) {
+        int count = 0;
         String[] blackList = {"John Smith", "Jane Doe", "Michael Johnson", "Emily Brown", "William Davis", "Olivia Taylor", "James Wilson", "Sophia Lee", "Benjamin Garcia", "Isabella Martinez", "Daniel Anderson", "Mia Thomas", "David Hernandez", "Ella Perez", "Joseph Green", "Ava Collins", "Matthew Baker", "Chloe Hall", "Andrew Rivera", "Natalie Ramirez"};
         for (int i = 0; i <= blackList.length - 1; i++) {
             if (blackList[i].equals(name)) {
-                return true;
+                count += 1;
             }
         }
-        return false;
+        return count == 0;
     }
 
     public boolean emailFormat(String email) {
-        if(email.length() >= 40){return false;}
-        return email.matches("^([A-Za-z0-9]*)@studentmail.ul.ie$");
+        if(email.length() > 40){return false;}
+        return email.matches("^(.+)@(.+)$");
     }
 
     public boolean studentNumLen(int number) {
@@ -34,7 +50,10 @@ public class AuthLogic {
     }
 
     public boolean studentNumYear(int number) {
-        return number >= 22000000;
+        if (number >= 22000000 && number <= 22999999){
+            return yes;
+        }
+        else return no;
     }
 
     public boolean checkBox(CheckBox checkBox) {
@@ -57,3 +76,4 @@ public class AuthLogic {
         return ratio > 4.5;
     }
 }
+

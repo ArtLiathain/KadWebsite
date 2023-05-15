@@ -14,7 +14,7 @@ public class RoomSelection extends AppCompatActivity {
     Button buttonRoom1;
     Button buttonRoom2;
     Button buttonRoom3;
-    public static final String roomArgumentKey = "roomArgumentKey";
+    public static final String ROOM_ARGUMENT_KEY = "roomArgumentKey";
 
     @Override
     @Generated
@@ -33,7 +33,7 @@ public class RoomSelection extends AppCompatActivity {
             public void onClick(View view) {
                 String room1Argument = "Room 1 - Conference Room";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra(roomArgumentKey, room1Argument);
+                intent.putExtra(ROOM_ARGUMENT_KEY, room1Argument);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class RoomSelection extends AppCompatActivity {
             public void onClick(View view) {
                 String room2Argument = "Room 2 - Forest";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra(roomArgumentKey, room2Argument);
+                intent.putExtra(ROOM_ARGUMENT_KEY, room2Argument);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class RoomSelection extends AppCompatActivity {
             public void onClick(View view) {
                 String room3Argument = "Room 3 - Office Space";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra(roomArgumentKey, room3Argument);
+                intent.putExtra(ROOM_ARGUMENT_KEY, room3Argument);
                 startActivity(intent);
             }
         });

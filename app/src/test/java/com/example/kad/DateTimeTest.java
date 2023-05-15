@@ -34,11 +34,6 @@ public class DateTimeTest {
       this.expectedValue = expectedValue;
     }
 
-    @Before
-    public void setUp() throws Exception {
-      dateTimeLogic = new DateTimeLogic();
-    }
-
     @Parameterized.Parameters
     public static Collection dates() {
       return Arrays.asList(
@@ -51,6 +46,7 @@ public class DateTimeTest {
 
     @Test
     public void test_isHolidayApiWorking() {
+      dateTimeLogic = new DateTimeLogic();
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
       LocalDateTime formattedDay = LocalDateTime.parse(day, formatter);
       assertEquals(dateTimeLogic.isHoliday(formattedDay), expectedValue);

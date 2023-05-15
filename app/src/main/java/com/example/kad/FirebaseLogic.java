@@ -41,7 +41,7 @@ public class FirebaseLogic {
     ArrayList<LocalDateTime> startDatesList;
 
     String startDATE = "Start DateTime";
-    String ROOM_NUMBER = "Room Number";
+    String roomNumberString = "Room Number";
 
     public void addFirestore(String email, String name, int studentNumberAddFire){
         Map<String, Object> data1 = new HashMap<>();
@@ -97,7 +97,7 @@ public class FirebaseLogic {
         LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
         LocalDateTime endDate = LocalDateTime.of(122, 4, 2, 23, 59, 59);
         int chosenRoom = 2; //Needs to be changed to ge the room number form RoomSelection.java
-        Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(ROOM_NUMBER, chosenRoom);
+        Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(roomNumberString, chosenRoom);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>
                 () {
             @Override

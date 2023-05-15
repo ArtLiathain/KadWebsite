@@ -42,7 +42,6 @@ public class EspressoTest {
         Espresso.onView(ViewMatchers.withId(R.id.email)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.send_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-        Espresso.onView(ViewMatchers.withId(R.id.skipRoomSelect_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
 
 

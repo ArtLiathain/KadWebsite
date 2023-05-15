@@ -2,7 +2,7 @@ package com.example.kad.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,10 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.kad.DateTimeLogic;
 import com.example.kad.FirebaseLogic;
 
@@ -35,7 +32,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
 
 
     @SuppressLint("MissingInflatedId")
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     @Generated
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +44,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         if (extras != null) {
             String passedArgument = extras.getString("roomArgumentKey");
             textOfRoomInfo.setText(passedArgument);
-            Toast.makeText(RoomBookingPageActivity.this, passedArgument, Toast.LENGTH_SHORT).show();
         }
 
 // ---------------------------------Back Button---------------------------------
@@ -59,7 +54,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPageActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomBookingPageActivity.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -72,7 +66,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPageActivity.this, BookingConfirmationActivity.class);
                 startActivity(intent);
-                Toast.makeText(RoomBookingPageActivity.this, "The Place Booking Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -84,7 +77,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(RoomBookingPageActivity.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -105,8 +97,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), "The Selected Hours -> " + selectedItem, Toast.LENGTH_SHORT).show();
             }
             @Override
             @Generated

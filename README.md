@@ -29,25 +29,27 @@ SonarCloud </br></br>
 
 ## Testing and Contribution
 **Activites** <br />
-BookingConfirmationActivity <br />
-MainActivity <br />
-RoomBookingPageActivity <br />
-RoomSelectionActivity <br />
-FirebaseLogic <br />
+BookingConfirmationActivity - Darragh<br />
+MainActivity  - Karl <br />
+RoomBookingPageActivity - Darragh <br />
+RoomSelectionActivity - Darragh <br />
+FirebaseLogic - Karl <br />
 
 **Logic** <br />
-AuthLogic <br />
+AuthLogic - Karl <br />
 DateTimeLogic - Art <br />
 
 **Unit Tests** <br />
 DateTimeTest - Art <br />
-MainActivityTest <br /> 
+MainActivityTest - Karl <br /> 
 
 **UI Testing** <br />
-BookingConfirmationUITest <br /> 
-EspressoTest <br /> 
-RoomBookingUITest <br />
-RoomSelectionUITest <br />
+BookingConfirmationUITest - Darragh<br /> 
+EspressoTest - Karl <br /> 
+AccesibilityTest - Karl <br />
+RoomBookingUITest - Darragh <br />
+RoomSelectionUITest - Darragh <br />
+
 
 
 **CICD** <br />

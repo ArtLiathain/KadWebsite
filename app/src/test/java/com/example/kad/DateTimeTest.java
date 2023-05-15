@@ -22,6 +22,42 @@ import org.mockito.Mockito;
 public class DateTimeTest {
 
   @RunWith(Parameterized.class)
+  public static class HolidayApi {
+    private String day;
+
+    private boolean expectedValue;
+    DateTimeLogic dateTimeLogic;
+
+
+    public HolidayApi(String day, boolean expectedValue) {
+      this.day = day;
+      this.expectedValue = expectedValue;
+    }
+
+    @Before
+    public void setUp() throws Exception {
+      dateTimeLogic = new DateTimeLogic();
+    }
+
+    @Parameterized.Parameters
+    public static Collection dates() {
+      return Arrays.asList(
+              new Object[][] {
+                      {"2022-12-26 10:00", true},
+                      {"2022-08-20 10:00", false},
+                      {"2022-12-10 09:00", false}
+              });
+    }
+
+    @Test
+    public void test_isHolidayApiWorking() {
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+      LocalDateTime formattedDay = LocalDateTime.parse(day, formatter);
+      assertEquals(dateTimeLogic.isHoliday(formattedDay), expectedValue);
+    }
+  }
+
+  @RunWith(Parameterized.class)
   public static class StartTimeTests {
     DateTimeLogic dateTimeLogic;
     private String[] StartTimes;
@@ -52,7 +88,10 @@ public class DateTimeTest {
                       "09:00 AM", "10:00 AM", "12:00 PM", "01:00 PM",
                       "02:00 PM", "03:00 PM", "04:00 PM"}},
               {new String[]{"02:00", "03:00", "04:00"}, false, new String[]{"Not Selected",
-                      "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"}}
+                      "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"}},
+              {new String[]{"02:00", "03:00", "04:00"}, true, new String[]{"Not Selected",
+                      "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM",
+                      "03:00 PM", "04:00 PM"}}
       });
       }
     @Test

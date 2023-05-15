@@ -95,7 +95,7 @@ public class DateTimeLogic {
       int status = response.getStatus();
 
       if (status != 200) {
-        return false;
+        return true;
         //handle error scenario
 
       } else {

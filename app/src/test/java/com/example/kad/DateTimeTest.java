@@ -26,7 +26,7 @@ public class DateTimeTest {
     private String day;
 
     private boolean expectedValue;
-    DateTimeLogic dateTimeLogic;
+    DateTimeLogic dateTimeLogic2;
 
 
     public HolidayApi(String day, boolean expectedValue) {
@@ -46,10 +46,10 @@ public class DateTimeTest {
 
     @Test
     public void test_isHolidayApiWorking() {
-      dateTimeLogic = new DateTimeLogic();
+      dateTimeLogic2 = new DateTimeLogic();
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
       LocalDateTime formattedDay = LocalDateTime.parse(day, formatter);
-      assertEquals(dateTimeLogic.isHoliday(formattedDay), expectedValue);
+      assertEquals(dateTimeLogic2.isHoliday(formattedDay), expectedValue);
     }
   }
 

@@ -148,8 +148,8 @@ public class FirebaseLogic {
                 });
 
     }
-
     public ArrayList<LocalDateTime> getStartDates(){
         return startDatesList;
+
     }
 }

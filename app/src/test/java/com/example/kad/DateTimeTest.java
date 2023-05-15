@@ -73,6 +73,9 @@ public class DateTimeTest {
     @Before
     public void setUp() throws Exception {
       dateTimeLogic = new DateTimeLogic();
+      DateTimeLogic a = new DateTimeLogic();
+      DateTimeLogic aSpy = Mockito.spy(a);
+      Mockito.when(aSpy.isHoliday(dayOfBooking)).thenReturn(isDayOff);
     }
     @Parameterized.Parameters
     public static Collection availableTimes() {
@@ -97,10 +100,7 @@ public class DateTimeTest {
                 time, formatter);
         StartTimesDates.add(times);
       }
-      System.out.println(StartTimesDates.size());
-      DateTimeLogic a = new DateTimeLogic();
-      DateTimeLogic aSpy = Mockito.spy(a);
-      Mockito.when(aSpy.isHoliday(dayOfBooking)).thenReturn(isDayOff);
+
       assertArrayEquals(expectedOutput, dateTimeLogic.returnStartTimes(StartTimesDates,dayOfBooking));
   }
 }

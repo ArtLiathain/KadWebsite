@@ -89,7 +89,6 @@ public class RoomBookingPage extends AppCompatActivity {
             @Override
             @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
             }
             @Override
             @Generated

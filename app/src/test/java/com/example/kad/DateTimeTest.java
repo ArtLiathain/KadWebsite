@@ -1,6 +1,7 @@
 package com.example.kad;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.reset;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -43,7 +44,7 @@ public class DateTimeTest {
           new Object[][] {
             {"2022-12-26 10:00", true},
             {"2022-08-20 10:00", false},
-            {"2022-12-31 09:00", true}
+            {"2022-12-10 09:00", false}
           });
     }
 

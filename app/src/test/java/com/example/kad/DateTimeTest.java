@@ -40,14 +40,15 @@ public class DateTimeTest {
               new Object[][] {
                       {"2022-12-26 10:00", true},
                       {"2022-08-20 10:00", false},
-                      {"2022-12-10 09:00", false}
+                      {"2022-12-10 09:00", false},
+                      {"2022-12-31 08:00", true}
               });
     }
 
     @Test
     public void test_isHolidayApiWorking() {
       dateTimeLogic2 = new DateTimeLogic();
-      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd HH:mm");
       LocalDateTime formattedDay = LocalDateTime.parse(day, formatter);
       assertEquals(dateTimeLogic2.isHoliday(formattedDay), expectedValue);
     }

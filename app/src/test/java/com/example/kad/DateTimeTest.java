@@ -41,8 +41,8 @@ public class DateTimeTest {
     public static Collection dates() {
       return Arrays.asList(
           new Object[][] {
-            {"2022-08-20 10:00", false},
             {"2022-12-26 10:00", true},
+            {"2022-08-20 10:00", false},
             {"2022-12-31 09:00", true}
           });
     }

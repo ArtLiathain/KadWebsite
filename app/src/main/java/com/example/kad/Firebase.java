@@ -144,7 +144,6 @@ public class Firebase {
                 });
 
     }
-
     public List<Date> getStartdates(){
         return startdatesList;
     }

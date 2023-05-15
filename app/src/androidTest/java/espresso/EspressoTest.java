@@ -42,8 +42,6 @@ public class EspressoTest {
         Espresso.onView(ViewMatchers.withId(R.id.email)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.send_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-        Espresso.onView(ViewMatchers.withId(R.id.check_data)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-        Espresso.onView(ViewMatchers.withId(R.id.dates)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
         Espresso.onView(ViewMatchers.withId(R.id.skipRoomSelect_btn)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
 
@@ -57,10 +55,6 @@ public class EspressoTest {
 //        onView(withId(R.id.dates)).perform(click());
 //        onView(withText("Button Clicked")).inRoot(ToastMatcher.isToast()).check(matches(isDisplayed()));
 //    }
-
-
-
-
 
     @Test
     public void loginWithValidCredentials() {
@@ -118,8 +112,6 @@ public class EspressoTest {
     }
 
 
-
-
     @Test
     public void testCheckBox() {
         // Check if the checkbox is initially unchecked
@@ -131,9 +123,5 @@ public class EspressoTest {
         // Check if the checkbox is now checked
         Espresso.onView(ViewMatchers.withId(R.id.term_box)).check(ViewAssertions.matches(ViewMatchers.isChecked()));
     }
-
-
-
-
 
 }

@@ -41,8 +41,6 @@ public class MainActivityTest  {
         assertEquals(true, authLogic.studentNumYear(22349111)); // Stars with 22
     }
 
-
-
     @Test
     public void testColorAccessibility() {
         int[] color1 = {255, 255, 255}; // White

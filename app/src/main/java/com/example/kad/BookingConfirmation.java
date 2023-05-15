@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +33,6 @@ public class BookingConfirmation extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BookingConfirmation.this, RoomSelection.class);
                 startActivity(intent);
-                Toast.makeText(BookingConfirmation.this, "The Return to Room Selection Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 

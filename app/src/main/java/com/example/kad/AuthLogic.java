@@ -3,14 +3,28 @@ package com.example.kad;
 import android.util.Log;
 import android.widget.CheckBox;
 
+
+
 public class AuthLogic {
+    private static final int MIN_LENGTH = 5;
+    private static final boolean no = false;
+    private  static final boolean yes = true;
+    private static final int MAX_LENGTH = 70;
     public boolean validLength(String name) {
-        return (name.length() <= 70 && name.length() > 5);
+
+        return name.length() >= MIN_LENGTH && name.length() <= MAX_LENGTH;
     }
 
     public boolean stringAlphabet(String name) {
-        if (!validLength(name)){return false;}
-        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
+        if (!validLength(name)) {
+            return no;
+        }
+        else if (name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$") == true){
+            return true;
+        };
+
+        return false;
+
     }
 
 
@@ -27,7 +41,7 @@ public class AuthLogic {
 
     public boolean emailFormat(String email) {
         if(email.length() > 40){return false;}
-        return email.matches("^(?>[A-Za-z]+)@(?>[',. -][a-zA-Z ]+)\\.(?>[a-zA-Z])$");
+        return email.matches("^(.+)@(.+)$");
     }
 
     public boolean studentNumLen(int number) {
@@ -36,7 +50,10 @@ public class AuthLogic {
     }
 
     public boolean studentNumYear(int number) {
-        return number >= 22000000;
+        if (number >= 22000000){
+            return yes;
+        }
+        else return no;
     }
 
     public boolean checkBox(CheckBox checkBox) {

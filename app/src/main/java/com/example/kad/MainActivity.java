@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String tC = "By checking this box, you agree to our terms of service and privacy policy ";
+
         email = findViewById(R.id.email);
         name = findViewById(R.id.name);
         studentNumberEditText = findViewById(R.id.student_num);
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         termsCheckBox = findViewById(R.id.term_box);
         skipToRoomSelectionBtn = findViewById(R.id.skipRoomSelect_btn);
 
-        termsCheckBox.setText("By checking this box, you agree to our terms of service and privacy policy ");
+        termsCheckBox.setText(tC);
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
         name.setError("Name is required!");
         email.setError("Email is required!");

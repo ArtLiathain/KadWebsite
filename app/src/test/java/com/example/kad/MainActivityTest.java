@@ -18,6 +18,7 @@ public class MainActivityTest  {
     public void name_chars() {
         assertEquals(true, authLogic.stringAlphabet("Eoin O'Brien")); // Regex allows " ' "
         assertEquals(true, authLogic.stringAlphabet("Karl Gilmartín")); // Regex allows names with faddas
+        assertEquals(false, authLogic.stringAlphabet(""));
     }
 
     @Test
@@ -39,6 +40,13 @@ public class MainActivityTest  {
     public void student_num_year() {
         assertEquals(false, authLogic.studentNumYear(21349111)); // Starts with 21
         assertEquals(true, authLogic.studentNumYear(22349111)); // Stars with 22
+    }
+    @Test
+    public void studentEmail() {
+        assertEquals(true, authLogic.emailFormat("karlgilly@gmail.com")); // Starts with 21
+        assertEquals(true, authLogic.emailFormat("22349111@studentmail.ul.ie")); // Starts with 21
+        assertEquals(false, authLogic.emailFormat("karlgilly22")); // Stars with 22
+        assertEquals(false, authLogic.emailFormat("karlgillyyyyyyyyyyyyyyyyyyyyyyy@gmail.com")); // Starts with 21
     }
 
     @Test

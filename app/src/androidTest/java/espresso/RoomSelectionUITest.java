@@ -16,7 +16,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
 import com.example.kad.R;
-import com.example.kad.RoomSelection;
+import com.example.kad.activities.RoomSelectionActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,8 +27,9 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class RoomSelectionUITest {
     @Rule
-    public ActivityScenarioRule<RoomSelection> activityRule =
-            new ActivityScenarioRule<>(RoomSelection.class);
+    public ActivityScenarioRule<RoomSelectionActivity> activityRule =
+            new ActivityScenarioRule<>(RoomSelectionActivity.class);
+
     @Test
     public void Room1ButtonClickable() {
         onView(withId(R.id.room1)).perform(click());

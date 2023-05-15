@@ -1,8 +1,8 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,11 +11,19 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.kad.DateTimeLogic;
+import com.example.kad.FirebaseLogic;
+
+import com.example.kad.Generated;
+import com.example.kad.R;
+
+import java.time.LocalDateTime;
 
 
-public class RoomBookingPage extends AppCompatActivity {
+public class RoomBookingPageActivity extends AppCompatActivity {
+
+
     Spinner hoursAvailable;
     DatePicker datePicker;
     Button buttonToRoomSelection;
@@ -24,7 +32,6 @@ public class RoomBookingPage extends AppCompatActivity {
 
 
     @SuppressLint("MissingInflatedId")
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     @Generated
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +52,8 @@ public class RoomBookingPage extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
+                Intent intent = new Intent(RoomBookingPageActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -58,9 +64,8 @@ public class RoomBookingPage extends AppCompatActivity {
             @Generated
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoomBookingPage.this, BookingConfirmation.class);
+                Intent intent = new Intent(RoomBookingPageActivity.this, BookingConfirmationActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -72,15 +77,18 @@ public class RoomBookingPage extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                // Method is not implemented yet
             }
         });
 
 
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
-        // Retrieve a list of available times from a data source
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
+        // Retrieve a list of available times from a data sourc
+        DateTimeLogic dateTimeLogic = new DateTimeLogic();
+        FirebaseLogic firebaseLogic = new FirebaseLogic();
+        firebaseLogic.getDates();
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.now()));
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursAvailable.setAdapter(ad);

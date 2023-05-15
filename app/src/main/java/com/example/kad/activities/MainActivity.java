@@ -1,4 +1,4 @@
-package com.example.kad;
+package com.example.kad.activities;
 
 
 import android.content.Intent;
@@ -15,6 +15,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.kad.AuthLogic;
+import com.example.kad.FirebaseLogic;
+import com.example.kad.Generated;
+import com.example.kad.R;
+
+
+@Generated
 public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText name;
@@ -43,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
         email.setError("Email is required!");
         studentNumberEditText.setError("Student Number is required!");
 
-        Firebase firebase = new Firebase();
+        FirebaseLogic firebaseLogic = new FirebaseLogic();
+
         AuthLogic authLogic = new AuthLogic();
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(MainActivity.this, "data is entered and is valid  ", Toast.LENGTH_SHORT).show();
-                    firebase.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()));
+                    firebaseLogic.addFirestore(email.getText().toString(), name.getText().toString(), Integer.parseInt(studentNumberEditText.getText().toString()));
                     txt1.setText("Valid data entered");
                 }
 
-                Intent intent = new Intent(MainActivity.this, RoomSelection.class);
+                Intent intent = new Intent(MainActivity.this, RoomSelectionActivity.class);
                 startActivity(intent);
 
             }

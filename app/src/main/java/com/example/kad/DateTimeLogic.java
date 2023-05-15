@@ -1,5 +1,6 @@
 package com.example.kad;
 
+import android.os.Debug;
 import android.util.Log;
 
 import com.github.agogs.holidayapi.api.APIConsumer;
@@ -7,14 +8,19 @@ import com.github.agogs.holidayapi.api.impl.HolidayAPIConsumer;
 import com.github.agogs.holidayapi.model.Holiday;
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
+import com.google.firebase.firestore.util.Logger;
 
 import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,6 +40,43 @@ public class DateTimeLogic {
               "03:00 PM",
               "04:00 PM"));
 
+  public String[] returnStartTimes(ArrayList<LocalDateTime> StartTimes, LocalDateTime dayOfBooking) {
+    if(isHoliday(dayOfBooking)){
+      return new String[]{"No times available"};
+    }
+    if (StartTimes.size() == 0) {
+
+      return availableTimes.toArray(String[]::new);
+    }
+    int count = 0;
+    int day = dayOfBooking.getDayOfMonth();
+    int year = dayOfBooking.getYear();
+    int month = dayOfBooking.getMonthValue();
+    ArrayList<String> availableTimesCopy = new ArrayList<>(availableTimes);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd HH:mm");
+    for (int i = 1; i < availableTimesCopy.size(); i++) {
+      try {
+      LocalDateTime time = LocalDateTime.parse(dayOfBooking.getYear() + "-" +
+              dayOfBooking.getMonthValue()+ "-" + dayOfBooking.getDayOfMonth()+ " " +
+              availableTimesCopy.get(i).substring(0,5), formatter);
+
+
+        for (int h = 0; h < StartTimes.size(); h++) {
+          if (time.equals(StartTimes.get(h))) {
+              availableTimes.remove(i-count);
+              count++;
+              break;
+              }
+          }
+        } catch (Exception e) {
+        return new String[]{"Error"};
+      }
+    }
+
+
+
+    return availableTimes.toArray(String[]::new);
+  }
   public boolean isHoliday(LocalDateTime stevensDay) {
     APIConsumer consumer = new HolidayAPIConsumer("https://holidayapi.com/v1/holidays");
 

@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kad.DateTimeLogic;
+import com.example.kad.FirebaseLogic;
 import com.example.kad.Generated;
 import com.example.kad.R;
 import com.example.kad.RoomBookingPageLogic;
@@ -61,10 +63,10 @@ public class RoomBookingPageActivity extends AppCompatActivity {
 
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
-        // Retrieve a list of available times from a data source
-        RoomBookingPageLogic roomBookingPageLogicLogic = new RoomBookingPageLogic();
-        List<String> listHoursAvailable = roomBookingPageLogicLogic.functionListHoursAvailable();
-
+        // Retrieve a list of available times from a data sourc
+        DateTimeLogic dateTimeLogic = new DateTimeLogic();
+        FirebaseLogic firebaseLogic = new FirebaseLogic();
+        firebaseLogic.getDates();
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

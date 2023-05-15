@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitButton;
     TextView txt1;
     CheckBox termsCheckBox;
+    String studentNumberArgument;
 
 
     @Override
@@ -81,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, RoomSelectionActivity.class);
+                studentNumberArgument = studentNumberEditText.getText().toString();// Character.toString(studentNumberEditText);
+                intent.putExtra("studentNumberKey", studentNumberArgument);
                 startActivity(intent);
 
             }

@@ -14,6 +14,7 @@ public class RoomSelection extends AppCompatActivity {
     Button buttonRoom1;
     Button buttonRoom2;
     Button buttonRoom3;
+    public static final String roomArgumentKey = "roomArgumentKey";
 
     @Override
     @Generated
@@ -26,14 +27,14 @@ public class RoomSelection extends AppCompatActivity {
         buttonRoom3 = findViewById(R.id.room3);
 
         buttonRoom1.setOnClickListener(new View.OnClickListener() {
+
             @Generated
             @Override
             public void onClick(View view) {
                 String room1Argument = "Room 1 - Conference Room";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra("roomArgumentKey", room1Argument);
+                intent.putExtra(roomArgumentKey, room1Argument);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room1 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -43,9 +44,8 @@ public class RoomSelection extends AppCompatActivity {
             public void onClick(View view) {
                 String room2Argument = "Room 2 - Forest";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra("roomArgumentKey", room2Argument);
+                intent.putExtra(roomArgumentKey, room2Argument);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room2 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -55,9 +55,8 @@ public class RoomSelection extends AppCompatActivity {
             public void onClick(View view) {
                 String room3Argument = "Room 3 - Office Space";
                 Intent intent = new Intent(RoomSelection.this, RoomBookingPage.class);
-                intent.putExtra("roomArgumentKey", room3Argument);
+                intent.putExtra(roomArgumentKey, room3Argument);
                 startActivity(intent);
-                Toast.makeText(RoomSelection.this, "The Room3 Button Works", Toast.LENGTH_SHORT).show();
             }
         });
     }

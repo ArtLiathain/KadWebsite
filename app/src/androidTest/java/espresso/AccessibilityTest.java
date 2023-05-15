@@ -42,7 +42,6 @@ public class AccessibilityTest {
         boolean result1 = authLogic.colorAccessibility(color1, color1); // White and White
         boolean result2 = authLogic.colorAccessibility(color1, color2); // White and Purple (Colors used in app)
         boolean result3 = authLogic.colorAccessibility(color1,color3); // White and Black
-
         // Assert that the result should be true since the contrast ratio is greater than 4.5
         Assert.assertFalse(result1);
         Assert.assertTrue(result2);

@@ -9,7 +9,7 @@ public class AuthLogic {
     }
 
     public boolean stringAlphabet(String name) {
-        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
+        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']+$");
     }
 
 

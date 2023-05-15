@@ -19,12 +19,22 @@ public class RoomSelectionActivity extends AppCompatActivity {
     Button buttonRoom2;
     Button buttonRoom3;
     public static final String ROOM_ARGUMENT_KEY = "roomArgumentKey";
+    public static final String STUDENT_ARGUMENT_KEY = "studentNumberKey";
+    String passedStudentNumberArgument;
 
     @Override
     @Generated
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_selection);
+
+//-------------------------Argument Passed Into TextView---------------------------
+//        textOfRoomInfo = findViewById(R.id.textViewRoomInfo);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            passedStudentNumberArgument = extras.getString("studentNumberKey");
+        }
+
 
         buttonRoom1 = findViewById(R.id.room1);
         buttonRoom2 = findViewById(R.id.room2);
@@ -39,6 +49,7 @@ public class RoomSelectionActivity extends AppCompatActivity {
                 String room1Argument = "Room 1 - Conference Room";
                 Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room1Argument);
+                intent.putExtra(STUDENT_ARGUMENT_KEY, passedStudentNumberArgument);
                 startActivity(intent);
             }
         });
@@ -50,6 +61,7 @@ public class RoomSelectionActivity extends AppCompatActivity {
                 String room2Argument = "Room 2 - Forest";
                 Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room2Argument);
+                intent.putExtra(STUDENT_ARGUMENT_KEY, passedStudentNumberArgument);
                 startActivity(intent);
             }
         });
@@ -61,6 +73,7 @@ public class RoomSelectionActivity extends AppCompatActivity {
                 String room3Argument = "Room 3 - Office Space";
                 Intent intent = new Intent(RoomSelectionActivity.this, RoomBookingPageActivity.class);
                 intent.putExtra(ROOM_ARGUMENT_KEY, room3Argument);
+                intent.putExtra(STUDENT_ARGUMENT_KEY, passedStudentNumberArgument);
                 startActivity(intent);
             }
         });

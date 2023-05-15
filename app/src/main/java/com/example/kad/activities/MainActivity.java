@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button submitButton;
     TextView txt1;
     CheckBox termsCheckBox;
+    String studentNumberArgument;
 
 
     @Override
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // ensuring that all fields are filled
                 if (TextUtils.isEmpty(name.getText()) | TextUtils.isEmpty(email.getText()) | TextUtils.isEmpty(studentNumberEditText.getText())) {
-                    Toast.makeText(MainActivity.this, "Enter your fucking data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Enter your f***ing data", Toast.LENGTH_SHORT).show();
                     txt1.setText("You must fill in every field");
                 } else {
                     Toast.makeText(MainActivity.this, "every field has data", Toast.LENGTH_SHORT).show();
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+                Intent intent = new Intent(MainActivity.this, RoomSelectionActivity.class);
+                studentNumberArgument = studentNumberEditText.getText().toString();// Character.toString(studentNumberEditText);
+                intent.putExtra("studentNumberKey", studentNumberArgument);
+                startActivity(intent);
 
 
             }

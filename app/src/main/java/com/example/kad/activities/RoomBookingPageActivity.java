@@ -21,6 +21,9 @@ import com.example.kad.Generated;
 import com.example.kad.R;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
+
 
 public class RoomBookingPageActivity extends AppCompatActivity {
 
@@ -30,6 +33,14 @@ public class RoomBookingPageActivity extends AppCompatActivity {
     Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
     LocalDateTime chosenDate;
+
+    Date uploadDate;
+    int roomNumberInt;
+    DateTimeLogic dateTimeLogic = new DateTimeLogic();
+    FirebaseLogic firebaseLogic = new FirebaseLogic();
+    String passedStudentNumberArgument;
+    int studentNumberArgument;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,11 +53,17 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         textOfRoomInfo = findViewById(R.id.textViewRoomInfo);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            passedStudentNumberArgument = extras.getString("studentNumberKey");
+            studentNumberArgument = Integer.parseInt(passedStudentNumberArgument);
             String passedArgument = extras.getString("roomArgumentKey");
             textOfRoomInfo.setText(passedArgument);
+            Character roomNumberChar = passedArgument.charAt(5);
+            roomNumberInt = Character.getNumericValue(roomNumberChar);
         }
 
+
         // ---------------------------------Back Button---------------------------------
+
         buttonToRoomSelection = findViewById(R.id.backButtonRoomSelection);
         buttonToRoomSelection.setOnClickListener(new View.OnClickListener() {
             @Generated
@@ -64,6 +81,8 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPageActivity.this, BookingConfirmationActivity.class);
+                uploadDate = Date.from(chosenDate.toInstant(ZoneOffset.UTC));
+                firebaseLogic.addBooking(roomNumberInt, studentNumberArgument, uploadDate); // Start is of type 'Date'
                 startActivity(intent);
             }
         });
@@ -78,13 +97,13 @@ public class RoomBookingPageActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         DateTimeLogic dateTimeLogic = new DateTimeLogic();
+                        chosenDate = LocalDateTime.of(year, monthOfYear, dayOfMonth, 0, 00, 01);
+
                         FirebaseLogic firebaseLogic = new FirebaseLogic();
 
-                        firebaseLogic.getDates(LocalDateTime.now(), 1);
-
+                        firebaseLogic.getDates(chosenDate, roomNumberInt);
                         final ArrayAdapter<String> adapter = new ArrayAdapter<>(RoomBookingPageActivity.this, android.R.layout.simple_spinner_item,
-                                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.of(122, 12,
-                                        26, 0, 00, 01)));
+                                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), chosenDate));
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                         // Update the UI on the main thread using a Handler
@@ -96,6 +115,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
                         });
                     }
                 }).start();
+
             }
         });
         // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
@@ -104,6 +124,27 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
 
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DateTimeLogic dateTimeLogic = new DateTimeLogic();
+                FirebaseLogic firebaseLogic = new FirebaseLogic();
+
+                firebaseLogic.getDates(LocalDateTime.now(), 1);
+
+                final ArrayAdapter<String> adapter = new ArrayAdapter<>(RoomBookingPageActivity.this, android.R.layout.simple_spinner_item,
+                        dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.now()));
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                // Update the UI on the main thread using a Handler
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        hoursAvailable.setAdapter(adapter);
+                    }
+                });
+            }
+        }).start();
 
         hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

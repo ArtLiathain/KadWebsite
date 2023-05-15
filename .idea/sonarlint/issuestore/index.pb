@@ -29,7 +29,3 @@ H
 0app/src/main/java/com/example/kad/Generated.java,8\0\802a57ac4ac7b63b353872e761a1334f96cdc6fc
 ?
 firestore.rules,5\1\510e17d6ad5f02138750b2acf2a8357d826097e9
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

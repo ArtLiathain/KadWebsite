@@ -42,7 +42,7 @@ public class DateTimeLogic {
 
   public String[] returnStartTimes(ArrayList<LocalDateTime> StartTimes, LocalDateTime dayOfBooking) {
     if(isHoliday(dayOfBooking)){
-      return new String[]{"No times available"};
+      return new String[]{"No Times Available"};
     }
     if (StartTimes.size() == 0) {
 

@@ -64,6 +64,7 @@ public class DateTimeTest {
     private LocalDateTime dayOfBooking;
     private String[] expectedOutput;
     private boolean isDayOff;
+    DateTimeLogic a;
     public StartTimeTests(String[] startTimes,boolean isDayOff, String[] expectedOutput) {
       this.StartTimes = startTimes;
       this.isDayOff = isDayOff;
@@ -74,9 +75,7 @@ public class DateTimeTest {
     @Before
     public void setUp() throws Exception {
       dateTimeLogic = new DateTimeLogic();
-      DateTimeLogic a = new DateTimeLogic();
-      DateTimeLogic aSpy = Mockito.spy(a);
-      Mockito.when(aSpy.isHoliday(dayOfBooking)).thenReturn(isDayOff);
+
     }
     @Parameterized.Parameters
     public static Collection availableTimes() {
@@ -89,9 +88,7 @@ public class DateTimeTest {
                       "02:00 PM", "03:00 PM", "04:00 PM"}},
               {new String[]{"02:00", "03:00", "04:00"}, false, new String[]{"Not Selected",
                       "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM"}},
-              {new String[]{"02:00", "03:00", "04:00"}, true, new String[]{"Not Selected",
-                      "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM",
-                      "03:00 PM", "04:00 PM"}}
+              {new String[]{"02:00", "03:00", "04:00"}, true, new String[]{"No Times Available"}}
       });
       }
     @Test
@@ -104,8 +101,9 @@ public class DateTimeTest {
                 time, formatter);
         StartTimesDates.add(times);
       }
-
-      assertArrayEquals(expectedOutput, dateTimeLogic.returnStartTimes(StartTimesDates,dayOfBooking));
+      DateTimeLogic aSpy = Mockito.spy(dateTimeLogic);
+      Mockito.when(aSpy.isHoliday(dayOfBooking)).thenReturn(isDayOff);
+      assertArrayEquals(expectedOutput, aSpy.returnStartTimes(StartTimesDates,dayOfBooking));
   }
 }
 }

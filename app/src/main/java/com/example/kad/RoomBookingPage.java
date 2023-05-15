@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.List;
 
 
 public class RoomBookingPage extends AppCompatActivity {
@@ -39,7 +37,6 @@ public class RoomBookingPage extends AppCompatActivity {
         if (extras != null) {
             String passedArgument = extras.getString("roomArgumentKey");
             textOfRoomInfo.setText(passedArgument);
-            Toast.makeText(RoomBookingPage.this, passedArgument, Toast.LENGTH_SHORT).show();
         }
 
 // ---------------------------------Back Button---------------------------------
@@ -50,7 +47,7 @@ public class RoomBookingPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPage.this, RoomSelection.class);
                 startActivity(intent);
-                Toast.makeText(RoomBookingPage.this, "The Back Button Works", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -63,7 +60,7 @@ public class RoomBookingPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPage.this, BookingConfirmation.class);
                 startActivity(intent);
-                Toast.makeText(RoomBookingPage.this, "The Place Booking Button Works", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -75,7 +72,7 @@ public class RoomBookingPage extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(RoomBookingPage.this, "Calendar Works " + dayOfMonth + ' ' + monthOfYear + ' ' + year, Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -83,10 +80,7 @@ public class RoomBookingPage extends AppCompatActivity {
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
-        RoomBookingPageLogic roomBookingPageLogicLogic = new RoomBookingPageLogic();
-        List<String> listHoursAvailable = roomBookingPageLogicLogic.functionListHoursAvailable();
-
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listHoursAvailable);
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursAvailable.setAdapter(ad);
@@ -96,7 +90,6 @@ public class RoomBookingPage extends AppCompatActivity {
             @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), "The Selected Hours -> " + selectedItem, Toast.LENGTH_SHORT).show();
             }
             @Override
             @Generated

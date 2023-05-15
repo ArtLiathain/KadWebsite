@@ -3,11 +3,11 @@
 
 
 ## Metrics
-![Coverage](.github/badges/jacoco.svg)  
+![Coverage](.github/badges/jacoco.svg)  Code Coverage
 
-![Branches](.github/badges/branches.svg)
+![Branches](.github/badges/branches.svg) Branch Coverage
 
-![Strength](.github/CICDScripts/Images/Current_Image.svg) Test Strength
+![Strength](.github/CICDScripts/Images/Current_Image.svg) Test Strength via mutation Testing
 
 ## How to Run
 Clone gitHub repo on to local machine( only tested with Mac and Windows). Open project in an Android Studio/ IntelliJ enviorment and emulate the application on a real or virtual device to view and interact with KAD Room Booking System App. Use an Pixel 3a API 33 using Temurium for the best UI experience, to get the api working though, you will need to get your Holiday Api Key from https://holidayapi.com (it's free) since I can't just share mine online and put it into local.properties on the KadWebsite file level and add the lines </br>

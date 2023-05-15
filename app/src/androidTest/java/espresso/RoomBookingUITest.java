@@ -16,7 +16,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
 import com.example.kad.R;
-import com.example.kad.RoomBookingPage;
+import com.example.kad.activities.RoomBookingPageActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,8 +26,8 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class RoomBookingUITest {
     @Rule
-    public ActivityScenarioRule<RoomBookingPage> activityRule =
-            new ActivityScenarioRule<>(RoomBookingPage.class);
+    public ActivityScenarioRule<RoomBookingPageActivity> activityRule =
+            new ActivityScenarioRule<>(RoomBookingPageActivity.class);
     @Test
     public void KADBookingTitleIsDisplayed() {
         onView(withText("KAD Room Booking")).check(matches(isDisplayed()));

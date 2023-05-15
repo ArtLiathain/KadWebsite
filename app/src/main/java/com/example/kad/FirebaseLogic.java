@@ -92,10 +92,12 @@ public class FirebaseLogic {
 
     }
 
-    public void getDates(){
+    public void getDates(LocalDateTime time){
         ArrayList<LocalDateTime> dates = new ArrayList<LocalDateTime>();
-        LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00); // Year: 1900+122= 2022, Month: every month needs to be decremented, month 0 is january
-        LocalDateTime endDate = LocalDateTime.of(122, 4, 2, 23, 59, 59);
+        LocalDateTime startDate = LocalDateTime.of(time.getYear()-1900, time.getMonthValue(),
+                time.getDayOfMonth(), 0, 00, 00);
+        LocalDateTime endDate = LocalDateTime.of(time.getYear()-1900, time.getMonthValue(),
+                time.getDayOfMonth(), 23, 59, 59);
         int chosenRoom = 2; //Needs to be changed to ge the room number form RoomSelection.java
         Query query = bookingsRef.whereGreaterThanOrEqualTo(startDATE, startDate).whereLessThan(startDATE, endDate).whereEqualTo(roomNumberString, chosenRoom);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>

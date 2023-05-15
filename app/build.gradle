@@ -11,7 +11,7 @@ jacocoAndroidUnitTestReport {
     html.enabled true
     xml.enabled false
 
-    excludes += ["**/MainActivity.java"]
+    excludes += ["**/activities/*"]
 }
 
 

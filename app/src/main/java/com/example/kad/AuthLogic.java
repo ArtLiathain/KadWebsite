@@ -5,24 +5,22 @@ import android.widget.CheckBox;
 
 public class AuthLogic {
     public boolean validLength(String name) {
-        return (name.length() <= 70 && name.length() > 5);
+        return (name.length() <= 70 && name.length() >= 6);
     }
 
     public boolean stringAlphabet(String name) {
-        if (!validLength(name)){return false;}
         return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
     }
 
 
     public boolean blacklist(String name) {
-        int count = 0;
         String[] blackList = {"John Smith", "Jane Doe", "Michael Johnson", "Emily Brown", "William Davis", "Olivia Taylor", "James Wilson", "Sophia Lee", "Benjamin Garcia", "Isabella Martinez", "Daniel Anderson", "Mia Thomas", "David Hernandez", "Ella Perez", "Joseph Green", "Ava Collins", "Matthew Baker", "Chloe Hall", "Andrew Rivera", "Natalie Ramirez"};
         for (int i = 0; i <= blackList.length - 1; i++) {
             if (blackList[i].equals(name)) {
-                count += 1;
+                return true;
             }
         }
-        return count == 0;
+        return false;
     }
 
     public boolean emailFormat(String email) {

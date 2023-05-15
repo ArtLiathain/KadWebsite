@@ -31,7 +31,7 @@ public class BookingConfirmationActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onClick(View view) {
-                Intent intent = new Intent(BookingConfirmationActivity.this, RoomSelectionActivity.class);
+                Intent intent = new Intent(BookingConfirmationActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -19,6 +19,8 @@ import com.example.kad.Generated;
 import com.example.kad.R;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
 
 
 public class RoomBookingPageActivity extends AppCompatActivity {
@@ -30,6 +32,12 @@ public class RoomBookingPageActivity extends AppCompatActivity {
     Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
     LocalDateTime chosenDate;
+    Date uploadDate;
+    int roomNumberInt;
+    DateTimeLogic dateTimeLogic = new DateTimeLogic();
+    FirebaseLogic firebaseLogic = new FirebaseLogic();
+    String passedStudentNumberArgument;
+    int studentNumberArgument;
 
 
     @SuppressLint("MissingInflatedId")
@@ -43,9 +51,14 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         textOfRoomInfo = findViewById(R.id.textViewRoomInfo);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            passedStudentNumberArgument = extras.getString("studentNumberKey");
+            studentNumberArgument = Integer.parseInt(passedStudentNumberArgument);
             String passedArgument = extras.getString("roomArgumentKey");
             textOfRoomInfo.setText(passedArgument);
+            Character roomNumberChar = passedArgument.charAt(5);
+            roomNumberInt = Character.getNumericValue(roomNumberChar);
         }
+
 
 // ---------------------------------Back Button---------------------------------
         buttonToRoomSelection = findViewById(R.id.backButtonRoomSelection);
@@ -66,6 +79,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RoomBookingPageActivity.this, BookingConfirmationActivity.class);
+                firebaseLogic.addBooking(roomNumberInt, studentNumberArgument, uploadDate); // Start is of type 'Date'
                 startActivity(intent);
             }
         });
@@ -79,6 +93,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 chosenDate = LocalDateTime.of(year, monthOfYear, dayOfMonth, 00, 00);
+                uploadDate = Date.from(chosenDate.toInstant(ZoneOffset.UTC));
             }
         });
         // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
@@ -87,8 +102,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
         // Retrieve a list of available times from a data source
-        DateTimeLogic dateTimeLogic = new DateTimeLogic();
-        FirebaseLogic firebaseLogic = new FirebaseLogic();
         firebaseLogic.getDates(LocalDateTime.now(), 1);
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
                 dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), chosenDate));

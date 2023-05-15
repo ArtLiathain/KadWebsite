@@ -9,9 +9,7 @@ import com.github.agogs.holidayapi.api.impl.HolidayAPIConsumer;
 import com.github.agogs.holidayapi.model.Holiday;
 import com.github.agogs.holidayapi.model.HolidayAPIResponse;
 import com.github.agogs.holidayapi.model.QueryParams;
-import com.google.firebase.firestore.util.Logger;
 
-import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 

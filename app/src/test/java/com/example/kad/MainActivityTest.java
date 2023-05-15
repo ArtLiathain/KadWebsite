@@ -38,6 +38,15 @@ public class MainActivityTest  {
     }
 
     @Test
+    public void email_format() {
+        assertEquals(true, authLogic.emailFormat("22347666@studentmail.ul.ie"));
+        assertEquals(false, authLogic.emailFormat("2234657224823295647666@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("223465224823295647666@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("sdhjvbbhjdsabhjkads@studentmail.ul.ie"));
+        assertEquals(true, authLogic.emailFormat("GHJVGAJVGSH@studentmail.ul.ie"));
+    }
+
+    @Test
     public void student_num_len() {
         assertEquals(true, authLogic.studentNumLen(22349111)); // 8 numbers- pass
         assertEquals(false, authLogic.studentNumLen(1));// 1 number-fail

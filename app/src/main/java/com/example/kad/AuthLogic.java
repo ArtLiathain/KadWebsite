@@ -24,8 +24,8 @@ public class AuthLogic {
     }
 
     public boolean emailFormat(String email) {
-        if(email.length() > 40){return false;}
-        return email.matches("^(?>[A-Za-z]+)@(?>[',. -][a-zA-Z ]+)\\.(?>[a-zA-Z])$");
+        if(email.length() >= 40){return false;}
+        return email.matches("^([A-Za-z0-9]*)@studentmail.ul.ie$");
     }
 
     public boolean studentNumLen(int number) {

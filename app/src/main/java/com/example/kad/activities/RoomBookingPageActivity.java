@@ -74,18 +74,13 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-<<<<<<< HEAD
-                // Do nothing
-=======
-                chosenDate = LocalDateTime.of(year, monthOfYear, dayOfMonth, 00, 00);
->>>>>>> f86987ccbdde4f62f48994fd7021203d96ae3f4b
+
             }
         });
         // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
 
         // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
-<<<<<<< HEAD
 
         new Thread(new Runnable() {
             @Override
@@ -109,27 +104,12 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             }
         }).start();
 
-=======
-        // Retrieve a list of available times from a data source
-        DateTimeLogic dateTimeLogic = new DateTimeLogic();
-        FirebaseLogic firebaseLogic = new FirebaseLogic();
-        firebaseLogic.getDates(LocalDateTime.now(), 1);
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), chosenDate));
-        // Styles dropdown of numbers nicely
-        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hoursAvailable.setAdapter(ad);
-// ------------------------------------------------------------------------
->>>>>>> f86987ccbdde4f62f48994fd7021203d96ae3f4b
         hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             @Generated
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-<<<<<<< HEAD
                 // Do nothing
-=======
-                // Method is not implemented yet
->>>>>>> f86987ccbdde4f62f48994fd7021203d96ae3f4b
+
             }
 
             @Override

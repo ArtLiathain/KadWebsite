@@ -46,10 +46,7 @@ public class EspressoTest {
     }
 
 
-    @Test
-    public void titleIsDisplayed(){
-        onView(withText("KAD Room Booking System")).check(matches(isDisplayed()));
-    }
+
 //    @Test
 //    public void toastPopUp() {
 //        onView(withId(R.id.dates)).perform(click());

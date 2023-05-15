@@ -1,5 +1,6 @@
 package com.example.kad;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import android.os.Debug;
 import android.util.Log;
 
@@ -26,7 +27,7 @@ import java.util.List;
 
 
 public class DateTimeLogic {
-
+  private static final Logger LOGGER = Logger.getLogger(DateTimeLogic.class.getName());
   ArrayList<String> availableTimes =
       new ArrayList<>(
           List.of(
@@ -95,6 +96,7 @@ public class DateTimeLogic {
       int status = response.getStatus();
 
       if (status != 200) {
+        LOGGER.log(Level.SEVERE, "Status was: ", status);
         return false;
         //handle error scenario
 
@@ -107,6 +109,7 @@ public class DateTimeLogic {
       }
     } catch (IOException e) {
       //handle exception
+      LOGGER.log(Level.SEVERE, "An error occurred while making the API request.", e.toString());
       return false;
     }
   }

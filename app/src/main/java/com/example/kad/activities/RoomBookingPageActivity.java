@@ -24,6 +24,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Date;
 
+
 public class RoomBookingPageActivity extends AppCompatActivity {
 
     Spinner hoursAvailable;
@@ -32,12 +33,14 @@ public class RoomBookingPageActivity extends AppCompatActivity {
     Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
     LocalDateTime chosenDate;
+
     Date uploadDate;
     int roomNumberInt;
     DateTimeLogic dateTimeLogic = new DateTimeLogic();
     FirebaseLogic firebaseLogic = new FirebaseLogic();
     String passedStudentNumberArgument;
     int studentNumberArgument;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -59,7 +62,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
         }
 
 
-// ---------------------------------Back Button---------------------------------
+        // ---------------------------------Back Button---------------------------------
 
         buttonToRoomSelection = findViewById(R.id.backButtonRoomSelection);
         buttonToRoomSelection.setOnClickListener(new View.OnClickListener() {
@@ -89,28 +92,36 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-<<<<<<< HEAD
-                chosenDate = LocalDateTime.of(year, monthOfYear, dayOfMonth, 00, 00);
-                uploadDate = Date.from(chosenDate.toInstant(ZoneOffset.UTC));
-=======
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        DateTimeLogic dateTimeLogic = new DateTimeLogic();
+                        FirebaseLogic firebaseLogic = new FirebaseLogic();
 
->>>>>>> 4d0cf55de70fd30bb04c5937ade3367bd4f1a4bd
+                        firebaseLogic.getDates(LocalDateTime.now(), 1);
+
+                        final ArrayAdapter<String> adapter = new ArrayAdapter<>(RoomBookingPageActivity.this, android.R.layout.simple_spinner_item,
+                                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.of(122, 12,
+                                        26, 0, 00, 01)));
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        // Update the UI on the main thread using a Handler
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                hoursAvailable.setAdapter(adapter);
+                            }
+                        });
+                    }
+                }).start();
+
             }
         });
         // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
 
         // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
-<<<<<<< HEAD
-        // Retrieve a list of available times from a data source
-        firebaseLogic.getDates(LocalDateTime.now(), 1);
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), chosenDate));
-        // Styles dropdown of numbers nicely
-        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hoursAvailable.setAdapter(ad);
-// ------------------------------------------------------------------------
-=======
+
 
         new Thread(new Runnable() {
             @Override
@@ -134,7 +145,6 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             }
         }).start();
 
->>>>>>> 4d0cf55de70fd30bb04c5937ade3367bd4f1a4bd
         hoursAvailable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             @Generated

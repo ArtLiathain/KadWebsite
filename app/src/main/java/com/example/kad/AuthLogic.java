@@ -9,7 +9,7 @@ public class AuthLogic {
     }
 
     public boolean stringAlphabet(String name) {
-        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']*$");
+        return name.matches("^[a-zA-ZÀ-ÿ \\-\\.\\']+$");
     }
 
 
@@ -25,7 +25,7 @@ public class AuthLogic {
 
     public boolean emailFormat(String email) {
         if(email.length() >= 40){return false;}
-        return email.matches("^([A-Za-z0-9]*)@studentmail.ul.ie$");
+        return email.matches("^(.+)@(.+)$");
     }
 
     public boolean studentNumLen(int number) {

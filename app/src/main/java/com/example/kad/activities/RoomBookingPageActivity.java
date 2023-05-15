@@ -29,6 +29,7 @@ public class RoomBookingPageActivity extends AppCompatActivity {
     Button buttonToRoomSelection;
     Button buttonToPlaceBooking;
     TextView textOfRoomInfo;
+    LocalDateTime chosenDate;
 
 
     @SuppressLint("MissingInflatedId")
@@ -77,18 +78,20 @@ public class RoomBookingPageActivity extends AppCompatActivity {
             @Override
             @Generated
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                chosenDate = LocalDateTime.of(year, monthOfYear, dayOfMonth, 00, 00);
             }
         });
+        // LocalDateTime startDate = LocalDateTime.of(122, 4, 2, 0, 00, 00);
 
 
 // ---------------------------------Hours Available---------------------------------
         hoursAvailable = findViewById(R.id.dropdownTimeSelection);
-        // Retrieve a list of available times from a data sourc
+        // Retrieve a list of available times from a data source
         DateTimeLogic dateTimeLogic = new DateTimeLogic();
         FirebaseLogic firebaseLogic = new FirebaseLogic();
         firebaseLogic.getDates();
         ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), LocalDateTime.now()));
+                dateTimeLogic.returnStartTimes(firebaseLogic.getStartDates(), chosenDate));
         // Styles dropdown of numbers nicely
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hoursAvailable.setAdapter(ad);

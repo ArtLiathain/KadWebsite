@@ -12,7 +12,7 @@ public class MainActivityTest {
     @Test
     public void test_nameLength() {
         assertEquals(true, authLogic.validLength("Karl Gilmartin"));
-        assertEquals(false, authLogic.validLength("K")); // Name !>= 6
+        assertEquals(false, authLogic.validLength("K")); // Name !>= 6..
         // Lower Bound
         assertEquals(false, authLogic.validLength("DJ JJ"));
         assertEquals(true, authLogic.validLength("JJ Mac"));
